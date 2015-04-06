@@ -1,1 +1,43 @@
 /* Empty. Add your own CSS if you like */
+@font-face {
+    font-family: "JennaSue";
+    src: url('../fonts/JennaSue.ttf');
+    font-weight: normal;
+}@font-face {
+    font-family: "Open Sans";
+    src: url('../fonts/OpenSans-Regular.ttf');
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url('../fonts/OpenSans-Italic.ttf');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url('../fonts/OpenSans-Light.ttf');
+    font-weight: 300;
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url('../fonts/OpenSans-SemiBold.ttf');
+    font-weight: 500;
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url('../fonts/OpenSans-Bold.ttf');
+    font-weight: 600;
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url('../fonts/OpenSans-ExtraBold.ttf');
+    font-weight: 700;
+}
+.scroll-bg {
+    background: url('../img/background.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

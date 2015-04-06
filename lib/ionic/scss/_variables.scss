@@ -16,8 +16,9 @@ $dark:                            #333 !default;
 // Base
 // -------------------------------
 
-$font-family-sans-serif:          "Helvetica Neue", "Roboto", sans-serif !default;
-$font-family-light-sans-serif:    "HelveticaNeue-Light", "Roboto-Light", sans-serif-light !default;
+$font-family-sans-serif:          "Open Sans" ,"Helvetica Neue", "Roboto", sans-serif !default;
+$font-family-light-sans-serif:    "Open Sans" ,"HelveticaNeue-Light", "Roboto-Light", sans-serif-light !default;
+$font-family-header:              "Open Sans" ,"Helvetica Neue", "Roboto", sans-serif !default;
 $font-family-serif:               serif !default;
 $font-family-monospace:           monospace !default;
 
@@ -31,8 +32,8 @@ $line-height-computed:            floor($font-size-base * $line-height-base) !de
 $line-height-large:               1.33 !default;
 $line-height-small:               1.5 !default;
 
-$headings-font-family:            $font-family-base !default;
-$headings-font-weight:            500 !default;
+$headings-font-family:            $font-family-header !default;
+$headings-font-weight:            normal !default;
 $headings-line-height:            1.2 !default;
 
 $base-background-color:           #fff !default;
@@ -69,7 +70,7 @@ $scroll-refresh-icon-color:       #666666 !default;
 $button-color:                    #222 !default;
 $button-block-margin:             10px !default;
 $button-clear-padding:            6px !default;
-$button-border-radius:            2px !default;
+$button-border-radius:            0px !default;
 $button-border-width:             1px !default;
 
 $button-font-size:                16px !default;

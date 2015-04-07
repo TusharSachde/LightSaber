@@ -47,10 +47,16 @@ text-decoration: none;
 .login-set {
     text-align: center;
     margin: 0 auto;
+    position: absolute;
+    width: 100%;
+    bottom: 100px;
 }
 .set-login {
     text-align: center;
-    margin: 40px auto;
+    margin: auto;
+    position: absolute;
+    width: 100%;
+    bottom: 40px;
 }
 .login-set .fb-btn {
     color: #fff;
@@ -82,9 +88,11 @@ text-decoration: none;
     padding-right: 10px;
     vertical-align: middle;
 }
+
 .login-in {
-    position: absolute;
-    left: 50%;
+    position: fixed;
+    left: 0;
     width: 100%;
-    transform: translate(-50% ,240%);
+    height: 100%;
+    bottom: 0;
 }

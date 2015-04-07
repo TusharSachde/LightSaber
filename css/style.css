@@ -1,9 +1,11 @@
 /* Empty. Add your own CSS if you like */
+
 @font-face {
     font-family: "JennaSue";
     src: url('../fonts/JennaSue.ttf');
     font-weight: normal;
-}@font-face {
+}
+@font-face {
     font-family: "Open Sans";
     src: url('../fonts/OpenSans-Regular.ttf');
     font-weight: normal;
@@ -34,11 +36,11 @@
     src: url('../fonts/OpenSans-ExtraBold.ttf');
     font-weight: 700;
 }
-a{
-text-decoration: none;
+a {
+    text-decoration: none;
 }
-a:hover{
-text-decoration: none;
+a:hover {
+    text-decoration: none;
 }
 .scroll-bg {
     background: url('../img/background.png') no-repeat center center fixed;
@@ -69,12 +71,13 @@ text-decoration: none;
     font-size: 16px;
     font-weight: 100;
     text-transform: uppercase;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
     border-radius: 0px;
     width: 100%;
     position: relative;
     padding: 12px 26px 12px 15px;
 }
-
 .login-set i {
     font-size: 20px;
     padding-right: 10px;
@@ -83,3 +86,7 @@ text-decoration: none;
     font-size: 20px;
     padding-right: 10px;
 }
+.bar .logo-font {
+    font-family: "JennaSue";
+    font-size: 37px;
+} 

@@ -2550,7 +2550,7 @@ body, .ionic-body {
   color: #000;
   word-wrap: break-word;
   font-size: 14px;
-  font-family: "Open Sans", "Helvetica Neue", "Roboto", sans-serif;
+  font-family: "SegoeUI", "Helvetica Neue", "Roboto", sans-serif;
   line-height: 20px;
   text-rendering: optimizeLegibility;
   -webkit-backface-visibility: hidden;
@@ -2777,7 +2777,7 @@ cite {
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: #000;
   font-weight: normal;
-  font-family: "Open Sans", "Helvetica Neue", "Roboto", sans-serif;
+  font-family: "SegoeUI", "Helvetica Neue", "Roboto", sans-serif;
   line-height: 1.2; }
   h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small {
     font-weight: normal;
@@ -3149,7 +3149,7 @@ a.subdued {
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: normal;
     line-height: 44px; }
     .bar .title.title-left {
@@ -3172,7 +3172,7 @@ a.subdued {
       font-size: 20px;
       line-height: 32px; }
     .bar .button.button-icon {
-      font-size: 17px; }
+      font-size: 20px; }
       .bar .button.button-icon .icon:before, .bar .button.button-icon:before, .bar .button.button-icon.icon-left:before, .bar .button.button-icon.icon-right:before {
         vertical-align: top;
         font-size: 32px;
@@ -3181,7 +3181,7 @@ a.subdued {
       padding-right: 2px;
       padding-left: 2px;
       font-weight: 300;
-      font-size: 17px; }
+      font-size: 20px; }
       .bar .button.button-clear .icon:before, .bar .button.button-clear.icon:before, .bar .button.button-clear.icon-left:before, .bar .button.button-clear.icon-right:before {
         font-size: 32px;
         line-height: 32px; }
@@ -3238,7 +3238,7 @@ a.subdued {
     background: none;
     box-shadow: none;
     color: #444;
-    font-size: 17px; }
+    font-size: 20px; }
   .bar-light .button.button-icon {
     border-color: transparent;
     background: none; }
@@ -3259,7 +3259,7 @@ a.subdued {
     background: none;
     box-shadow: none;
     color: #444;
-    font-size: 17px; }
+    font-size: 20px; }
   .bar-stable .button.button-icon {
     border-color: transparent;
     background: none; }
@@ -3280,7 +3280,7 @@ a.subdued {
     background: none;
     box-shadow: none;
     color: #fff;
-    font-size: 17px; }
+    font-size: 20px; }
   .bar-positive .button.button-icon {
     border-color: transparent;
     background: none; }
@@ -3301,7 +3301,7 @@ a.subdued {
     background: none;
     box-shadow: none;
     color: #fff;
-    font-size: 17px; }
+    font-size: 20px; }
   .bar-calm .button.button-icon {
     border-color: transparent;
     background: none; }
@@ -3322,7 +3322,7 @@ a.subdued {
     background: none;
     box-shadow: none;
     color: #fff;
-    font-size: 17px; }
+    font-size: 20px; }
   .bar-assertive .button.button-icon {
     border-color: transparent;
     background: none; }
@@ -3343,7 +3343,7 @@ a.subdued {
     background: none;
     box-shadow: none;
     color: #fff;
-    font-size: 17px; }
+    font-size: 20px; }
   .bar-balanced .button.button-icon {
     border-color: transparent;
     background: none; }
@@ -3364,7 +3364,7 @@ a.subdued {
     background: none;
     box-shadow: none;
     color: #fff;
-    font-size: 17px; }
+    font-size: 20px; }
   .bar-energized .button.button-icon {
     border-color: transparent;
     background: none; }
@@ -3385,7 +3385,7 @@ a.subdued {
     background: none;
     box-shadow: none;
     color: #fff;
-    font-size: 17px; }
+    font-size: 20px; }
   .bar-royal .button.button-icon {
     border-color: transparent;
     background: none; }
@@ -3406,7 +3406,7 @@ a.subdued {
     background: none;
     box-shadow: none;
     color: #fff;
-    font-size: 17px; }
+    font-size: 20px; }
   .bar-dark .button.button-icon {
     border-color: transparent;
     background: none; }
@@ -4119,7 +4119,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
   white-space: nowrap;
   font-weight: 400;
   font-size: 14px;
-  font-family: "Open Sans", "Helvetica Neue", "Roboto", sans-serif;
+  font-family: "SegoeUI", "Helvetica Neue", "Roboto", sans-serif;
   opacity: 0.7; }
   .tab-item:hover {
     cursor: pointer; }
@@ -5616,7 +5616,7 @@ label, input, button, select, textarea {
   line-height: 1.42857; }
 
 input, button, select, textarea {
-  font-family: "Open Sans", "Helvetica Neue", "Roboto", sans-serif; }
+  font-family: "SegoeUI", "Helvetica Neue", "Roboto", sans-serif; }
 
 .item-input {
   display: -webkit-box;

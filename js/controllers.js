@@ -1,10 +1,10 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['myservices'])
 
 .controller('LoginCtrl', function($scope, $ionicModal, $timeout) {})
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {})
 
-.controller('HomeCtrl', function($scope, $ionicModal, $timeout) {
+.controller('HomeCtrl', function($scope, $ionicModal, $timeout, MyServices) {
 
     $scope.predictions = [{
         "team1": 60,
@@ -35,6 +35,8 @@ angular.module('starter.controllers', [])
         "logoteam1": "punjab.png",
         "logoteam2": "rc.png"
     }];
+    
+    MyServices.test();
 
 
 })

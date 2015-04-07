@@ -201,8 +201,8 @@ p.small {
     padding-top: 30px;
 }
 .team-set img {
-    height: 100%;
-    width: auto;
+    max-height: 100%;
+    max-width: 100%;
     vertical-align: middle;
 }
 .fixtures .item {

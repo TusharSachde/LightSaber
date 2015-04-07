@@ -37,5 +37,9 @@ angular.module('starter.controllers', [])
     }];
 
 
+})
+
+
+.controller('PredictCtrl', function($scope, $ionicModal, $timeout) {
 
 });

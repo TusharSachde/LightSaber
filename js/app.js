@@ -44,6 +44,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                 controller: 'HomeCtrl'
             }
         }
+    })
+    .state('app.predict', {
+        url: "/predict",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/predict.html",
+                controller: 'PredictCtrl'
+            }
+        }
     });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/home');

@@ -7,13 +7,8 @@
 }
 @font-face {
     font-family: "SegoeUI";
-    src: url('../fonts/segoeuisl.ttf');
-    font-weight: 300;
-}
-@font-face {
-    font-family: "SegoeUI";
     src: url('../fonts/segoeuil.ttf');
-    font-weight: 100;
+    font-weight: 300;
 }
 @font-face {
     font-family: "SegoeUI";
@@ -92,26 +87,34 @@ a:hover {
     bottom: 0;
 }
 .pic img {
-    width: 100%;
+    height: 100%;
     position: absolute;
     top: 50%;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
-    left: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 .pic {
-    width: 75px;
+    width: 100px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
     overflow: hidden;
-    height: 75px;
-    background: black;
+    height: 100px;
+    background: #ccc;
     position: relative;
     margin: 10px auto 5px;
+    text-align: center;
+    background-image: url("../img/mahesh.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 .pic h2 {
     font-size: 16px;
@@ -119,7 +122,7 @@ a:hover {
     font-weight: 500;
 }
 .content {
-    padding: 0px;
+    padding: 0px 0 10px;
 }
 .content h4 {
     margin: 4px 0px;
@@ -149,6 +152,7 @@ a:hover {
 }
 .content .row {
     border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
 }
 .pic-holder h2 {
     font-weight: 100;
@@ -234,4 +238,17 @@ p.small {
 }
 .team-set+.team-set {
     margin-top: 10px;
+}
+.menu-list .icon {
+    color: #1C7CCC;
+}
+.menu-list a.item-content {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.menu-list .item {
+    border-width: 0px;
+}
+.bar .title {
+    text-transform: uppercase;
 }

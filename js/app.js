@@ -46,7 +46,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'myservices'])
         }
     })
     .state('app.predict', {
-        url: "/predict",
+        url: "/predict/:id",
         views: {
             'menuContent': {
                 templateUrl: "templates/predict.html",

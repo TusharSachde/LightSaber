@@ -1,48 +1,43 @@
 /* Empty. Add your own CSS if you like */
+
 @font-face {
-    font-family: "JennaSue";
-    src: url('../fonts/JennaSue.ttf');
-    font-weight: normal;
-}@font-face {
-    font-family: "Open Sans";
-    src: url('../fonts/OpenSans-Regular.ttf');
+    font-family: "SegoeUI";
+    src: url('../fonts/segoeui.ttf');
     font-weight: normal;
 }
 @font-face {
-    font-family: "Open Sans";
-    src: url('../fonts/OpenSans-Italic.ttf');
-    font-weight: normal;
-    font-style: italic;
-}
-@font-face {
-    font-family: "Open Sans";
-    src: url('../fonts/OpenSans-Light.ttf');
+    font-family: "SegoeUI";
+    src: url('../fonts/segoeuisl.ttf');
     font-weight: 300;
 }
 @font-face {
-    font-family: "Open Sans";
-    src: url('../fonts/OpenSans-SemiBold.ttf');
+    font-family: "SegoeUI";
+    src: url('../fonts/segoeuil.ttf');
+    font-weight: 100;
+}
+@font-face {
+    font-family: "SegoeUI";
+    src: url('../fonts/segoeuib.ttf');
     font-weight: 500;
 }
 @font-face {
-    font-family: "Open Sans";
-    src: url('../fonts/OpenSans-Bold.ttf');
-    font-weight: 600;
+    font-family: "SegoeUI";
+    src: url('../fonts/segoeuii.ttf');
+    font-weight: normal;
+    font-style: italic;
 }
-@font-face {
-    font-family: "Open Sans";
-    src: url('../fonts/OpenSans-ExtraBold.ttf');
-    font-weight: 700;
+a {
+    text-decoration: none;
 }
-a{
-text-decoration: none;
-}
-a:hover{
-text-decoration: none;
+a:hover {
+    text-decoration: none;
 }
 .scroll-bg {
     background: url('../img/background.png') no-repeat center center fixed;
-    -webkit-background-size: 100% 100%;      -moz-background-size: 100% 100%;      -o-background-size: 100% 100%;      background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
 }
 .login-set {
     text-align: center;
@@ -64,7 +59,11 @@ text-decoration: none;
     font-size: 14px;
     font-weight: 100;
     text-transform: uppercase;
-    background: #4465ac;     background: -webkit-gradient(linear, left top, left bottom, from(#6181c7), to(#4465ac));     background: -webkit-linear-gradient(top, #6181c7, #4465ac);     background: -moz-linear-gradient(top, #6181c7, #4465ac);     background: -ms-linear-gradient(top, #6181c7, #4465ac);     background: -o-linear-gradient(top, #6181c7, #4465ac);
+    background: #4465ac;
+    background: -webkit-gradient(linear, left top, left bottom, from(#6181c7), to(#4465ac));
+    background: -webkit-linear-gradient(top, #6181c7, #4465ac);
+    background: -moz-linear-gradient(top, #6181c7, #4465ac);
+    background: -o-linear-gradient(top, #6181c7, #4465ac);
 }
 .set-login .twitt-btn {
     background: #32c8fa;
@@ -72,12 +71,17 @@ text-decoration: none;
     font-size: 14px;
     font-weight: 100;
     text-transform: uppercase;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
     border-radius: 0px;
     width: 100%;
     position: relative;
-    padding: 10px 58px 10px 50px;     background: -webkit-gradient(linear, left top, left bottom, from(#33ccfa), to(#0b8db5));     background: -webkit-linear-gradient(top, #33ccfa, #0b8db5);     background: -moz-linear-gradient(top, #33ccfa, #0b8db5);     background: -ms-linear-gradient(top, #33ccfa, #0b8db5);     background: -o-linear-gradient(top, #33ccfa, #0b8db5);
+    padding: 10px 58px 10px 50px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#33ccfa), to(#0b8db5));
+    background: -webkit-linear-gradient(top, #33ccfa, #0b8db5);
+    background: -moz-linear-gradient(top, #33ccfa, #0b8db5);
+    background: -o-linear-gradient(top, #33ccfa, #0b8db5);
 }
-
 .login-set i {
     font-size: 20px;
     padding-right: 10px;
@@ -88,7 +92,6 @@ text-decoration: none;
     padding-right: 10px;
     vertical-align: middle;
 }
-
 .login-in {
     position: fixed;
     left: 0;

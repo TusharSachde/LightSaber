@@ -2,23 +2,23 @@
     <ion-content class="padding">
         <ion-list class="fixtures">
 
-            <ion-item class="team-set" href="#/app/predict" ng-repeat="prediction in predictions">
+            <ion-item class="team-set" href="#/app/predict/{{prediction.id}}" ng-repeat="prediction in predictions">
 
                 <div class="row">
                     <div class="col">
-                        <img ng-src="img/{{prediction.logoteam2}}" class="img-responsive">
+                        <img ng-src="img/{{prediction.team1id | imagefromname}}" class="img-responsive">
                     </div>
                     <div class="col col-50 vs-set">
                         <p class="small">{{prediction.venue}}, {{prediction.time}}</p>
-                        <p class="bolder">{{prediction.date}}</p>
+                        <p class="bolder">{{prediction.endtime}}</p>
                     </div>
                     <div class="col">
-                        <img ng-src="img/{{prediction.logoteam1}}" class="img-responsive">
+                        <img ng-src="img/{{prediction.team2id | imagefromname}}" class="img-responsive">
                     </div>
                 </div>
 
-                <div class="team lefty" ng-style="{'width':prediction.team1+'%'}">{{prediction.team1}}%</div>
-                <div class="team righty" ng-style="{'width':100-prediction.team1+'%'}">{{100-prediction.team1}}%</div>
+                <div class="team lefty" ng-style="{'width':prediction.team1percent+'%'}" ng-if="prediction.team1percent != '-1'">{{prediction.team1percent}}%</div>
+                <div class="team righty" ng-style="{'width':100-prediction.team1percent+'%'}" ng-if="prediction.team1percent != '-1'">{{100-prediction.team1percent}}%</div>
 
             </ion-item>
             

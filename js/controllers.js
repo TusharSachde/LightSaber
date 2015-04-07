@@ -8,7 +8,6 @@ angular.module('starter.controllers', ['myservices'])
 
 
         var getuserdetailssuccess = function (data, status) {
-            console.log(data);
             $.jStorage.set("user", data);
         };
         var authenticatesuccess = function (data, status) {
@@ -20,35 +19,12 @@ angular.module('starter.controllers', ['myservices'])
         };
         MyServices.authenticate().success(authenticatesuccess);
 
-        $scope.predictions = [{
-            "team1": 60,
-            "venue": "Wankhade",
-            "date": "Wed, April 8",
-            "time": "20:00(IST)",
-            "logoteam1": "mumbai.png",
-            "logoteam2": "kkr.png"
-    }, {
-            "team1": 70,
-            "venue": "Banglore",
-            "date": "Wed, April 9",
-            "time": "20:00(IST)",
-            "logoteam1": "royal.png",
-            "logoteam2": "sunrise.png"
-    }, {
-            "team1": 80,
-            "venue": "Delhi",
-            "date": "Wed, April 10",
-            "time": "20:00(IST)",
-            "logoteam1": "delhi.png",
-            "logoteam2": "king.png"
-    }, {
-            "team1": 40,
-            "venue": "Pune",
-            "date": "Wed, April 11",
-            "time": "20:00(IST)",
-            "logoteam1": "punjab.png",
-            "logoteam2": "rc.png"
-    }];
+        //GET LIST OF PREDICTIONS FOR IPL
+        var getpredictionssuccess = function (data, status) {
+            $scope.predictions = data;
+            console.log(data);
+        };
+        MyServices.getpredictions().success(getpredictionssuccess);
 
 
     })
@@ -99,10 +75,32 @@ angular.module('starter.controllers', ['myservices'])
     })
 
 
-.controller('PredictCtrl', function ($scope, $ionicModal, $timeout, $stateParams) {
+.controller('PredictCtrl', function ($scope, $ionicModal, $timeout, $stateParams, MyServices) {
 
-        var predictionid = $stateParams.id;
-        console.log(predictionid);
+        $scope.clickr = true;
+
+        var data = {};
+        data.prediction = $stateParams.id;
+        console.log(data);
+
+        var getpredictionforusersuccess = function (data, status) {
+            console.log(data);
+            $scope.predictdata = data;
+        };
+        MyServices.getpredictionforuser(data).success(getpredictionforusersuccess);
+
+
+        //USER PREDICTS
+        var userpredictssuccess = function (data, status) {
+            console.log(data);
+        };
+        $scope.userpredict = function (id, tick) {
+            $scope.clickr = tick;
+            var userpredictsdata = {};
+            userpredictsdata.prediction = data.prediction;
+            userpredictsdata.team = id;
+            MyServices.userpredicts(userpredictsdata).success(userpredictssuccess);
+        };
 
     })
     .controller('SidemenuCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location) {

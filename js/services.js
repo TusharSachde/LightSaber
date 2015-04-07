@@ -15,6 +15,16 @@ myservices.factory('MyServices', function ($http) {
     {
         return $http.post(adminurl + "logout");
     };
+    returnval.getpredictions = function() {
+        return $http.post(adminurl + "getpredictions");
+    };
+    returnval.getpredictionforuser = function(data) {
+        return $http.post(adminurl + "getpredictionforuser",data );
+    };
+    returnval.userpredicts = function(data){
+        console.log(data);
+        return $http.post(adminurl + "userpredicts",data );
+    };
     
     return returnval;
 });

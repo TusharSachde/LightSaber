@@ -6,28 +6,28 @@
                 <div class="row">
                     <div class="col" ng-click="clickr=true;">
                         <i class="icon ln-circle-checkmark checker" ng-class="{showr: clickr}"></i>
-                        <img ng-src="img/{{prediction.logoteam2}}" class="img-responsive">
+                        <img ng-src="img/{{predictdata.team1id | imagefromname}}" class="img-responsive">
 
                         <div class="button-hold">
-                            <button class="button button-block button-positive button-outline button-small" ng-class="{clicked: clickr}" ng-click="clickr=true;">PREDICT</button>
+                            <button class="button button-block button-positive button-outline button-small" ng-class="{clicked: clickr}" ng-click="userpredict(predictdata.team1id, true);">PREDICT</button><!--clickr=true;-->
 
                         </div>
                     </div>
                     <div class="col col-50 vs-set">
-                        <p class="small">{{prediction.venue}}, {{prediction.time}}</p>
-                        <p class="bolder">{{prediction.date}}</p>
+                        <p class="small">{{predictdata.venue}}, {{prediction.time}}</p>
+                        <p class="bolder">{{predictdata.endtime}}</p>
                     </div>
                     <div class="col" ng-click="clickr=false;">
                         <i class="icon ln-circle-checkmark checker" ng-class="{showr: !clickr}"></i>
-                        <img ng-src="img/{{prediction.logoteam1}}" class="img-responsive">
+                        <img ng-src="img/{{predictdata.team2id | imagefromname}}" class="img-responsive">
 
                         <div class="button-hold">
-                            <button class="button button-block button-positive button-outline button-small" ng-class="{clicked: !clickr}" ng-click="clickr=false;">PREDICT</button>
+                            <button class="button button-block button-positive button-outline button-small" ng-class="{clicked: !clickr}" ng-click="userpredict(predictdata.team2id, false);">PREDICT</button>
                         </div>
                     </div>
                 </div>
-                <div class="team lefty" ng-style="{'width':prediction.team1+'%'}">{{prediction.team1}}%</div>
-                <div class="team righty" ng-style="{'width':100-prediction.team1+'%'}">{{100-prediction.team1}}%</div>
+                <div class="team lefty" ng-style="{'width':predictdata.team1percent+'%'}" ng-if="predictdata.team1percent != '-1'">{{predictdata.team1percent}}%</div>
+                <div class="team righty" ng-style="{'width':100-predictdata.team1percent+'%'}" ng-if="predictdata.team1percent != '-1'">{{100-prediction.team1}}%</div>
             </ion-item>
 
         </ion-list>

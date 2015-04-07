@@ -14,7 +14,7 @@ img.pre-img {
 }
 
 
-.fixtures.item {
+.fixtures{
     height: 100px;
     padding: 0px;
 }
@@ -27,4 +27,7 @@ img.pre-img {
 .team-set img {
     width: 100%;
     vertical-align: middle;
+}
+.fixtures .item {
+    border: 1px solid #d7d7d7;
 }

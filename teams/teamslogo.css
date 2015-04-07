@@ -1,0 +1,49 @@
+.teamLogo
+{
+background-image:url('tLogo100x.png');
+}
+.CSK.teamLogo {
+  width: 100px;
+  height: 100px
+}
+.DC.teamLogo {
+  background-position: 0 -105px;
+  width: 100px;
+  height: 100px
+}
+.DD.teamLogo {
+  background-position: 0 -210px;
+  width: 100px;
+  height: 100px
+}
+.KKR.teamLogo {
+  background-position: 0 -300px;
+  width: 100px;
+  height: 100px
+}
+.KXIP.teamLogo {
+  background-position: 0 -500px;
+  width: 100px;
+  height: 100px
+}
+.MI.teamLogo {
+  background-position: 0 -600px;
+  width: 100px;
+  height: 100px
+}
+
+.RCB.teamLogo {
+  background-position: 0 -800px;
+  width: 100px;
+  height: 100px
+}
+.RR.teamLogo {
+  background-position: 0 -900px;
+  width: 100px;
+  height: 100px
+}
+.SH.teamLogo, .SRH.teamLogo {
+  background-position: 0 -1000px;
+  width: 100px;
+  height: 100px
+}

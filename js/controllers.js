@@ -1,10 +1,24 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['myservices'])
 
-.controller('LoginCtrl', function($scope, $ionicModal, $timeout) {})
+.controller('LoginCtrl', function ($scope, $ionicModal, $timeout) {})
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {})
+.controller('AppCtrl', function ($scope, $ionicModal, $timeout) {})
 
-.controller('HomeCtrl', function($scope, $ionicModal, $timeout) {
+.controller('HomeCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location) {
+
+
+    var getuserdetailssuccess = function (data, status) {
+        console.log(data);
+        $.jStorage.set("user", data);
+    };
+    var authenticatesuccess = function (data, status) {
+        if (data != false) {
+            MyServices.getuserdetails().success(getuserdetailssuccess);
+        } else {
+            $location.path("/login");
+        };
+    };
+    MyServices.authenticate().success(authenticatesuccess);
 
     $scope.predictions = [{
         "team1": 60,
@@ -85,8 +99,24 @@ angular.module('starter.controllers', [])
     })
 
 
-.controller('PredictCtrl', function($scope, $ionicModal, $timeout) {
+.controller('PredictCtrl', function ($scope, $ionicModal, $timeout, $stateParams) {
 
+        var predictionid = $stateParams.id;
+        console.log(predictionid);
+
+    })
+    .controller('SidemenuCtrl', function ($scope, $ionicModal, $timeout, MyServices) {
+
+        $scope.userdetails = $.jStorage.get("user");
+        //SIGN OUT
+        var logoutsuccess = function (data, status) {
+            console.log(data);
+        };
+        $scope.logout = function () {
+            MyServices.logout().success(logoutsuccess);
+        };
+
+<<<<<<< HEAD
     $scope.prediction = {
         "team1": 60,
         "venue": "Wankhade",
@@ -98,3 +128,6 @@ angular.module('starter.controllers', [])
 
     $scope.clickr = '';
 });
+=======
+    });
+>>>>>>> origin/master

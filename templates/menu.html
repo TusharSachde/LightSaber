@@ -1,4 +1,4 @@
-<ion-side-menus enable-menu-with-back-views="false">
+<ion-side-menus enable-menu-with-back-views="false" ng-controller="SidemenuCtrl">
     <ion-side-menu-content>
         <ion-nav-bar class="bar-positive">
             <ion-nav-back-button>
@@ -23,9 +23,9 @@
                 <div class="backgrounder">
                     <div class="pic-holder text-center">
                         <div class="pictop">
-                            <div class="pic"></div>
+                            <div class="pic" style="background-image: url({{userdetails.image}});"></div>
                         </div>
-                        <h2>Mahesh Maurya</h2>
+                        <h2>{{userdetails.username}}</h2>
                     </div>
                     <div class="content text-center">
                         <div class="row">
@@ -60,7 +60,7 @@
                     <i class="icon ln-share2"></i>
                     Share
                 </ion-item>
-                <ion-item nav-clear menu-close href="#/app/home" class="item-icon-left">
+                <ion-item nav-clear menu-close class="item-icon-left" ng-click="logout()">
                     <i class="icon ln-exit"></i>
                     Sign Out
                 </ion-item>

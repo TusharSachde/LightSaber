@@ -42,10 +42,7 @@ text-decoration: none;
 }
 .scroll-bg {
     background: url('../img/background.png') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    -webkit-background-size: 100% 100%;      -moz-background-size: 100% 100%;      -o-background-size: 100% 100%;      background-size: 100% 100%;
 }
 .login-set {
     text-align: center;
@@ -58,7 +55,7 @@ text-decoration: none;
 .login-set .fb-btn {
     background: #43609c;
     color: #fff;
-    padding: 7px 20px 7px 20px;
+    padding: 10px 50px 10px 50px;
     font-size: 14px;
     font-weight: 100;
     text-transform: uppercase;
@@ -72,7 +69,7 @@ text-decoration: none;
     border-radius: 0px;
     width: 100%;
     position: relative;
-    padding: 7px 24px 7px 20px;
+    padding: 10px 58px 10px 50px;
 }
 
 .login-set i {
@@ -84,4 +81,9 @@ text-decoration: none;
     font-size: 20px;
     padding-right: 10px;
     vertical-align: middle;
+}
+.login-in {
+    position: absolute;
+    left: 50%;
+    width: 100%;
 }

@@ -170,8 +170,7 @@ a:hover {
     max-width: 100%;
 }
 .team-set {
-    height: 100%;
-    width: auto;
+    width: 100%;
     text-align: center;
 }
 img.pre-img {
@@ -202,7 +201,8 @@ p.small {
     padding-top: 30px;
 }
 .team-set img {
-    width: 100%;
+    height: 100%;
+    width: auto;
     vertical-align: middle;
 }
 .fixtures .item {

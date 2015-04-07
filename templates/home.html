@@ -2,25 +2,27 @@
     <ion-content class="padding padding-more">
         <ion-list class="fixtures">
 
-            <ion-item class="team-set">
+            <ion-item class="team-set" href="" ng-repeat="prediction in predictions">
 
                 <div class="row">
                     <div class="col">
-                        <img src="img/mumbai.png" class="img-responsive">
+                        <img src="img/{{prediction.logoteam2}}" class="img-responsive">
                     </div>
                     <div class="col col-50 vs-set">
-                        <p class="small">Wankhade, 20:00(IST)</p>
-                        <p class="bolder">Wed, April 8</p>
+                        <p class="small">{{prediction.venue}}, {{prediction.time}}</p>
+                        <p class="bolder">{{prediction.date}}</p>
                     </div>
                     <div class="col">
-                        <img src="img/kkr.png" class="img-responsive">
+                        <img src="img/{{prediction.logoteam1}}" class="img-responsive">
                     </div>
                 </div>
 
-          <div class="team1"></div>
-          <div class="team2"></div>
-           
+                <div class="team lefty" ng-style="{'width':prediction.team1+'%'}">{{prediction.team1}}%</div>
+                <div class="team righty" ng-style="{'width':100-prediction.team1+'%'}">{{100-prediction.team1}}%</div>
+
             </ion-item>
+            
+
 
         </ion-list>
     </ion-content>

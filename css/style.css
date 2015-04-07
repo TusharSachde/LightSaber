@@ -137,8 +137,9 @@ a:hover {
     margin-bottom: 5px;
 }
 .content h2 {
-    font-weight: 300;
+    font-weight: 500;
     font-size: 22px;
+    color: #1c7ccc;
 }
 .content .col+.col {
     border-left: 1px solid #ccc;
@@ -150,8 +151,8 @@ a:hover {
     border-top: 1px solid #ccc;
 }
 .pic-holder h2 {
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: 100;
+    font-size: 20px;
     text-transform: uppercase;
     margin: 10px 0 15px;
 }
@@ -193,7 +194,7 @@ p.small {
     font-size: 12px;
 }
 .vs-set {
-    padding-top: 20px;
+    padding-top: 30px;
 }
 .team-set img {
     width: 100%;
@@ -201,6 +202,36 @@ p.small {
 }
 .fixtures .item {
     border: 1px solid #d7d7d7;
-    padding-bottom: 30px;
     position: relative;
+    height: 125px;
+}
+.team {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+    border: 1px solid #1c7ccc;
+}
+.lefty {
+    left: 0;
+    background: #1c7ccc;
+}
+.righty {
+    right: 0;
+    background: white;
+    color: #1c7ccc;
+}
+.fixtures a.item-content {
+    padding: 0px;
+    height: 100%;
+}
+.team-set+.team-set {
+    margin-top: 10px;
 }

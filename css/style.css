@@ -253,3 +253,6 @@ p.small {
 .bar .title {
     text-transform: uppercase;
 }
+.small-icon:before {
+  font-size: 24px !important;
+}

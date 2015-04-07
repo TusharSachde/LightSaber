@@ -58,28 +58,30 @@ text-decoration: none;
 .login-set .fb-btn {
     background: #43609c;
     color: #fff;
-    padding: 12px 20px 12px 14px;
-    font-size: 16px;
+    padding: 7px 20px 7px 20px;
+    font-size: 14px;
     font-weight: 100;
     text-transform: uppercase;
 }
 .set-login .twitt-btn {
-    background: #43609c;
+    background: #28aae1;
     color: #fff;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 100;
     text-transform: uppercase;
     border-radius: 0px;
     width: 100%;
     position: relative;
-    padding: 12px 26px 12px 15px;
+    padding: 7px 24px 7px 20px;
 }
 
 .login-set i {
     font-size: 20px;
     padding-right: 10px;
+    vertical-align: middle;
 }
 .set-login i {
     font-size: 20px;
     padding-right: 10px;
+    vertical-align: middle;
 }

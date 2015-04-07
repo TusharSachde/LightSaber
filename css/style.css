@@ -209,15 +209,17 @@ p.small {
     border: 1px solid #d7d7d7;
     position: relative;
     height: 125px;
+    padding: 0px;
 }
 .team {
     position: absolute;
-    bottom: 0;
+    bottom: 0px;
     width: 100%;
     height: 20px;
     color: white;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 12px;
+    line-height: 17px;
     -webkit-transition: all 300ms ease;
     -moz-transition: all 300ms ease;
     -o-transition: all 300ms ease;
@@ -254,5 +256,93 @@ p.small {
     text-transform: uppercase;
 }
 .small-icon:before {
-  font-size: 24px !important;
+    font-size: 24px !important;
+}
+.button.clicked {
+    background: #1c7ccc !important;
+    color: white !important;
+}
+.col {
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+.checker {
+    position: absolute;
+    right: 0px;
+    color: #258E0E;
+    top: 0px;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+    opacity: 0;
+    font-size: 20px;
+}
+.bar-above .col {
+    position: relative;
+}
+.showr {
+    opacity: 1;
+}
+.bar-above .item {
+    max-height: 160px;
+    min-height: 150px;
+    height: auto;
+}
+.bar-above .team-set .row {
+    padding-bottom: 25px;
+}
+.twitter .item {
+    padding: 0;
+    border: 0px;
+}
+.twitter .list {} .twitter .item+.item {
+    border-top: 1px solid #ccc;
+}
+span.none {
+    font-size: 11px;
+    color: #6E6E6E;
+}
+.twitter .item.item-divider {
+    padding: 10px;
+    color: #1C7CCC;
+    font-weight: 400;
+    background: #fff;
+    font-size: 17px;
+}
+.bar .title {
+    font-size: 18px;
+}
+.item .badge {
+    top: 5px;
+    left: 50%;
+    right: auto;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    display: inline;
+    font-weight: 400;
+}
+.badge.badge-balanced {
+    background-color: #1CBA30;
+}
+.badge.badge-assertive {
+    background-color: #E23705;
+}
+.history .col {
+    position: relative;
+}
+i.bigr {
+    font-size: 40px;
+}
+.simple-page h4 {
+    font-weight: 100;
+    font-size: 16px;
+}
+.simple-page {
+    padding-top: 37%;
 }

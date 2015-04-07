@@ -1,18 +1,22 @@
-<ion-view view-title="Predict">
+<ion-view view-title="History">
     <ion-content class="padding">
-        <ion-list class="fixtures">
+        <ion-list class="fixtures history">
 
-            <ion-item class="team-set" href="#/app/predict" ng-repeat="prediction in predictions">
+            <ion-item class="team-set" ng-repeat="prediction in predictions">
 
                 <div class="row">
                     <div class="col">
+                        <!--Add class "showr" to show the tick-->
+                        <i class="icon ln-circle-checkmark checker showr"></i>
                         <img ng-src="img/{{prediction.logoteam2}}" class="img-responsive">
                     </div>
                     <div class="col col-50 vs-set">
                         <p class="small">{{prediction.venue}}, {{prediction.time}}</p>
                         <p class="bolder">{{prediction.date}}</p>
+                        <p class="badge badge-balanced">{{prediction.status}}</p>
                     </div>
                     <div class="col">
+                        <i class="icon ln-circle-checkmark checker" ng-class="{showr: clickr}"></i>
                         <img ng-src="img/{{prediction.logoteam1}}" class="img-responsive">
                     </div>
                 </div>
@@ -21,7 +25,7 @@
                 <div class="team righty" ng-style="{'width':100-prediction.team1+'%'}">{{100-prediction.team1}}%</div>
 
             </ion-item>
-            
+
 
 
         </ion-list>

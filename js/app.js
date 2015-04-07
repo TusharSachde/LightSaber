@@ -53,6 +53,32 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                 controller: 'PredictCtrl'
             }
         }
+    })
+    .state('app.history', {
+        url: "/history",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/history.html",
+                controller: 'HistoryCtrl'
+            }
+        }
+    })
+    .state('app.leaderboard', {
+        url: "/leaderboard",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/leaderboard.html"
+            }
+        }
+    })
+    .state('app.get', {
+        url: "/get",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/get.html",
+                controller: 'HistoryCtrl'
+            }
+        }
     });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/home');

@@ -1,24 +1,152 @@
-<ion-view view-title="Predictions">
-    <ion-content class="padding padding-more">
+<ion-view view-title="KKR vs MI">
+    <ion-content class="padding">
+        <ion-list class="fixtures bar-above">
 
-
-        <ion-list class="fixtures">
-            <ion-item >
-<div class="team-set">
+            <ion-item class="team-set">
                 <div class="row">
-                    <div class="col col-25">
-                        <img src="img/mumbai.png" class="img-responsive">
+                    <div class="col" ng-click="clickr=true;">
+                        <i class="icon ln-circle-checkmark checker" ng-class="{showr: clickr}"></i>
+                        <img ng-src="img/{{prediction.logoteam2}}" class="img-responsive">
+
+                        <div class="button-hold">
+                            <button class="button button-block button-positive button-outline button-small" ng-class="{clicked: clickr}" ng-click="clickr=true;">PREDICT</button>
+
+                        </div>
                     </div>
                     <div class="col col-50 vs-set">
-<p>Wankhade , <span>20:00(IST)</span></p>
-<p style="font-weight: 700;">Wed,<span>April 8</span></p>
+                        <p class="small">{{prediction.venue}}, {{prediction.time}}</p>
+                        <p class="bolder">{{prediction.date}}</p>
                     </div>
-                    <div class="col col-25">
-                       <img src="img/kkr.png" class="img-responsive">
+                    <div class="col" ng-click="clickr=false;">
+                        <i class="icon ln-circle-checkmark checker" ng-class="{showr: !clickr}"></i>
+                        <img ng-src="img/{{prediction.logoteam1}}" class="img-responsive">
+
+                        <div class="button-hold">
+                            <button class="button button-block button-positive button-outline button-small" ng-class="{clicked: !clickr}" ng-click="clickr=false;">PREDICT</button>
+                        </div>
                     </div>
                 </div>
+                <div class="team lefty" ng-style="{'width':prediction.team1+'%'}">{{prediction.team1}}%</div>
+                <div class="team righty" ng-style="{'width':100-prediction.team1+'%'}">{{100-prediction.team1}}%</div>
+            </ion-item>
+
+        </ion-list>
+        <div class="padding"></div>
+
+
+
+
+        <ion-list class="twitter">
+            <div class="item item-divider">
+                <i class="icon ion-social-twitter pull-right"></i> Recent Tweets
+            </div>
+            <ion-item class="item-text-wrap">
+                <div class="row">
+                    <div class="col col-25">
+                        <img src="img/mahesh.jpg" alt="" class="full-image">
+                    </div>
+                    <div class="col">
+                        <h3>IndiaPremiereLeague <span class="none">@ipl</span></h3>
+                        <p><span class="positive">#PepsiIPL</span> 2015 season starts April 8 - Promo</p>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item class="item-text-wrap">
+                <div class="row">
+                    <div class="col col-25">
+                        <img src="img/mahesh.jpg" alt="" class="full-image">
+                    </div>
+                    <div class="col">
+                        <h3>IndiaPremiereLeague <span class="none">@ipl</span></h3>
+                        <p><span class="positive">#PepsiIPL</span> 2015 season starts April 8 - Promo</p>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item class="item-text-wrap">
+                <div class="row">
+                    <div class="col col-25">
+                        <img src="img/mahesh.jpg" alt="" class="full-image">
+                    </div>
+                    <div class="col">
+                        <h3>IndiaPremiereLeague <span class="none">@ipl</span></h3>
+                        <p><span class="positive">#PepsiIPL</span> 2015 season starts April 8 - Promo</p>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item class="item-text-wrap">
+                <div class="row">
+                    <div class="col col-25">
+                        <img src="img/mahesh.jpg" alt="" class="full-image">
+                    </div>
+                    <div class="col">
+                        <h3>IndiaPremiereLeague <span class="none">@ipl</span></h3>
+                        <p><span class="positive">#PepsiIPL</span> 2015 season starts April 8 - Promo</p>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item class="item-text-wrap">
+                <div class="row">
+                    <div class="col col-25">
+                        <img src="img/mahesh.jpg" alt="" class="full-image">
+                    </div>
+                    <div class="col">
+                        <h3>IndiaPremiereLeague <span class="none">@ipl</span></h3>
+                        <p><span class="positive">#PepsiIPL</span> 2015 season starts April 8 - Promo</p>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item class="item-text-wrap">
+                <div class="row">
+                    <div class="col col-25">
+                        <img src="img/mahesh.jpg" alt="" class="full-image">
+                    </div>
+                    <div class="col">
+                        <h3>IndiaPremiereLeague <span class="none">@ipl</span></h3>
+                        <p><span class="positive">#PepsiIPL</span> 2015 season starts April 8 - Promo</p>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item class="item-text-wrap">
+                <div class="row">
+                    <div class="col col-25">
+                        <img src="img/mahesh.jpg" alt="" class="full-image">
+                    </div>
+                    <div class="col">
+                        <h3>IndiaPremiereLeague <span class="none">@ipl</span></h3>
+                        <p><span class="positive">#PepsiIPL</span> 2015 season starts April 8 - Promo</p>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item class="item-text-wrap">
+                <div class="row">
+                    <div class="col col-25">
+                        <img src="img/mahesh.jpg" alt="" class="full-image">
+                    </div>
+                    <div class="col">
+                        <h3>IndiaPremiereLeague <span class="none">@ipl</span></h3>
+                        <p><span class="positive">#PepsiIPL</span> 2015 season starts April 8 - Promo</p>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item class="item-text-wrap">
+                <div class="row">
+                    <div class="col col-25">
+                        <img src="img/mahesh.jpg" alt="" class="full-image">
+                    </div>
+                    <div class="col">
+                        <h3>IndiaPremiereLeague <span class="none">@ipl</span></h3>
+                        <p><span class="positive">#PepsiIPL</span> 2015 season starts April 8 - Promo</p>
+                    </div>
                 </div>
             </ion-item>
         </ion-list>
+
+
     </ion-content>
+
+<!--
+    <div class="bar bar-footer bar-positive">
+        <div class="title"><i class="icon ion-social-twitter"></i> Join the conversation</div>
+    </div>
+-->
 </ion-view>

@@ -8,4 +8,8 @@ angular.module('starter.controllers', [])
 })
 .controller('HomeCtrl', function($scope, $ionicModal, $timeout) {
   
+})
+.controller('PredictCtrl', function($scope, $ionicModal, $timeout) {
+  
 });
+

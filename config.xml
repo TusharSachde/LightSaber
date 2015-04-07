@@ -35,7 +35,7 @@
     <preference name="StatusBarBackgroundColor" value="#ffffff" />
     <preference name="StatusBarStyle" value="lightcontent" />
 
-    <icon src="img/logo.png" />
+    <icon src="logo.png" />
 
     <gap:splash src="img/background.png" />
 

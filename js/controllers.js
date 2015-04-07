@@ -7,52 +7,52 @@ angular.module('starter.controllers', ['myservices'])
 .controller('HomeCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location) {
 
 
-    var getuserdetailssuccess = function (data, status) {
-        console.log(data);
-        $.jStorage.set("user", data);
-    };
-    var authenticatesuccess = function (data, status) {
-        if (data != false) {
-            MyServices.getuserdetails().success(getuserdetailssuccess);
-        } else {
-            $location.path("/login");
+        var getuserdetailssuccess = function (data, status) {
+            console.log(data);
+            $.jStorage.set("user", data);
         };
-    };
-    MyServices.authenticate().success(authenticatesuccess);
+        var authenticatesuccess = function (data, status) {
+            if (data != false) {
+                MyServices.getuserdetails().success(getuserdetailssuccess);
+            } else {
+                $location.path("/login");
+            };
+        };
+        MyServices.authenticate().success(authenticatesuccess);
 
-    $scope.predictions = [{
-        "team1": 60,
-        "venue": "Wankhade",
-        "date": "Wed, April 8",
-        "time": "20:00(IST)",
-        "logoteam1": "mumbai.png",
-        "logoteam2": "kkr.png"
+        $scope.predictions = [{
+            "team1": 60,
+            "venue": "Wankhade",
+            "date": "Wed, April 8",
+            "time": "20:00(IST)",
+            "logoteam1": "mumbai.png",
+            "logoteam2": "kkr.png"
     }, {
-        "team1": 70,
-        "venue": "Banglore",
-        "date": "Wed, April 9",
-        "time": "20:00(IST)",
-        "logoteam1": "royal.png",
-        "logoteam2": "sunrise.png"
+            "team1": 70,
+            "venue": "Banglore",
+            "date": "Wed, April 9",
+            "time": "20:00(IST)",
+            "logoteam1": "royal.png",
+            "logoteam2": "sunrise.png"
     }, {
-        "team1": 80,
-        "venue": "Delhi",
-        "date": "Wed, April 10",
-        "time": "20:00(IST)",
-        "logoteam1": "delhi.png",
-        "logoteam2": "king.png"
+            "team1": 80,
+            "venue": "Delhi",
+            "date": "Wed, April 10",
+            "time": "20:00(IST)",
+            "logoteam1": "delhi.png",
+            "logoteam2": "king.png"
     }, {
-        "team1": 40,
-        "venue": "Pune",
-        "date": "Wed, April 11",
-        "time": "20:00(IST)",
-        "logoteam1": "punjab.png",
-        "logoteam2": "rc.png"
+            "team1": 40,
+            "venue": "Pune",
+            "date": "Wed, April 11",
+            "time": "20:00(IST)",
+            "logoteam1": "punjab.png",
+            "logoteam2": "rc.png"
     }];
 
 
-})
-    .controller('HistoryCtrl', function($scope, $ionicModal, $timeout) {
+    })
+    .controller('HistoryCtrl', function ($scope, $ionicModal, $timeout) {
 
         $scope.predictions = [{
             "team1": 60,
@@ -88,13 +88,13 @@ angular.module('starter.controllers', ['myservices'])
             "status": "Won"
         }];
 
-//        $scope.badgecolor = function() {
-//            if ($scope.predictions.status == "Won")
-//                return "badge-balanced"
-//            else if ($scope.predictions.status == "Lost")
-//                return "badge-assertive";
-//
-//        };
+        //        $scope.badgecolor = function() {
+        //            if ($scope.predictions.status == "Won")
+        //                return "badge-balanced"
+        //            else if ($scope.predictions.status == "Lost")
+        //                return "badge-assertive";
+        //
+        //        };
 
     })
 
@@ -116,18 +116,14 @@ angular.module('starter.controllers', ['myservices'])
             MyServices.logout().success(logoutsuccess);
         };
 
-<<<<<<< HEAD
-    $scope.prediction = {
-        "team1": 60,
-        "venue": "Wankhade",
-        "date": "Wed, April 8",
-        "time": "20:00(IST)",
-        "logoteam1": "mumbai.png",
-        "logoteam2": "kkr.png"
-    };
+        $scope.prediction = {
+            "team1": 60,
+            "venue": "Wankhade",
+            "date": "Wed, April 8",
+            "time": "20:00(IST)",
+            "logoteam1": "mumbai.png",
+            "logoteam2": "kkr.png"
+        };
 
-    $scope.clickr = '';
-});
-=======
+        $scope.clickr = '';
     });
->>>>>>> origin/master

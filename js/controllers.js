@@ -105,12 +105,15 @@ angular.module('starter.controllers', ['myservices'])
         console.log(predictionid);
 
     })
-    .controller('SidemenuCtrl', function ($scope, $ionicModal, $timeout, MyServices) {
+    .controller('SidemenuCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location) {
 
         $scope.userdetails = $.jStorage.get("user");
+        $scope.$apply();
         //SIGN OUT
         var logoutsuccess = function (data, status) {
-            console.log(data);
+            if (data == "true") {
+                $location.path("/login");
+            };
         };
         $scope.logout = function () {
             MyServices.logout().success(logoutsuccess);

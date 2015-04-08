@@ -1,35 +1,104 @@
 angular.module('starter.controllers', ['myservices'])
 
-.controller('LoginCtrl', function ($scope, $ionicModal, $timeout) {})
+.controller('LoginCtrl', function ($scope, $ionicModal, $timeout, $interval, $location, MyServices) {
+
+        //  LOGIN WITH TWITER
+        
+        var authenticatesuccess = function (data, status) {
+            if (data != "false") {
+                $location.url("app/home");
+            } else {
+                $location.url("/login");
+            };
+        };
+    
+        MyServices.authenticate().success(authentxicatesuccess);
+        
+        var checktwitter = function(data, status) {
+            if (data != "false") {
+                ref.close();
+                $interval.cancel(stopinterval);
+                $location.url("app/home");
+            } else {
+                console.log("Do nothing");
+            }
+        }
+
+        var callAtIntervaltwitter = function() {
+            MyServices.authenticate().success(checktwitter);
+        };
+
+    
+        $scope.twitterlogin = function() {
+            console.log(window.location);
+            var abc = window.location.origin + window.location.pathname;
+            ref = window.open('http://www.wohlig.co.in/LightSaberBackend/index.php/hauth/login/Twitter?returnurl=' + abc, '_blank', 'location=no');
+            stopinterval = $interval(callAtIntervaltwitter, 2000);
+            ref.addEventListener('exit', function(event) {
+                MyServices.authenticate().success(authenticatesuccess);
+                $interval.cancel(stopinterval);
+            });
+        };
+    
+})
 
 .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {})
 
-.controller('HomeCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location) {
+.controller('HomeCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading) {
 
-
+        //  IONIC LOADING
+        
+        $ionicLoading.show({
+            template: 'Please wait...'
+        });
+    
+        //  AUTHENTICATE USER
+    
         var getuserdetailssuccess = function (data, status) {
             $.jStorage.set("user", data);
         };
         var authenticatesuccess = function (data, status) {
-            if (data != false) {
+            if (data != "false") {
                 MyServices.getuserdetails().success(getuserdetailssuccess);
             } else {
-                $location.path("/login");
+                $location.url("/login");
             };
         };
         MyServices.authenticate().success(authenticatesuccess);
 
-        //GET LIST OF PREDICTIONS FOR IPL
+        //  GET LIST OF PREDICTIONS FOR IPL
+    
         var getpredictionssuccess = function (data, status) {
             $scope.predictions = data;
             console.log(data);
+            $ionicLoading.hide();
+            
         };
         MyServices.getpredictions().success(getpredictionssuccess);
 
 
     })
-    .controller('HistoryCtrl', function ($scope, $ionicModal, $timeout) {
+.controller('HistoryCtrl', function ($scope, $ionicModal, $timeout, $ionicLoading, MyServices, $location) {
 
+        //  IONIC LOADING
+        
+        $ionicLoading.show({
+            template: 'Please wait...'
+        });
+    
+        //  HIDE LOADING
+        $ionicLoading.hide();
+    
+        //  AUTHENTICATE
+        var authenticatesuccess = function (data, status) {
+            if (data != "false") {
+                
+            } else {
+                $location.url("/login");
+            };
+        };
+        MyServices.authenticate().success(authenticatesuccess);
+    
         $scope.predictions = [{
             "team1": 60,
             "venue": "Wankhade",
@@ -75,10 +144,30 @@ angular.module('starter.controllers', ['myservices'])
     })
 
 
-.controller('PredictCtrl', function ($scope, $ionicModal, $timeout, $stateParams, MyServices) {
+.controller('PredictCtrl', function ($scope, $ionicModal, $timeout, $stateParams, MyServices, $ionicLoading, $location) {
 
         $scope.clickr = true;
 
+        //  IONIC LOADING
+        
+        $ionicLoading.show({
+            template: 'Please wait...'
+        });
+    
+        //  AUTHENTICATE USER
+    
+        var getuserdetailssuccess = function (data, status) {
+            $.jStorage.set("user", data);
+        };
+        var authenticatesuccess = function (data, status) {
+            if (data != "false") {
+                
+            } else {
+                $ionicLoading.hide();
+                $location.url("/login");
+            };
+        };
+        MyServices.authenticate().success(authenticatesuccess);
         var predictiondata = {};
         predictiondata.prediction = $stateParams.id;
 
@@ -92,6 +181,7 @@ angular.module('starter.controllers', ['myservices'])
             };
             var name1 = getshortform($scope.predictdata.team1id);
             var name2 = getshortform($scope.predictdata.team2id);
+            $ionicLoading.hide();
         };
         //GET ALL DETAILS INITIALLY
         MyServices.getpredictionforuser(predictiondata).success(getpredictionforusersuccess);

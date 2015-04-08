@@ -16,8 +16,6 @@ predictoapp.run(function($ionicPlatform) {
             // org.apache.cordova.statusbar required
             StatusBar.overlaysWebView(true);
             StatusBar.styleLightContent();
-        }
-        if (cordova.platformId == 'android') {
             StatusBar.backgroundColorByHexSring("#1c7ccc");
         }
     });

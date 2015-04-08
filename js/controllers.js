@@ -50,12 +50,15 @@ angular.module('starter.controllers', ['myservices'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
     //Share
-    if (cordova.platformId == 'android') {
-        var applink = 'https://play.google.com/store/apps/details?id=com.wohlig.predicto';
-    }
-    if (cordova.platformId == 'ios') {
-        var applink = 'https://itunes.apple.com/in/app/whatsapp-messenger/id310633997';
-    }
+    //    if (window.cordova.platformId == 'android') {
+    //        var applink = 'https://play.google.com/store/apps/details?id=com.wohlig.predicto';
+    //    }
+    //    if (window.cordova.platformId == 'ios') {
+    //        var applink = 'https://itunes.apple.com/in/app/whatsapp-messenger/id310633997';
+    //    }
+
+    var applink = 'https://play.google.com/store/apps/details?id=com.wohlig.predicto';
+
     $scope.share = function() {
         window.plugins.socialsharing.share("Checkout 'Predicto' - " + applink);
     };

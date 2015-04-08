@@ -1,4 +1,4 @@
-var adminurl = "http://www.wohlig.co.in/LightSaberbackend/index.php/json/";
+var adminurl = "http://www.wohlig.co.in/LightSaberBackend/index.php/json/";
 //var adminurl = "http://localhost/Lightsaberbackend/index.php/json/";
 var myservices = angular.module('myservices', []);
 

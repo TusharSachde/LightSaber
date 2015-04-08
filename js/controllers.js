@@ -1,105 +1,110 @@
 var ref = 0;
 angular.module('starter.controllers', ['myservices'])
 
-.controller('LoginCtrl', function ($scope, $ionicModal, $timeout, $interval, $location, MyServices) {
+.controller('LoginCtrl', function($scope, $ionicModal, $timeout, $interval, $location, MyServices) {
 
-        //  LOGIN WITH TWITER
-        
-        var authenticatesuccess = function (data, status) {
-            if (data != "false") {
-                $location.url("app/home");
-            } else {
-                $location.url("/login");
-            };
+    //  LOGIN WITH TWITER
+
+    var getuserdetailssuccess = function(data, status) {
+        $.jStorage.set("user", data);
+        $location.url("/app/login");
+    };
+
+    var authenticatesuccess = function(data, status) {
+        if (data != "false") {
+            MyServices.getuserdetails().success(getuserdetailssuccess);
+        } else {
+            $location.url("/login");
         };
-    
-        MyServices.authenticate().success(authenticatesuccess);
-        
-        var checktwitter = function(data, status) {
-            if (data != "false") {
-                ref.close();
-                $interval.cancel(stopinterval);
-                $location.url("app/home");
-            } else {
-                console.log("Do nothing");
-            }
+    };
+
+    MyServices.authenticate().success(authenticatesuccess);
+
+    var checktwitter = function(data, status) {
+        if (data != "false") {
+            ref.close();
+            $interval.cancel(stopinterval);
+            $location.url("app/home");
+        } else {
+            console.log("Do nothing");
         }
+    }
 
-        var callAtIntervaltwitter = function() {
-            MyServices.authenticate().success(checktwitter);
-        };
+    var callAtIntervaltwitter = function() {
+        MyServices.authenticate().success(checktwitter);
+    };
 
-    
-        $scope.twitterlogin = function() {
-            console.log(window.location);
-            var abc = window.location.origin + window.location.pathname;
-            ref = window.open('http://www.wohlig.co.in/LightSaberBackend/index.php/hauth/login/Twitter?returnurl=' + abc, '_blank', 'location=no');
-            stopinterval = $interval(callAtIntervaltwitter, 2000);
-            ref.addEventListener('exit', function(event) {
-                MyServices.authenticate().success(authenticatesuccess);
-                $interval.cancel(stopinterval);
-            });
-        };
-    
+
+    $scope.twitterlogin = function() {
+        console.log(window.location);
+        var abc = window.location.origin + window.location.pathname;
+        ref = window.open('http://www.wohlig.co.in/LightSaberBackend/index.php/hauth/login/Twitter?returnurl=' + abc, '_blank', 'location=no');
+        stopinterval = $interval(callAtIntervaltwitter, 2000);
+        ref.addEventListener('exit', function(event) {
+            MyServices.authenticate().success(authenticatesuccess);
+            $interval.cancel(stopinterval);
+        });
+    };
+
 })
 
-.controller('AppCtrl', function ($scope, $ionicModal, $timeout) {})
+.controller('AppCtrl', function($scope, $ionicModal, $timeout) {})
 
-.controller('HomeCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading) {
+.controller('HomeCtrl', function($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading) {
+
+    //  IONIC LOADING
+
+    $ionicLoading.show({
+        template: 'Please wait...'
+    });
+
+    //  AUTHENTICATE USER
+
+    var getuserdetailssuccess = function(data, status) {
+        $.jStorage.set("user", data);
+    };
+    var authenticatesuccess = function(data, status) {
+        if (data != "false") {
+            MyServices.getuserdetails().success(getuserdetailssuccess);
+        } else {
+            $location.url("/login");
+        };
+    };
+    MyServices.authenticate().success(authenticatesuccess);
+
+    //  GET LIST OF PREDICTIONS FOR IPL
+
+    var getpredictionssuccess = function(data, status) {
+        $scope.predictions = data;
+        console.log(data);
+        $ionicLoading.hide();
+
+    };
+    MyServices.getpredictions().success(getpredictionssuccess);
+
+
+})
+    .controller('HistoryCtrl', function($scope, $ionicModal, $timeout, $ionicLoading, MyServices, $location) {
 
         //  IONIC LOADING
-        
+
         $ionicLoading.show({
             template: 'Please wait...'
         });
-    
-        //  AUTHENTICATE USER
-    
-        var getuserdetailssuccess = function (data, status) {
-            $.jStorage.set("user", data);
-        };
-        var authenticatesuccess = function (data, status) {
-            if (data != "false") {
-                MyServices.getuserdetails().success(getuserdetailssuccess);
-            } else {
-                $location.url("/login");
-            };
-        };
-        MyServices.authenticate().success(authenticatesuccess);
 
-        //  GET LIST OF PREDICTIONS FOR IPL
-    
-        var getpredictionssuccess = function (data, status) {
-            $scope.predictions = data;
-            console.log(data);
-            $ionicLoading.hide();
-            
-        };
-        MyServices.getpredictions().success(getpredictionssuccess);
-
-
-    })
-.controller('HistoryCtrl', function ($scope, $ionicModal, $timeout, $ionicLoading, MyServices, $location) {
-
-        //  IONIC LOADING
-        
-        $ionicLoading.show({
-            template: 'Please wait...'
-        });
-    
         //  HIDE LOADING
         $ionicLoading.hide();
-    
+
         //  AUTHENTICATE
-        var authenticatesuccess = function (data, status) {
+        var authenticatesuccess = function(data, status) {
             if (data != "false") {
-                
+
             } else {
                 $location.url("/login");
             };
         };
         MyServices.authenticate().success(authenticatesuccess);
-    
+
         $scope.predictions = [{
             "team1": 60,
             "venue": "Wankhade",
@@ -145,121 +150,127 @@ angular.module('starter.controllers', ['myservices'])
     })
 
 
-.controller('PredictCtrl', function ($scope, $ionicModal, $timeout, $stateParams, MyServices, $ionicLoading, $location) {
+.controller('PredictCtrl', function($scope, $ionicModal, $timeout, $stateParams, MyServices, $ionicLoading, $location) {
 
-        $scope.clickr = true;
+    $scope.clickr = true;
 
-        //  IONIC LOADING
-        
-        $ionicLoading.show({
-            template: 'Please wait...'
-        });
-    
-        //  AUTHENTICATE USER
-    
-        var getuserdetailssuccess = function (data, status) {
-            $.jStorage.set("user", data);
+    //  IONIC LOADING
+
+    $ionicLoading.show({
+        template: 'Please wait...'
+    });
+
+    //  AUTHENTICATE USER
+
+    var getuserdetailssuccess = function(data, status) {
+        $.jStorage.set("user", data);
+    };
+    var authenticatesuccess = function(data, status) {
+        if (data != "false") {
+
+        } else {
+            $ionicLoading.hide();
+            $location.url("/login");
         };
-        var authenticatesuccess = function (data, status) {
-            if (data != "false") {
-                
-            } else {
-                $ionicLoading.hide();
-                $location.url("/login");
-            };
-        };
-        MyServices.authenticate().success(authenticatesuccess);
-        var predictiondata = {};
-        predictiondata.prediction = $stateParams.id;
-    
+    };
+    MyServices.authenticate().success(authenticatesuccess);
+    var predictiondata = {};
+    predictiondata.prediction = $stateParams.id;
+
     $scope.replace = "";
 
-        var hashdesign = function(data, string, index)
-        {
-            for(var k=0; k<data.length; k++)
-            {
-                  var string = string.replace("#"+data[k], "<span class='positive'>#"+data[k]+"</span>");
-            };
-            $scope.predictdata.tweets.statuses[index].text = string;
+    var hashdesign = function(data, string, index) {
+        for (var k = 0; k < data.length; k++) {
+            var string = string.replace("#" + data[k], "<span class='positive'>#" + data[k] + "</span>");
         };
-        
-        var tweeter = function () {
-            console.log($scope.tweets);
-            for (var i = 0; i < $scope.tweets.length; i++) {
-                //GET STRING
-                var string = $scope.tweets[i].text;
-                
-                var hastagarray = $scope.tweets[i].entities.hashtags;
-                //CLEAN INDICES ARAY
-                var textarray = [];
-                //ITERATE HASTAG
-                for (var j = 0; j < hastagarray.length; j++) {
-                    //var indices = hastagarray[j].indices;
-                    //indicesaray.push(indices);
-                    var text = hastagarray[j].text;
-                    textarray.push(text);
-                };
-                hashdesign(textarray, string, i);
+        $scope.predictdata.tweets.statuses[index].text = string;
+    };
+
+    var tweeter = function() {
+        console.log($scope.tweets);
+        for (var i = 0; i < $scope.tweets.length; i++) {
+            //GET STRING
+            var string = $scope.tweets[i].text;
+
+            var hastagarray = $scope.tweets[i].entities.hashtags;
+            //CLEAN INDICES ARAY
+            var textarray = [];
+            //ITERATE HASTAG
+            for (var j = 0; j < hastagarray.length; j++) {
+                //var indices = hastagarray[j].indices;
+                //indicesaray.push(indices);
+                var text = hastagarray[j].text;
+                textarray.push(text);
             };
+            hashdesign(textarray, string, i);
+        };
+    };
+
+    var getpredictionforusersuccess = function(data, status) {
+        console.log(data);
+        $scope.predictdata = data;
+        if ($scope.predictdata.predicted == $scope.predictdata.team1id) {
+            $scope.clickr = true;
+        } else {
+            $scope.clickr = false;
         };
 
-        var getpredictionforusersuccess = function (data, status) {
+        //  ABHAY CONFLICT
+
+        //            $scope.tweets = $scope.predictdata.tweets.statuses;
+        //            tweeter();
+
+        var name1 = getshortform($scope.predictdata.team1id);
+        var name2 = getshortform($scope.predictdata.team2id);
+        $ionicLoading.hide();
+
+    };
+    //GET ALL DETAILS INITIALLY
+    MyServices.getpredictionforuser(predictiondata).success(getpredictionforusersuccess);
+
+
+    $scope.testdesign = "uihauhdhas #hjh";
+
+
+    //USER PREDICTS
+    var userpredictssuccess = function(data, count) {
+        if (count == $scope.countforpredict) {
             console.log(data);
-            $scope.predictdata = data;
-            if ($scope.predictdata.predicted == $scope.predictdata.team1id) {
-                $scope.clickr = true;
-            } else {
-                $scope.clickr = false;
-            };
-            
-            //  ABHAY CONFLICT
-            
-//            $scope.tweets = $scope.predictdata.tweets.statuses;
-//            tweeter();
+            getpredictionforusersuccess(data);
+        }
+    };
+    $scope.countforpredict = 0;
+    $scope.userpredict = function(id, tick) {
+        //CLOSE LAST CALL
 
-            var name1 = getshortform($scope.predictdata.team1id);
-            var name2 = getshortform($scope.predictdata.team2id);
-            $ionicLoading.hide();
 
+        $scope.clickr = tick;
+        var userpredictsdata = {};
+        userpredictsdata.prediction = predictiondata.prediction;
+        userpredictsdata.team = id;
+        MyServices.userpredicts(userpredictsdata, ++$scope.countforpredict, userpredictssuccess);
+    };
+
+})
+    .controller('SidemenuCtrl', function($scope, $ionicModal, $timeout, MyServices, $location) {
+
+        var getuserdetailssuccess = function(data, status) {
+            $.jStorage.set("user", data);
+            $scope.userdetails = data;
         };
-        //GET ALL DETAILS INITIALLY
-        MyServices.getpredictionforuser(predictiondata).success(getpredictionforusersuccess);
-
-
-        $scope.testdesign = "uihauhdhas #hjh";
-
-
-        //USER PREDICTS
-        var userpredictssuccess = function (data, count) {
-            if (count == $scope.countforpredict) {
-                console.log(data);
-                getpredictionforusersuccess(data);
-            }
-        };
-        $scope.countforpredict = 0;
-        $scope.userpredict = function (id, tick) {
-            //CLOSE LAST CALL
-
-
-            $scope.clickr = tick;
-            var userpredictsdata = {};
-            userpredictsdata.prediction = predictiondata.prediction;
-            userpredictsdata.team = id;
-            MyServices.userpredicts(userpredictsdata, ++$scope.countforpredict, userpredictssuccess);
-        };
-
-    })
-    .controller('SidemenuCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location) {
-
-        $scope.userdetails = $.jStorage.get("user");
+        if ($.jStorage.get("user")) {
+            $scope.userdetails = $.jStorage.get("user");
+        } else {
+            MyServices.getuserdetails().success(getuserdetailssuccess);
+        }
 
         //SIGN OUT
-        var logoutsuccess = function (data, status) {
+        var logoutsuccess = function(data, status) {
             if (data == "true") {
                 $location.path("/login");
             };
         };
-        $scope.logout = function () {
+        $scope.logout = function() {
             MyServices.logout().success(logoutsuccess);
         };
 

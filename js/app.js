@@ -22,6 +22,7 @@ predictoapp.run(function($ionicPlatform) {
 
 predictoapp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     $ionicConfigProvider.views.maxCache(0);
+    $ionicConfigProvider.views.swipeBackEnabled(false);
     $stateProvider
 
 

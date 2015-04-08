@@ -81,6 +81,37 @@ angular.module('starter.controllers', ['myservices'])
 
         var predictiondata = {};
         predictiondata.prediction = $stateParams.id;
+    
+    $scope.replace = "";
+
+        var hashdesign = function(data, string, index)
+        {
+            for(var k=0; k<data.length; k++)
+            {
+                  var string = string.replace("#"+data[k], "<span class='positive'>#"+data[k]+"</span>");
+            };
+            $scope.predictdata.tweets.statuses[index].text = string;
+        };
+        
+        var tweeter = function () {
+            console.log($scope.tweets);
+            for (var i = 0; i < $scope.tweets.length; i++) {
+                //GET STRING
+                var string = $scope.tweets[i].text;
+                
+                var hastagarray = $scope.tweets[i].entities.hashtags;
+                //CLEAN INDICES ARAY
+                var textarray = [];
+                //ITERATE HASTAG
+                for (var j = 0; j < hastagarray.length; j++) {
+                    //var indices = hastagarray[j].indices;
+                    //indicesaray.push(indices);
+                    var text = hastagarray[j].text;
+                    textarray.push(text);
+                };
+                hashdesign(textarray, string, i);
+            };
+        };
 
         var getpredictionforusersuccess = function (data, status) {
             console.log(data);
@@ -90,15 +121,16 @@ angular.module('starter.controllers', ['myservices'])
             } else {
                 $scope.clickr = false;
             };
-            var name1 = getshortform($scope.predictdata.team1id);
-            var name2 = getshortform($scope.predictdata.team2id);
+            $scope.tweets = $scope.predictdata.tweets.statuses;
+            tweeter();
         };
         //GET ALL DETAILS INITIALLY
         MyServices.getpredictionforuser(predictiondata).success(getpredictionforusersuccess);
 
 
-        $scope.testdesign = "<h3>TEST</h3>";
-    
+        $scope.testdesign = "uihauhdhas #hjh";
+
+
         //USER PREDICTS
         var userpredictssuccess = function (data, count) {
             if (count == $scope.countforpredict) {
@@ -115,14 +147,14 @@ angular.module('starter.controllers', ['myservices'])
             var userpredictsdata = {};
             userpredictsdata.prediction = predictiondata.prediction;
             userpredictsdata.team = id;
-            MyServices.userpredicts(userpredictsdata,++$scope.countforpredict,userpredictssuccess);
+            MyServices.userpredicts(userpredictsdata, ++$scope.countforpredict, userpredictssuccess);
         };
 
     })
     .controller('SidemenuCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location) {
 
         $scope.userdetails = $.jStorage.get("user");
-    
+
         //SIGN OUT
         var logoutsuccess = function (data, status) {
             if (data == "true") {

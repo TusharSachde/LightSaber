@@ -9,7 +9,8 @@
                         <img ng-src="img/{{predictdata.team1id | imagefromname}}" class="img-responsive">
 
                         <div class="button-hold">
-                            <button class="button button-block button-positive button-outline button-small" ng-class="{clicked: clickr}" >PREDICT</button><!--clickr=true;-->
+                            <button class="button button-block button-positive button-outline button-small" ng-class="{clicked: clickr}">PREDICT</button>
+                            <!--clickr=true;-->
 
                         </div>
                     </div>
@@ -49,8 +50,8 @@
                                 </div>
                                 <div class="col">
                                     <!--<h3>IndiaPremiereLeague <span class="none">@ipl</span></h3>-->
-                                    <p><span class="positive">#PepsiIPL</span>
-                                    <p>{{tweet.text}}</p>
+                                        <div ng-bind-html="replace"></div>
+                                        <p ng-bind-html="tweet.text"></p>
                                 </div>
                             </div>
                     </ion-item>

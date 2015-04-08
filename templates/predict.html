@@ -15,8 +15,9 @@
                         </div>
                     </div>
                     <div class="col col-50 vs-set">
-                        <p class="small">{{predictdata.venue}}, {{prediction.time}}</p>
-                        <p class="bolder">{{predictdata.endtime}}</p>
+                        <p class="small">{{predictdata.venue}}</p>
+                        <p class="bolder">{{predictdata.endtime|date:'MMM d, y'}}</p>
+                        <p class="bolder">{{predictdata.endtime|date:'EEEE, h:mma'}}</p>
                     </div>
                     <div class="col" ng-click="userpredict(predictdata.team2id, false)">
                         <i class="icon ln-circle-checkmark checker" ng-class="{showr: !clickr}"></i>

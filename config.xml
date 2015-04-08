@@ -29,18 +29,36 @@
     <preference name="StatusBarOverlaysWebView" value="true" />
     <preference name="StatusBarBackgroundColor" value="#ffffff" />
     <preference name="StatusBarStyle" value="lightcontent" />
-    
+
+
+
+    <platform name="android">
+        <icon src="icon/android/ldpi/ic_launcher.png" density="ldpi" />
+        <icon src="icon/android/mdpi/ic_launcher.png" density="mdpi" />
+        <icon src="icon/android/hdpi/ic_launcher.png" density="hdpi" />
+        <icon src="icon/android/xhdpi/ic_launcher.png" density="xhdpi" />
+        <icon src="icon/android/xxhdpi/ic_launcher.png" density="xxhdpi" />
+        <icon src="icon/android/xxxhdpi/ic_launcher.png" density="xxxhdpi" />
+    </platform>
+
     <icon src="logo.png" />
+
+    <gap:splash src="screens/android/screen-port-hdpi.png" gap:platform="android" density="port-hdpi" />
+    <gap:splash src="screens/android/screen-port-ldpi.png" gap:platform="android" density="port-ldpi" />
+    <gap:splash src="screens/android/screen-port-mdpi.png" gap:platform="android" density="port-mdpi" />
+    <gap:splash src="screens/android/screen-port-xhdpi.png" gap:platform="android" density="port-xhdpi" />
+    <gap:splash src="screens/android/screen-port-xxhdpi.png" gap:platform="android" density="port-xxhdpi" />
+
     <gap:splash src="img/logo.png" />
-    
+
     <access origin="*" />
     <gap:plugin name="com.ionic.keyboard" />
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="com.phonegap.plugin.statusbar" />
     <gap:plugin name="nl.x-services.plugins.socialsharing" />
     <gap:plugin name="org.apache.cordova.inappbrowser" />
-    <gap:plugin name="com.pushwoosh.plugins.pushwoosh" source="plugins.cordova.io" /> 
-<!--    <gap:plugin name="org.apache.cordova.statusbar" source="plugins.cordova.io" /> -->
+    <gap:plugin name="com.pushwoosh.plugins.pushwoosh" source="plugins.cordova.io" />
+    <!--    <gap:plugin name="org.apache.cordova.statusbar" source="plugins.cordova.io" /> -->
     <feature name="StatusBar">
         <param name="ios-package" value="CDVStatusBar" onload="true" />
     </feature>

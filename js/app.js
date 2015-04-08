@@ -7,17 +7,19 @@
 var predictoapp = angular.module('starter', ['ionic', 'starter.controllers', 'myservices']);
 
 predictoapp.run(function($ionicPlatform) {
-    $ionicPlatform.ready(function() {
-        if (window.cordova && window.cordova.plugins.Keyboard) {
-            // Dont hide accesories
-            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
-        }
-        if (window.StatusBar) {
-            // org.apache.cordova.statusbar required
-            StatusBar.overlaysWebView(true);
-            StatusBar.styleLightContent();
-        }
-    });
+        $ionicPlatform.ready(function() {
+                if (window.cordova && window.cordova.plugins.Keyboard) {
+                    // Dont hide accesories
+                    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
+                }
+                if (window.StatusBar) {
+                    // org.apache.cordova.statusbar required
+                    StatusBar.overlaysWebView(true);
+                    StatusBar.styleLightContent();
+                    StatusBar.backgroundColorByHexSring("#1c7ccc");
+                }
+            }
+        });
 });
 
 predictoapp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {

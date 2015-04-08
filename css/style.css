@@ -248,6 +248,9 @@ p.small {
     font-size: 14px;
 }
 .menu-list .item {
+    font-size: 14px;
+}
+.menu-list .item {
     border-width: 0px;
 }
 .bar .title {
@@ -343,4 +346,10 @@ i.bigr {
 }
 .simple-page {
     padding-top: 37%;
+}
+.width32 {
+  width: 55px;
+  padding: 5px;
+  overflow: hidden;
+  max-height: 70px;
 }

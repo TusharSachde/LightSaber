@@ -6,8 +6,8 @@
 // 'starter.controllers' is found in controllers.js
 var predictoapp = angular.module('starter', ['ionic', 'starter.controllers', 'myservices']);
 
-predictoapp.run(function ($ionicPlatform) {
-    $ionicPlatform.ready(function () {
+predictoapp.run(function($ionicPlatform) {
+    $ionicPlatform.ready(function() {
         if (window.cordova && window.cordova.plugins.Keyboard) {
             // Dont hide accesories
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
@@ -20,12 +20,12 @@ predictoapp.run(function ($ionicPlatform) {
     });
 });
 
-predictoapp.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+predictoapp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     $ionicConfigProvider.views.maxCache(0);
     $stateProvider
 
 
-        .state('login', {
+    .state('login', {
         url: "/login",
         templateUrl: "templates/login.html",
         controller: 'LoginCtrl'
@@ -39,14 +39,14 @@ predictoapp.config(function ($stateProvider, $urlRouterProvider, $ionicConfigPro
     })
 
     .state('app.home', {
-            url: "/home",
-            views: {
-                'menuContent': {
-                    templateUrl: "templates/home.html",
-                    controller: 'HomeCtrl'
-                }
+        url: "/home",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/home.html",
+                controller: 'HomeCtrl'
             }
-        })
+        }
+    })
         .state('app.predict', {
             url: "/predict/:id",
             views: {
@@ -88,42 +88,92 @@ predictoapp.config(function ($stateProvider, $urlRouterProvider, $ionicConfigPro
 
 });
 
-predictoapp.filter('imagefromname', function () {
-    return function (id) {
+predictoapp.filter('imagefromname', function() {
+    return function(id) {
         switch (id) {
-        case "1":
-            return "king.png";
-            break;
-        case "2":
-            return "kkr.png";
-            break;
-        case "3":
-            return "rc.png";
-            break;
-        case "4":
-            return "mumbai.png";
-            break;
-        case "5":
-            return "punjab.png";
-            break;
-        case "6":
-            return "delhi.png";
-            break;
-        case "7":
-            return "royal.png";
-            break;
-        case "8":
-            return "sunrise.png";
-            break;
-        default:
-            return "nologo.png";
+            case "1":
+                return "king.png";
+                break;
+            case "2":
+                return "kkr.png";
+                break;
+            case "3":
+                return "rc.png";
+                break;
+            case "4":
+                return "mumbai.png";
+                break;
+            case "5":
+                return "punjab.png";
+                break;
+            case "6":
+                return "delhi.png";
+                break;
+            case "7":
+                return "royal.png";
+                break;
+            case "8":
+                return "sunrise.png";
+                break;
+            default:
+                return "nologo.png";
         };
     };
 });
 
-predictoapp.filter('shortform', function () {
-    return function (id) {
+predictoapp.filter('shortform', function() {
+    return function(id) {
         switch (id) {
+            case "1":
+                return "CSK";
+                break;
+            case "2":
+                return "KKR";
+                break;
+            case "3":
+                return "RCB";
+                break;
+            case "4":
+                return "MI";
+                break;
+            case "5":
+                return "KXIP";
+                break;
+            case "6":
+                return "DD";
+                break;
+            case "7":
+                return "RR";
+                break;
+            case "8":
+                return "SH";
+                break;
+            default:
+                return "NA";
+        };
+    };
+});
+
+predictoapp.filter('normal2original', function() {
+    return function(url) {
+        if (url) {
+            url = url.replace("_normal.", ".");
+        }
+        return url;
+    };
+});
+predictoapp.filter('normal2bigger', function() {
+    return function(url) {
+        if (url) {
+            url = url.replace("_normal.", "_bigger.");
+        }
+        return url;
+    };
+});
+
+
+function getshortform(id) {
+    switch (id) {
         case "1":
             return "CSK";
             break;
@@ -150,51 +200,5 @@ predictoapp.filter('shortform', function () {
             break;
         default:
             return "NA";
-        };
-    };
-});
-
-predictoapp.filter('normal2original', function () {
-    return function (url) {
-        url=url.replace("_normal.", ".");
-        return url;
-    };
-});
-predictoapp.filter('normal2bigger', function () {
-    return function (url) {
-        url=url.replace("_normal.", "_bigger.");
-        return url;
-    };
-});
-
-
-function getshortform(id) {
-    switch (id) {
-    case "1":
-        return "CSK";
-        break;
-    case "2":
-        return "KKR";
-        break;
-    case "3":
-        return "RCB";
-        break;
-    case "4":
-        return "MI";
-        break;
-    case "5":
-        return "KXIP";
-        break;
-    case "6":
-        return "DD";
-        break;
-    case "7":
-        return "RR";
-        break;
-    case "8":
-        return "SH";
-        break;
-    default:
-        return "NA";
     };
 }

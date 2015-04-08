@@ -75,13 +75,11 @@ angular.module('starter.controllers', ['myservices'])
 
     //  AUTHENTICATE USER
 
-    var getuserdetailssuccess = function(data, status) {
-        $.jStorage.set("user", data);
-    };
+
     var authenticatesuccess = function(data, status) {
         console.log(data);
         if (data != "false") {
-            MyServices.getuserdetails().success(getuserdetailssuccess);
+            console.log("Stay at home");
         } else {
             $location.url("/login");
         };
@@ -270,14 +268,13 @@ angular.module('starter.controllers', ['myservices'])
     .controller('SidemenuCtrl', function($scope, $ionicModal, $timeout, MyServices, $location) {
 
         var getuserdetailssuccess = function(data, status) {
-            $.jStorage.set("user", data);
             $scope.userdetails = data;
         };
-        if ($.jStorage.get("user")) {
-            $scope.userdetails = $.jStorage.get("user");
-        } else {
+        $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+            console.log("State Change is called");
             MyServices.getuserdetails().success(getuserdetailssuccess);
-        }
+        });
+
 
         //SIGN OUT
         var logoutsuccess = function(data, status) {
@@ -287,15 +284,6 @@ angular.module('starter.controllers', ['myservices'])
         };
         $scope.logout = function() {
             MyServices.logout().success(logoutsuccess);
-        };
-
-        $scope.prediction = {
-            "team1": 60,
-            "venue": "Wankhade",
-            "date": "Wed, April 8",
-            "time": "20:00(IST)",
-            "logoteam1": "mumbai.png",
-            "logoteam2": "kkr.png"
         };
 
         $scope.clickr = '';

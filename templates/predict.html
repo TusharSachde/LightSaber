@@ -1,15 +1,15 @@
-<ion-view view-title="KKR vs MI">
+<ion-view view-title="{{predictdata.team1id | shortform}} vs {{predictdata.team2id | shortform}}">
     <ion-content class="padding">
         <ion-list class="fixtures bar-above">
 
             <ion-item class="team-set">
                 <div class="row">
-                    <div class="col" ng-click="clickr=true;">
+                    <div class="col" ng-click="userpredict(predictdata.team1id, true)">
                         <i class="icon ln-circle-checkmark checker" ng-class="{showr: clickr}"></i>
                         <img ng-src="img/{{predictdata.team1id | imagefromname}}" class="img-responsive">
 
                         <div class="button-hold">
-                            <button class="button button-block button-positive button-outline button-small" ng-class="{clicked: clickr}" ng-click="userpredict(predictdata.team1id, true);">PREDICT</button><!--clickr=true;-->
+                            <button class="button button-block button-positive button-outline button-small" ng-class="{clicked: clickr}" >PREDICT</button><!--clickr=true;-->
 
                         </div>
                     </div>
@@ -17,17 +17,17 @@
                         <p class="small">{{predictdata.venue}}, {{prediction.time}}</p>
                         <p class="bolder">{{predictdata.endtime}}</p>
                     </div>
-                    <div class="col" ng-click="clickr=false;">
+                    <div class="col" ng-click="userpredict(predictdata.team2id, false)">
                         <i class="icon ln-circle-checkmark checker" ng-class="{showr: !clickr}"></i>
                         <img ng-src="img/{{predictdata.team2id | imagefromname}}" class="img-responsive">
 
                         <div class="button-hold">
-                            <button class="button button-block button-positive button-outline button-small" ng-class="{clicked: !clickr}" ng-click="userpredict(predictdata.team2id, false);">PREDICT</button>
+                            <button class="button button-block button-positive button-outline button-small" ng-class="{clicked: !clickr}">PREDICT</button>
                         </div>
                     </div>
                 </div>
                 <div class="team lefty" ng-style="{'width':predictdata.team1percent+'%'}" ng-if="predictdata.team1percent != '-1'">{{predictdata.team1percent}}%</div>
-                <div class="team righty" ng-style="{'width':100-predictdata.team1percent+'%'}" ng-if="predictdata.team1percent != '-1'">{{100-prediction.team1}}%</div>
+                <div class="team righty" ng-style="{'width':100-predictdata.team1percent+'%'}" ng-if="predictdata.team1percent != '-1'">{{100-predictdata.team1percent}}%</div>
             </ion-item>
 
         </ion-list>
@@ -41,19 +41,29 @@
             </div>
             <ion-item class="item-text-wrap">
                 <ion-list class="fixtures">
-                    <ion-item href="google.com">
+                    <ion-item class="item-text-wrap" ng-repeat="tweet in predictdata.tweets.statuses">
                         <div class="team-set">
                             <div class="row">
                                 <div class="col col-25">
-                                    <img src="img/mahesh.jpg" alt="" class="full-image">
+                                    <img ng-src="{{tweet.user.profile_image_url|normal2original}}" alt="" class="full-image">
+                                    <img ng-src="{{tweet.user.profile_image_url|normal2original}}" alt="" class="full-image">
+                                    <img ng-src="{{tweet.user.profile_image_url|normal2original}}" alt="" class="full-image">
+                                    <img ng-src="{{tweet.user.profile_image_url|normal2original}}" alt="" class="full-image">
+                                    <img ng-src="{{tweet.user.profile_image_url|normal2original}}" alt="" class="full-image">
+                                    <img ng-src="{{tweet.user.profile_image_url|normal2original}}" alt="" class="full-image">
+                                    <img ng-src="{{tweet.user.profile_image_url|normal2original}}" alt="" class="full-image">
+                                    <img ng-src="{{tweet.user.profile_image_url|normal2original}}" alt="" class="full-image">
+                                    <img ng-src="{{tweet.user.profile_image_url|normal2original}}" alt="" class="full-image">
+                                    <img ng-src="{{tweet.user.profile_image_url|normal2original}}" alt="" class="full-image">
                                 </div>
                                 <div class="col">
-                                    <h3>IndiaPremiereLeague <span class="none">@ipl</span></h3>
-                                    <p><span class="positive">#PepsiIPL</span> 2015 season starts April 8 - Promo</p>
+                                    <!--<h3>IndiaPremiereLeague <span class="none">@ipl</span></h3>
+                                    <p><span class="positive">#PepsiIPL</span>-->
+                                    <p>{{tweet.text}}</p>
                                 </div>
                             </div>
                     </ion-item>
-                    <ion-item class="item-text-wrap">
+                    <!--<ion-item class="item-text-wrap">
                         <div class="row">
                             <div class="col col-25">
                                 <img src="img/mahesh.jpg" alt="" class="full-image">
@@ -140,7 +150,7 @@
                                 <p><span class="positive">#PepsiIPL</span> 2015 season starts April 8 - Promo</p>
                             </div>
                         </div>
-                    </ion-item>
+                    </ion-item>-->
                 </ion-list>
 
 

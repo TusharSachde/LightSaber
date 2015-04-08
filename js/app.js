@@ -120,3 +120,81 @@ predictoapp.filter('imagefromname', function () {
         };
     };
 });
+
+predictoapp.filter('shortform', function () {
+    return function (id) {
+        switch (id) {
+        case "1":
+            return "CSK";
+            break;
+        case "2":
+            return "KKR";
+            break;
+        case "3":
+            return "RCB";
+            break;
+        case "4":
+            return "MI";
+            break;
+        case "5":
+            return "KXIP";
+            break;
+        case "6":
+            return "DD";
+            break;
+        case "7":
+            return "RR";
+            break;
+        case "8":
+            return "SH";
+            break;
+        default:
+            return "NA";
+        };
+    };
+});
+
+predictoapp.filter('normal2original', function () {
+    return function (url) {
+        url=url.replace("_normal.", ".");
+        return url;
+    };
+});
+predictoapp.filter('normal2bigger', function () {
+    return function (url) {
+        url=url.replace("_normal.", "_bigger.");
+        return url;
+    };
+});
+
+
+function getshortform(id) {
+    switch (id) {
+    case "1":
+        return "CSK";
+        break;
+    case "2":
+        return "KKR";
+        break;
+    case "3":
+        return "RCB";
+        break;
+    case "4":
+        return "MI";
+        break;
+    case "5":
+        return "KXIP";
+        break;
+    case "6":
+        return "DD";
+        break;
+    case "7":
+        return "RR";
+        break;
+    case "8":
+        return "SH";
+        break;
+    default:
+        return "NA";
+    };
+}

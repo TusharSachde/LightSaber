@@ -21,9 +21,11 @@ myservices.factory('MyServices', function ($http) {
     returnval.getpredictionforuser = function(data) {
         return $http.post(adminurl + "getpredictionforuser",data );
     };
-    returnval.userpredicts = function(data){
+    returnval.userpredicts = function(data,count,callback){
         console.log(data);
-        return $http.post(adminurl + "userpredicts",data );
+        $http.post(adminurl + "userpredicts",data ).success(function(data1) {
+            callback(data1,count);
+        });
     };
     
     return returnval;

@@ -79,34 +79,48 @@ angular.module('starter.controllers', ['myservices'])
 
         $scope.clickr = true;
 
-        var data = {};
-        data.prediction = $stateParams.id;
-        console.log(data);
+        var predictiondata = {};
+        predictiondata.prediction = $stateParams.id;
 
         var getpredictionforusersuccess = function (data, status) {
             console.log(data);
             $scope.predictdata = data;
+            if ($scope.predictdata.predicted == $scope.predictdata.team1id) {
+                $scope.clickr = true;
+            } else {
+                $scope.clickr = false;
+            };
+            var name1 = getshortform($scope.predictdata.team1id);
+            var name2 = getshortform($scope.predictdata.team2id);
         };
-        MyServices.getpredictionforuser(data).success(getpredictionforusersuccess);
+        //GET ALL DETAILS INITIALLY
+        MyServices.getpredictionforuser(predictiondata).success(getpredictionforusersuccess);
 
 
         //USER PREDICTS
-        var userpredictssuccess = function (data, status) {
-            console.log(data);
+        var userpredictssuccess = function (data, count) {
+            if (count == $scope.countforpredict) {
+                console.log(data);
+                getpredictionforusersuccess(data);
+            }
         };
+        $scope.countforpredict = 0;
         $scope.userpredict = function (id, tick) {
+            //CLOSE LAST CALL
+
+
             $scope.clickr = tick;
             var userpredictsdata = {};
-            userpredictsdata.prediction = data.prediction;
+            userpredictsdata.prediction = predictiondata.prediction;
             userpredictsdata.team = id;
-            MyServices.userpredicts(userpredictsdata).success(userpredictssuccess);
+            MyServices.userpredicts(userpredictsdata,++$scope.countforpredict,userpredictssuccess);
         };
 
     })
     .controller('SidemenuCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location) {
 
         $scope.userdetails = $.jStorage.get("user");
-        $scope.$apply();
+    
         //SIGN OUT
         var logoutsuccess = function (data, status) {
             if (data == "true") {

@@ -97,6 +97,8 @@ angular.module('starter.controllers', ['myservices'])
         MyServices.getpredictionforuser(predictiondata).success(getpredictionforusersuccess);
 
 
+        $scope.testdesign = "<h3>TEST</h3>";
+    
         //USER PREDICTS
         var userpredictssuccess = function (data, count) {
             if (count == $scope.countforpredict) {

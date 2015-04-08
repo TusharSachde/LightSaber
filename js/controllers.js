@@ -79,6 +79,7 @@ angular.module('starter.controllers', ['myservices'])
         $.jStorage.set("user", data);
     };
     var authenticatesuccess = function(data, status) {
+        console.log(data);
         if (data != "false") {
             MyServices.getuserdetails().success(getuserdetailssuccess);
         } else {

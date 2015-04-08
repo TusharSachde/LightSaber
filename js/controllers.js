@@ -177,8 +177,9 @@ angular.module('starter.controllers', ['myservices'])
     var predictiondata = {};
     predictiondata.prediction = $stateParams.id;
 
-    $scope.replace = "";
-
+    
+    
+    //HASH DESIGN
     var hashdesign = function(data, string, index) {
         for (var k = 0; k < data.length; k++) {
             var string = string.replace("#" + data[k], "<span class='positive'>#" + data[k] + "</span>");
@@ -214,14 +215,9 @@ angular.module('starter.controllers', ['myservices'])
         } else {
             $scope.clickr = false;
         };
-
-        //  ABHAY CONFLICT
-
-        //            $scope.tweets = $scope.predictdata.tweets.statuses;
-        //            tweeter();
-
-        var name1 = getshortform($scope.predictdata.team1id);
-        var name2 = getshortform($scope.predictdata.team2id);
+        
+        $scope.tweets = $scope.predictdata.tweets.statuses;
+        tweeter();
         $ionicLoading.hide();
 
     };

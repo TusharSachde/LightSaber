@@ -48,7 +48,19 @@ angular.module('starter.controllers', ['myservices'])
 
 })
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {})
+.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+    //Share
+    if (cordova.platformId == 'android') {
+        var applink = 'https://play.google.com/store/apps/details?id=com.wohlig.predicto';
+    }
+    if (cordova.platformId == 'ios') {
+        var applink = 'https://itunes.apple.com/in/app/whatsapp-messenger/id310633997';
+    }
+    $scope.share = function() {
+        window.plugins.socialsharing.share("Checkout 'Predicto' - " + applink);
+    };
+
+})
 
 .controller('HomeCtrl', function($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading) {
 

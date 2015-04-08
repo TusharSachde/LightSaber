@@ -12,7 +12,7 @@ angular.module('starter.controllers', ['myservices'])
             };
         };
     
-        MyServices.authenticate().success(authentxicatesuccess);
+        MyServices.authenticate().success(authenticatesuccess);
         
         var checktwitter = function(data, status) {
             if (data != "false") {
@@ -210,14 +210,16 @@ angular.module('starter.controllers', ['myservices'])
             } else {
                 $scope.clickr = false;
             };
-<<<<<<< HEAD
-            $scope.tweets = $scope.predictdata.tweets.statuses;
-            tweeter();
-=======
+            
+            //  ABHAY CONFLICT
+            
+//            $scope.tweets = $scope.predictdata.tweets.statuses;
+//            tweeter();
+
             var name1 = getshortform($scope.predictdata.team1id);
             var name2 = getshortform($scope.predictdata.team2id);
             $ionicLoading.hide();
->>>>>>> origin/master
+
         };
         //GET ALL DETAILS INITIALLY
         MyServices.getpredictionforuser(predictiondata).success(getpredictionforusersuccess);

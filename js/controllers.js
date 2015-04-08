@@ -177,8 +177,8 @@ angular.module('starter.controllers', ['myservices'])
     var predictiondata = {};
     predictiondata.prediction = $stateParams.id;
 
-    
-    
+
+
     //HASH DESIGN
     var hashdesign = function(data, string, index) {
         for (var k = 0; k < data.length; k++) {
@@ -189,22 +189,24 @@ angular.module('starter.controllers', ['myservices'])
 
     var tweeter = function() {
         console.log($scope.tweets);
-        for (var i = 0; i < $scope.tweets.length; i++) {
-            //GET STRING
-            var string = $scope.tweets[i].text;
+        if ($scope.tweets) {
+            for (var i = 0; i < $scope.tweets.length; i++) {
+                //GET STRING
+                var string = $scope.tweets[i].text;
 
-            var hastagarray = $scope.tweets[i].entities.hashtags;
-            //CLEAN INDICES ARAY
-            var textarray = [];
-            //ITERATE HASTAG
-            for (var j = 0; j < hastagarray.length; j++) {
-                //var indices = hastagarray[j].indices;
-                //indicesaray.push(indices);
-                var text = hastagarray[j].text;
-                textarray.push(text);
+                var hastagarray = $scope.tweets[i].entities.hashtags;
+                //CLEAN INDICES ARAY
+                var textarray = [];
+                //ITERATE HASTAG
+                for (var j = 0; j < hastagarray.length; j++) {
+                    //var indices = hastagarray[j].indices;
+                    //indicesaray.push(indices);
+                    var text = hastagarray[j].text;
+                    textarray.push(text);
+                };
+                hashdesign(textarray, string, i);
             };
-            hashdesign(textarray, string, i);
-        };
+        }
     };
 
     var getpredictionforusersuccess = function(data, status) {
@@ -215,8 +217,9 @@ angular.module('starter.controllers', ['myservices'])
         } else {
             $scope.clickr = false;
         };
-        
-        $scope.tweets = $scope.predictdata.tweets.statuses;
+        if ($scope.predictdata.tweets) {
+            $scope.tweets = $scope.predictdata.tweets.statuses;
+        }
         tweeter();
         $ionicLoading.hide();
 

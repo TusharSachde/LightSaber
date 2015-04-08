@@ -40,24 +40,18 @@
             <div class="item item-divider">
                 <i class="icon ion-social-twitter pull-right"></i> Recent Tweets
             </div>
-            <ion-item class="item-text-wrap">
-                <ion-list class="fixtures">
-                    <ion-item class="item-text-wrap" ng-repeat="tweet in predictdata.tweets.statuses">
-
-                        <div class="row">
-                            <div class="width32">
-                                <img ng-src="{{tweet.user.profile_image_url|normal2original}}" alt="" class="full-image">
-                            </div>
-                            <div class="col">
-                                <!--<h3>IndiaPremiereLeague <span class="none">@ipl</span></h3>-->
-                                <div ng-bind-html="replace"></div>
-                                <p ng-bind-html="tweet.text"></p>
-                            </div>
-                        </div>
-                    </ion-item>
-                </ion-list>
-
-
+            <ion-item class="item-text-wrap" ng-repeat="tweet in predictdata.tweets.statuses">
+                <div class="row">
+                    <div class="width32">
+                        <img ng-src="{{tweet.user.profile_image_url|normal2original}}" alt="" class="full-image">
+                    </div>
+                    <div class="col">
+                        <!--<h3>IndiaPremiereLeague <span class="none">@ipl</span></h3>-->
+                        <div ng-bind-html="replace"></div>
+                        <p ng-bind-html="tweet.text"></p>
+                    </div>
+                </div>
+            </ion-item>
     </ion-content>
 
     <!--

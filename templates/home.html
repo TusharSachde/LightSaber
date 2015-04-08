@@ -9,8 +9,9 @@
                         <img ng-src="img/{{prediction.team1id | imagefromname}}" class="img-responsive">
                     </div>
                     <div class="col col-50 vs-set">
-                        <p class="small">{{prediction.venue}}, {{prediction.time}}</p>
-                        <p class="bolder">{{prediction.endtime}}</p>
+                        <p class="small">{{prediction.venue}}</p>
+                        <p class="bolder">{{prediction.endtime|date:'MMM d, y'}}</p>
+                        <p class="bolder">{{prediction.endtime|date:'EEEE, h:mma'}}</p>
                     </div>
                     <div class="col">
                         <img ng-src="img/{{prediction.team2id | imagefromname}}" class="img-responsive">

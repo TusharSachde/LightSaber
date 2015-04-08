@@ -33,12 +33,12 @@
 
 
     <platform name="android">
-        <icon src="icon/android/ldpi/ic_launcher.png" density="ldpi" />
-        <icon src="icon/android/mdpi/ic_launcher.png" density="mdpi" />
-        <icon src="icon/android/hdpi/ic_launcher.png" density="hdpi" />
-        <icon src="icon/android/xhdpi/ic_launcher.png" density="xhdpi" />
-        <icon src="icon/android/xxhdpi/ic_launcher.png" density="xxhdpi" />
-        <icon src="icon/android/xxxhdpi/ic_launcher.png" density="xxxhdpi" />
+        <icon src="icon/android/drawable-ldpi/ic_launcher.png" density="ldpi" />
+        <icon src="icon/android/drawable-mdpi/ic_launcher.png" density="mdpi" />
+        <icon src="icon/android/drawable-hdpi/ic_launcher.png" density="hdpi" />
+        <icon src="icon/android/drawable-xhdpi/ic_launcher.png" density="xhdpi" />
+        <icon src="icon/android/drawable-xxhdpi/ic_launcher.png" density="xxhdpi" />
+        <icon src="icon/android/drawable-xxxhdpi/ic_launcher.png" density="xxxhdpi" />
     </platform>
 
     <icon src="logo.png" />

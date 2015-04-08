@@ -166,7 +166,8 @@ angular.module('starter.controllers', ['myservices'])
 
 .controller('PredictCtrl', function($scope, $ionicModal, $timeout, $stateParams, MyServices, $ionicLoading, $location) {
 
-    $scope.clickr = true;
+    $scope.clickr1 = false;
+    $scope.clickr2 = false;
 
     //  IONIC LOADING
 
@@ -227,10 +228,11 @@ angular.module('starter.controllers', ['myservices'])
         console.log(data);
         $scope.predictdata = data;
         if ($scope.predictdata.predicted == $scope.predictdata.team1id) {
-            $scope.clickr = true;
-        } else {
-            $scope.clickr = false;
-        };
+            $scope.clickr1 = true;
+        } 
+        if ($scope.predictdata.predicted == $scope.predictdata.team2id) {
+            $scope.clickr2 = true;
+        }
         if ($scope.predictdata.tweets) {
             $scope.tweets = $scope.predictdata.tweets.statuses;
         }
@@ -255,9 +257,17 @@ angular.module('starter.controllers', ['myservices'])
     $scope.countforpredict = 0;
     $scope.userpredict = function(id, tick) {
         //CLOSE LAST CALL
-
-
-        $scope.clickr = tick;
+        if(tick==1)
+        {
+            $scope.clickr1=true;
+            $scope.clickr2=false;
+        } else if(tick==2)
+        {
+            $scope.clickr1=false;
+            $scope.clickr2=true;
+        };
+        
+        
         var userpredictsdata = {};
         userpredictsdata.prediction = predictiondata.prediction;
         userpredictsdata.team = id;

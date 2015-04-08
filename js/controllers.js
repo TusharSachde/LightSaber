@@ -1,3 +1,4 @@
+var ref = 0;
 angular.module('starter.controllers', ['myservices'])
 
 .controller('LoginCtrl', function ($scope, $ionicModal, $timeout, $interval, $location, MyServices) {

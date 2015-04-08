@@ -12,9 +12,9 @@ angular.module('starter.controllers', ['myservices'])
 
     var authenticatesuccess = function(data, status) {
         if (data != "false") {
-            MyServices.getuserdetails().success(getuserdetailssuccess);
+            $location.url("/app/home");
         } else {
-            $location.url("/login");
+            console.log("stay here");
         };
     };
 
@@ -38,7 +38,7 @@ angular.module('starter.controllers', ['myservices'])
     $scope.twitterlogin = function() {
         console.log(window.location);
         var abc = window.location.origin + window.location.pathname;
-        ref = window.open('http://www.wohlig.co.in/LightSaberBackend/index.php/hauth/login/Twitter?returnurl=' + abc, '_blank', 'location=no');
+        ref = window.open('http://www.wohlig.co.in/LightSaberBackend/index.php/hauth/login/Twitter?returnurl=http://www.wohlig.com', '_blank', 'location=no');
         stopinterval = $interval(callAtIntervaltwitter, 2000);
         ref.addEventListener('exit', function(event) {
             MyServices.authenticate().success(authenticatesuccess);

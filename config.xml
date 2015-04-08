@@ -30,16 +30,12 @@
     <preference name="StatusBarBackgroundColor" value="#ffffff" />
     <preference name="StatusBarStyle" value="lightcontent" />
 
-
-
-    <platform name="android">
-        <icon src="icon/android/drawable-ldpi/ic_launcher.png" density="ldpi" />
-        <icon src="icon/android/drawable-mdpi/ic_launcher.png" density="mdpi" />
-        <icon src="icon/android/drawable-hdpi/ic_launcher.png" density="hdpi" />
-        <icon src="icon/android/drawable-xhdpi/ic_launcher.png" density="xhdpi" />
-        <icon src="icon/android/drawable-xxhdpi/ic_launcher.png" density="xxhdpi" />
-        <icon src="icon/android/drawable-xxxhdpi/ic_launcher.png" density="xxxhdpi" />
-    </platform>
+    <icon src="icon/android/drawable-ldpi/ic_launcher.png" gap:platform="android" density="ldpi" />
+    <icon src="icon/android/drawable-mdpi/ic_launcher.png" gap:platform="android" density="mdpi" />
+    <icon src="icon/android/drawable-hdpi/ic_launcher.png" gap:platform="android" density="hdpi" />
+    <icon src="icon/android/drawable-xhdpi/ic_launcher.png" gap:platform="android" density="xhdpi" />
+    <icon src="icon/android/drawable-xxhdpi/ic_launcher.png" gap:platform="android" density="xxhdpi" />
+    <icon src="icon/android/drawable-xxxhdpi/ic_launcher.png" gap:platform="android" density="xxxhdpi" />
 
     <icon src="logo.png" />
 

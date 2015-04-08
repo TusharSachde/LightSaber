@@ -77,7 +77,7 @@ a:hover {
 .set-login i {
     font-size: 20px;
     padding-right: 10px;
-    vertical-align: middle;
+    vertical-align: bottom;
 }
 .login-in {
     position: fixed;

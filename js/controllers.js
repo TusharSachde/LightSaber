@@ -185,7 +185,7 @@ angular.module('starter.controllers', ['myservices'])
     })
 
 
-.controller('PredictCtrl', function ($scope, $ionicModal, $timeout, $stateParams, MyServices, $ionicLoading, $location) {
+.controller('PredictCtrl', function ($scope, $ionicModal, $timeout, $stateParams, MyServices, $ionicLoading, $location,$ionicPopup) {
 
         $scope.clickr1 = false;
         $scope.clickr2 = false;
@@ -286,12 +286,27 @@ angular.module('starter.controllers', ['myservices'])
                     $scope.clickr1 = false;
                     $scope.clickr2 = true;
                 };
-
-
+                
                 var userpredictsdata = {};
                 userpredictsdata.prediction = predictiondata.prediction;
                 userpredictsdata.team = id;
                 MyServices.userpredicts(userpredictsdata, ++$scope.countforpredict, userpredictssuccess);
+                
+                $scope.showPopup = function () {
+        $scope.data = {}
+
+        // An elaborate, custom popup
+        var myPopup = $ionicPopup.show({
+            template: '<p>We have your prediction, points will be updated after the match !s</p>',
+            title: 'Thank You!',
+            scope: $scope,
+
+        });
+        $timeout(function () {
+            myPopup.close(); //close the popup after 3 seconds for some reason
+        }, 1500);
+    };
+                
             };
         };
 

@@ -57,10 +57,10 @@ angular.module('starter.controllers', ['myservices'])
     //        var applink = 'https://itunes.apple.com/in/app/whatsapp-messenger/id310633997';
     //    }
 
-    var applink = 'https://play.google.com/store/apps/details?id=com.wohlig.predicto';
+    var applink = 'https://play.google.com/store/apps/details?id=com.predicto';
 
     $scope.share = function () {
-        window.plugins.socialsharing.share("Checkout 'Predicto' - " + applink);
+        window.plugins.socialsharing.share("Check out 'Predicto' - " + applink);
     };
 
 })

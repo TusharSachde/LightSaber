@@ -291,24 +291,24 @@ angular.module('starter.controllers', ['myservices'])
                 userpredictsdata.prediction = predictiondata.prediction;
                 userpredictsdata.team = id;
                 MyServices.userpredicts(userpredictsdata, ++$scope.countforpredict, userpredictssuccess);
-                
-                $scope.showPopup = function () {
+                $scope.showPopup();
+            };
+        };
+    
+    $scope.showPopup = function () {
         $scope.data = {}
 
         // An elaborate, custom popup
         var myPopup = $ionicPopup.show({
-            template: '<p>We have your prediction, points will be updated after the match !s</p>',
+            template: '<p class="text-center"><i class="icon ln-thumbs-up bigr positive"></i><br>Your prediction has been recorded, points will be updated after the match is over !</p>',
             title: 'Thank You!',
             scope: $scope,
 
         });
         $timeout(function () {
             myPopup.close(); //close the popup after 3 seconds for some reason
-        }, 1500);
+        }, 3000);
     };
-                
-            };
-        };
 
     })
     .controller('SidemenuCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location) {

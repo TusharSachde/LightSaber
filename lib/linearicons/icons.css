@@ -3,8 +3,7 @@
 	src:url('Linearicons.eot?-m09hd');
 	src:url('Linearicons.eot?#iefix-m09hd') format('embedded-opentype'),
 		url('Linearicons.woff?-m09hd') format('woff'),
-		url('Linearicons.ttf?-m09hd') format('truetype'),
-		url('Linearicons.svg?-m09hd#Linearicons') format('svg');
+		url('Linearicons.ttf?-m09hd') format('truetype');
 	font-weight: bold;
 	font-style: normal;
 	font-size: 20px;

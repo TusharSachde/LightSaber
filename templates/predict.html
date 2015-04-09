@@ -16,8 +16,8 @@
                     </div>
                     <div class="col col-50 vs-set">
                         <p class="small">{{predictdata.venue}}</p>
-                        <p class="bolder">{{predictdata.endtime|date:'MMM d, y'}}</p>
-                        <p class="bolder">{{predictdata.endtime|date:'EEEE, h:mma'}}</p>
+                        <p class="bolder">{{predictdata.starttime|date:'MMM d, y'}}</p>
+                        <p class="bolder">{{predictdata.starttime|date:'EEEE, h:mma'}}</p>
                         <p class="bolder">15 mins left</p>
                     </div>
                     <div class="col" ng-click="userpredict(predictdata.status, predictdata.team2id, 2)">

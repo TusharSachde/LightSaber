@@ -92,19 +92,21 @@ angular.module('starter.controllers', ['myservices'])
             $scope.predictions = data;
             console.log(data);
             $ionicLoading.hide();
+            var i = 0;
+            for (i = 0; i < data.length; i++) {
+                if(data[i].status==1)
+                {
+                    break;
+                }
+            }
 
-            //console.log("scroll now");
-            $location.hash("scrollhere");
-            //$anchorScroll();
-
-            //window.location.hash = "tp";
-            $ionicScrollDelegate.anchorScroll(true);
+            $ionicScrollDelegate.scrollTo(0, 134 * i, true);
         };
         MyServices.getpredictions().success(getpredictionssuccess);
 
         var giveidvar = 0;
         $scope.giveid = function (status) {
-            console.log("IN");
+            console.log(giveidvar);
             if (giveidvar == 0) {
                 if (status == 1) {
                     console.log("mila");
@@ -112,6 +114,7 @@ angular.module('starter.controllers', ['myservices'])
                 };
                 giveidvar = 1;
             };
+            return false;
         };
 
 

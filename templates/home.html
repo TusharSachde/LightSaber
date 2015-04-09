@@ -11,7 +11,7 @@
                     </div>
                     <div class="col col-50 vs-set">
                         <p class="small">{{prediction.venue}}</p>
-                        <p class="bolder" ng-if="prediction.winner == 0">{{prediction.starttime|date:'MMM d, y'}}</p>
+                        <p class="bolder">{{prediction.starttime|date:'MMM d, y'}}</p>
                         <p class="bolder" ng-if="prediction.winner == 0">{{prediction.starttime|date:'EEEE, h:mma'}}</p>
                         <p class="bolder" ng-if="prediction.winner != 0">{{prediction.winner | shortform}} WON</p>
                     </div>

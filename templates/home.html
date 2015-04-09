@@ -3,6 +3,7 @@
         <ion-list class="fixtures">
 
             <ion-item class="team-set" href="#/app/predict/{{prediction.id}}" ng-repeat="prediction in predictions">
+            <div id="scrollhere" ng-if="prediction.status == 1"></div>
 <i class="mark" ng-class="{green:prediction.status == 1, red:prediction.status != 1}"></i>
                 <div class="row">
                     <div class="col">
@@ -22,7 +23,6 @@
                 <div class="team righty" ng-style="{'width':100-prediction.team1percent+'%'}" ng-if="prediction.team1percent != '-1'">{{100-prediction.team1percent}}%</div>
 
             </ion-item>
-            
 
 
         </ion-list>

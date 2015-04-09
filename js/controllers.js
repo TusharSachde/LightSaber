@@ -65,7 +65,7 @@ angular.module('starter.controllers', ['myservices'])
 
 })
 
-.controller('HomeCtrl', function($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading) {
+.controller('HomeCtrl', function($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading, $anchorScroll, $ionicScrollDelegate) {
 
     //  IONIC LOADING
 
@@ -92,9 +92,30 @@ angular.module('starter.controllers', ['myservices'])
         $scope.predictions = data;
         console.log(data);
         $ionicLoading.hide();
-
+        
+        //console.log("scroll now");
+        $location.hash("scrollhere");
+        //$anchorScroll();
+        
+        //window.location.hash = "tp";
+        $ionicScrollDelegate.anchorScroll(true);
     };
     MyServices.getpredictions().success(getpredictionssuccess);
+    
+    var giveidvar = 0;
+    $scope.giveid = function(status)
+    {
+        console.log("IN");
+        if(giveidvar == 0)
+        {
+            if(status == 1)
+            {
+                console.log("mila");
+                return true;
+            };
+            giveidvar = 1;
+        };
+    };
 
 
 })

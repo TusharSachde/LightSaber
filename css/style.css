@@ -426,3 +426,8 @@ i.bigr {
 .loading-container .loading {
     background-color: #1C7CCC;
 }
+
+.pane,
+.view {
+    background-color: #EEF4F7;
+}

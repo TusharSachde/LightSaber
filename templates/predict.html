@@ -3,6 +3,8 @@
         <ion-list class="fixtures bar-above">
 
             <ion-item class="team-set">
+               
+<i class="mark" ng-class="{green:predictdata.status == 1, red:predictdata.status != 1}"></i>
                 <div class="row">
                     <div class="col" ng-click="userpredict(predictdata.status, predictdata.team1id, 1)">
                         <i class="icon ln-circle-checkmark checker" ng-class="{showr: clickr1}"></i>

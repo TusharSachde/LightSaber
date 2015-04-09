@@ -4,12 +4,12 @@
 
             <ion-item class="team-set">
                 <div class="row">
-                    <div class="col" ng-click="userpredict(predictdata.team1id, 1)">
+                    <div class="col" ng-click="userpredict(predictdata.status, predictdata.team1id, 1)">
                         <i class="icon ln-circle-checkmark checker" ng-class="{showr: clickr1}"></i>
                         <img ng-src="img/{{predictdata.team1id | imagefromname}}" class="img-responsive">
 
                         <div class="button-hold">
-                            <button class="button button-block button-positive button-outline button-small" ng-class="{clicked: clickr1}">PREDICT</button>
+                            <button class="button button-block button-positive button-outline button-small" ng-class="{clicked: clickr1}" ng-if="predictdata.status == 1">PREDICT</button>
                             <!--clickr=true;-->
 
                         </div>
@@ -20,12 +20,12 @@
                         <p class="bolder">{{predictdata.endtime|date:'EEEE, h:mma'}}</p>
                         <p class="bolder">15 mins left</p>
                     </div>
-                    <div class="col" ng-click="userpredict(predictdata.team2id, 2)">
+                    <div class="col" ng-click="userpredict(predictdata.status, predictdata.team2id, 2)">
                         <i class="icon ln-circle-checkmark checker" ng-class="{showr: clickr2}"></i>
                         <img ng-src="img/{{predictdata.team2id | imagefromname}}" class="img-responsive">
 
                         <div class="button-hold">
-                            <button class="button button-block button-positive button-outline button-small" ng-class="{clicked: clickr2}">PREDICT</button>
+                            <button class="button button-block button-positive button-outline button-small" ng-class="{clicked: clickr2}" ng-if="predictdata.status == 1">PREDICT</button>
                         </div>
                     </div>
                 </div>

@@ -67,13 +67,17 @@ angular.module('starter.controllers', ['myservices'])
 
 })
 
-.controller('HomeCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading, $anchorScroll, $ionicScrollDelegate) {
+.controller('HomeCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading, $anchorScroll, $ionicScrollDelegate, $cordovaNetwork) {
 
-        //  IONIC LOADING
-
-        $ionicLoading.show({
-            template: 'Please wait...'
-        });
+        if ($cordovaNetwork.isOnline()) {
+            $ionicLoading.show({
+                template: 'Please wait...'
+            });
+        } else {
+            $ionicLoading.show({
+                template: 'please check your internet connection'
+            });
+        };
 
         //  AUTHENTICATE USER
 

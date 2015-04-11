@@ -33,7 +33,15 @@ predictoapp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProv
         templateUrl: "templates/login.html",
         controller: 'LoginCtrl'
     })
+    
+    .state('offline', {
+        url: "/offline",
+        templateUrl: "templates/offline.html",
+        controller: 'OfflineCtrl'
+    })
 
+
+    
     .state('app', {
         url: "/app",
         abstract: true,

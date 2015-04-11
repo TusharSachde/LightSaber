@@ -68,21 +68,25 @@ angular.module('starter.controllers', ['myservices'])
 
 })
 
+.controller('OfflineCtrl', function ($scope, $ionicModal, $timeout) {
+
+    function ononline() {
+        $location.url("/app/home");
+    };
+    document.addEventListener("online", ononline, false);
+    $scope.tryagain = function () {
+        ononline();
+    };
+})
+
+
 .controller('HomeCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading, $anchorScroll, $ionicScrollDelegate) {
 
         $ionicLoading.show({
             template: 'please wait...'
         });
 
-        function onOffline() {
-            $location.url("#/offline");
-        };
 
-        function ononline() {
-            $location.url("#/home");
-        };
-        document.addEventListener("online", ononline, false);
-        document.addEventListener("offline", onOffline, false);
 
 
 
@@ -322,6 +326,12 @@ angular.module('starter.controllers', ['myservices'])
         };
         $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
             console.log("State Change is called");
+            
+            function onOffline() {
+                $location.url("/offline");
+            };
+            document.addEventListener("offline", onOffline, false);
+            
             MyServices.getuserdetails().success(getuserdetailssuccess);
         });
 

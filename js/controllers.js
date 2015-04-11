@@ -6,6 +6,7 @@ angular.module('starter.controllers', ['myservices'])
     //  LOGIN WITH TWITER
     MyServices.logout();
     $.jStorage.flush();
+    user=undefined;
     var authenticatesuccess = function (data, status) {
         console.log(data);
         if (data != "false") {

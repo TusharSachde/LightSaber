@@ -20,8 +20,8 @@
                         <p class="small">{{predictdata.venue}}</p>
                                     
                         <p class="bolder" >{{predictdata.starttime|date:'MMM d, y'}}</p>
-                        <p class="bolder" ng-if="prediction.winner == 0">{{predictdata.starttime|date:'EEEE, h:mma'}}</p>
-                        <p class="bolder" ng-if="prediction.winner != 0">{{predictdata.winner | shortform}} WON</p>
+                        <p class="bolder" ng-if="predictdata.winner == 0">{{predictdata.starttime|date:'EEEE, h:mma'}}</p>
+                        <p class="bolder" ng-if="predictdata.winner != 0">{{predictdata.winner | shortform}} WON</p>
                         <!--<p class="bolder">15 mins left</p>-->
                     </div>
                     <div class="col" ng-click="userpredict(predictdata.status, predictdata.team2id, 2)">

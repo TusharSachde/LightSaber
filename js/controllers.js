@@ -10,14 +10,13 @@ angular.module('starter.controllers', ['myservices'])
         console.log(data);
         if (data != "false") {
             $.jStorage.set("user", data);
-            user=data;
+            user = data;
             $location.url("/app/home");
         } else {
             console.log("stay here");
         };
     };
 
-    MyServices.authenticate().success(authenticatesuccess);
 
     var checktwitter = function (data, status) {
         if (data != "false") {
@@ -200,7 +199,7 @@ angular.module('starter.controllers', ['myservices'])
     } else {
         $location.url("/login");
     }
-    
+
     var predictiondata = {};
     predictiondata.prediction = $stateParams.id;
 
@@ -311,13 +310,9 @@ angular.module('starter.controllers', ['myservices'])
 
 
         //SIGN OUT
-        var logoutsuccess = function (data, status) {
-            if (data == "true") {
-                $location.path("/login");
-            };
-        };
-        $scope.logout = function () {
 
+        $scope.logout = function () {
+            $location.path("/login");
         };
 
         $scope.clickr = '';

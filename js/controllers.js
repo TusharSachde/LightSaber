@@ -204,6 +204,7 @@ angular.module('starter.controllers', ['myservices'])
 
         var predictiondata = {};
         predictiondata.prediction = $stateParams.id;
+        predictiondata.user = user.id;
 
 
 
@@ -212,7 +213,10 @@ angular.module('starter.controllers', ['myservices'])
             for (var k = 0; k < data.length; k++) {
                 var string = string.replace("#" + data[k], "<span class='positive'>#" + data[k] + "</span>");
             };
-            $scope.predictdata.tweets.statuses[index].text = string;
+            if($scope.predictdata.tweets)
+            {
+                $scope.predictdata.tweets.statuses[index].text = string;
+            }
         };
 
         var tweeter = function () {
@@ -279,6 +283,7 @@ angular.module('starter.controllers', ['myservices'])
                 var userpredictsdata = {};
                 userpredictsdata.prediction = predictiondata.prediction;
                 userpredictsdata.team = id;
+                userpredictsdata.user = user.id;
                 MyServices.userpredicts(userpredictsdata, ++$scope.countforpredict, userpredictssuccess);
                 $scope.showPopup();
             };

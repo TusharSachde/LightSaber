@@ -5,13 +5,9 @@ angular.module('starter.controllers', ['myservices'])
 
     //  LOGIN WITH TWITER
 
-    var getuserdetailssuccess = function (data, status) {
-        $.jStorage.set("user", data);
-        $location.url("/app/login");
-    };
-
     var authenticatesuccess = function (data, status) {
         if (data != "false") {
+            $.jStorage.set("user", data);
             $location.url("/app/home");
         } else {
             console.log("stay here");

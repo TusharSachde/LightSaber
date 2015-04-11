@@ -36,9 +36,19 @@ angular.module('starter.controllers', ['myservices'])
 
 
     $scope.twitterlogin = function () {
-        console.log(window.location);
-        var abc = window.location.origin + window.location.pathname;
+//        console.log(window.location);
+//        var abc = window.location.origin + window.location.pathname;
         ref = window.open('http://www.wohlig.co.in/LightSaberBackend/index.php/hauth/login/Twitter?returnurl=http://www.wohlig.com', '_blank', 'location=no');
+        stopinterval = $interval(callAtIntervaltwitter, 2000);
+        ref.addEventListener('exit', function (event) {
+            MyServices.authenticate().success(authenticatesuccess);
+            $interval.cancel(stopinterval);
+        });
+    };
+    $scope.facebooklogin = function () {
+//        console.log(window.location);
+//        var abc = window.location.origin + window.location.pathname;
+        ref = window.open('http://www.wohlig.co.in/LightSaberBackend/index.php/hauth/login/Facebook?returnurl=http://www.wohlig.com', '_blank', 'location=no');
         stopinterval = $interval(callAtIntervaltwitter, 2000);
         ref.addEventListener('exit', function (event) {
             MyServices.authenticate().success(authenticatesuccess);

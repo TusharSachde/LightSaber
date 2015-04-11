@@ -53,6 +53,7 @@
     <gap:plugin name="com.phonegap.plugin.statusbar" />
     <gap:plugin name="nl.x-services.plugins.socialsharing" />
     <gap:plugin name="org.apache.cordova.inappbrowser" />
+    <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="com.pushwoosh.plugins.pushwoosh" source="plugins.cordova.io" />
     <!--    <gap:plugin name="org.apache.cordova.statusbar" source="plugins.cordova.io" /> -->
     <feature name="StatusBar">

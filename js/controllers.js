@@ -68,7 +68,7 @@ angular.module('starter.controllers', ['myservices'])
 
 })
 
-.controller('OfflineCtrl', function ($scope, $ionicModal, $timeout) {
+.controller('OfflineCtrl', function ($scope, $ionicModal, $timeout,$location) {
 
     function ononline() {
         $location.url("/app/home");
@@ -77,9 +77,7 @@ angular.module('starter.controllers', ['myservices'])
     $scope.tryagain = function () {
         ononline();
     };
-    if (navigator.connection.type != "none") {
-        ononline();
-    }
+
 })
 
 
@@ -333,11 +331,6 @@ angular.module('starter.controllers', ['myservices'])
         };
         $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
             document.addEventListener("offline", onOffline, false);
-
-            if (navigator.connection.type == "none") {
-                onOffline();
-            }
-
             MyServices.getuserdetails().success(getuserdetailssuccess);
         });
 

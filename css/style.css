@@ -431,3 +431,6 @@ i.bigr {
 .view {
     background-color: #FFFFFF;
 }
+.homepage .col {
+    position:relative;
+}

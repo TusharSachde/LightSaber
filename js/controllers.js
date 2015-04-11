@@ -68,17 +68,18 @@ angular.module('starter.controllers', ['myservices'])
 
 })
 
-.controller('HomeCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading, $anchorScroll, $ionicScrollDelegate, $cordovaNetwork) {
-//
-//        if ($cordovaNetwork.isOnline()) {
-//            $ionicLoading.show({
-//                template: 'Please wait...'
-//            });
-//        } else {
-//            $ionicLoading.show({
-//                template: 'please check your internet connection'
-//            });
-//        };
+.controller('HomeCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading, $anchorScroll, $ionicScrollDelegate) {
+
+        var networkState = navigator.connection.type;
+        if (networkState == Connection.UNKNOWN || networkState == Connection.NONE) {
+            $ionicLoading.show({
+                template: 'please check your internet connection'
+            });
+        } else {
+            $ionicLoading.show({
+                template: 'Please wait...'
+            });
+        };
 
         //  AUTHENTICATE USER
 
@@ -218,8 +219,7 @@ angular.module('starter.controllers', ['myservices'])
             for (var k = 0; k < data.length; k++) {
                 var string = string.replace("#" + data[k], "<span class='positive'>#" + data[k] + "</span>");
             };
-            if($scope.predictdata.tweets)
-            {
+            if ($scope.predictdata.tweets) {
                 $scope.predictdata.tweets.statuses[index].text = string;
             }
         };

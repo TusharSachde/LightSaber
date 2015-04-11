@@ -323,6 +323,6 @@ angular.module('starter.controllers', ['myservices'])
         var applink = 'https://play.google.com/store/apps/details?id=com.predicto';
 
         $scope.share = function () {
-            window.plugins.socialsharing.share("Hey, I have scored " + $scope.userdetails.points + " points with " + $scope.userdetails.prediction + " predictions. \</br> Check out 'Predicto' - " + applink);
+            window.plugins.socialsharing.share("Hey, I have scored " + $scope.userdetails.points + " points with " + $scope.userdetails.prediction + " predictions. Check out 'Predicto' - " + applink);
         };
     });

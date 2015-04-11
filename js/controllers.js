@@ -70,13 +70,20 @@ angular.module('starter.controllers', ['myservices'])
 
 .controller('HomeCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading, $anchorScroll, $ionicScrollDelegate) {
 
-        function onOffline() {
-            $ionicLoading.show({
-                template: 'please check your internet connection'
-            });
+        $ionicLoading.show({
+            template: 'please wait...'
+        });
 
-        }
+        function onOffline() {
+            $location.url("#/offline");
+        };
+
+        function ononline() {
+            $location.url("#/home");
+        };
+        document.addEventListener("online", ononline, false);
         document.addEventListener("offline", onOffline, false);
+
 
 
         //  AUTHENTICATE USER

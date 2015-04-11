@@ -6,7 +6,7 @@ angular.module('starter.controllers', ['myservices'])
     //  LOGIN WITH TWITER
     MyServices.logout();
     $.jStorage.flush();
-    user=undefined;
+    user = undefined;
     var authenticatesuccess = function (data, status) {
         console.log(data);
         if (data != "false") {
@@ -70,16 +70,14 @@ angular.module('starter.controllers', ['myservices'])
 
 .controller('HomeCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading, $anchorScroll, $ionicScrollDelegate) {
 
-        var networkState = navigator.connection.type;
-        if (networkState == Connection.UNKNOWN || networkState == Connection.NONE) {
+        function onOffline() {
             $ionicLoading.show({
                 template: 'please check your internet connection'
             });
-        } else {
-            $ionicLoading.show({
-                template: 'Please wait...'
-            });
-        };
+
+        }
+        document.addEventListener("offline", onOffline, false);
+
 
         //  AUTHENTICATE USER
 

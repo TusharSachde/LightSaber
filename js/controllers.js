@@ -77,6 +77,9 @@ angular.module('starter.controllers', ['myservices'])
     $scope.tryagain = function () {
         ononline();
     };
+    if (navigator.connection.type != "none") {
+        ononline();
+    }
 })
 
 
@@ -324,14 +327,17 @@ angular.module('starter.controllers', ['myservices'])
         var getuserdetailssuccess = function (data, status) {
             $scope.userdetails = data;
         };
+
+        function onOffline() {
+            $location.url("/offline");
+        };
         $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
-            console.log("State Change is called");
-            
-            function onOffline() {
-                $location.url("/offline");
-            };
             document.addEventListener("offline", onOffline, false);
-            
+
+            if (navigator.connection.type == "none") {
+                onOffline();
+            }
+
             MyServices.getuserdetails().success(getuserdetailssuccess);
         });
 

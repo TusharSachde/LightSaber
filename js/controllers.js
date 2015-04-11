@@ -278,8 +278,12 @@ angular.module('starter.controllers', ['myservices'])
         $ionicLoading.hide();
 
     };
+    var getpredictionforusererror=function() {
+        $ionicLoading.hide();
+        $location.url("/offline");
+    }
     //GET ALL DETAILS INITIALLY
-    MyServices.getpredictionforuser(predictiondata).success(getpredictionforusersuccess);
+    MyServices.getpredictionforuser(predictiondata).success(getpredictionforusersuccess).error(getpredictionforusererror);
 
 
     //USER PREDICTS

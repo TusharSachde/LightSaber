@@ -28,7 +28,7 @@ angular.module('starter.controllers', ['myservices'])
         } else {
             console.log("Do nothing");
         }
-    }
+    };
 
     var callAtIntervaltwitter = function () {
         MyServices.authenticate().success(checktwitter);

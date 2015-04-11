@@ -4,11 +4,13 @@ angular.module('starter.controllers', ['myservices'])
 .controller('LoginCtrl', function ($scope, $ionicModal, $timeout, $interval, $location, MyServices) {
 
     //  LOGIN WITH TWITER
-    MyServices.logout().success(logoutsuccess);
+    MyServices.logout();
     $.jStorage.flush();
     var authenticatesuccess = function (data, status) {
+        console.log(data);
         if (data != "false") {
             $.jStorage.set("user", data);
+            user=data;
             $location.url("/app/home");
         } else {
             console.log("stay here");
@@ -19,9 +21,10 @@ angular.module('starter.controllers', ['myservices'])
 
     var checktwitter = function (data, status) {
         if (data != "false") {
-            ref.close();
+            console.log("Facebook Login");
             $interval.cancel(stopinterval);
-            $location.url("app/home");
+            ref.close();
+            MyServices.authenticate().success(authenticatesuccess);
         } else {
             console.log("Do nothing");
         }

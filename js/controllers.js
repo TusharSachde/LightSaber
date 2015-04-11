@@ -193,24 +193,14 @@ angular.module('starter.controllers', ['myservices'])
             template: 'Please wait...'
         });
 
-<<<<<<< HEAD
-    //  AUTHENTICATE USER
-    if (user) {
-        console.log("Stay at home");
-    } else {
-        $location.url("/login");
-    }
 
-    var predictiondata = {};
-    predictiondata.prediction = $stateParams.id;
-=======
         //  AUTHENTICATE USER
         if (user) {
             console.log("Stay at home");
         } else {
             $location.url("/login");
         }
->>>>>>> origin/master
+
 
         var predictiondata = {};
         predictiondata.prediction = $stateParams.id;

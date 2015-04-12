@@ -1,12 +1,13 @@
 var ref = 0;
 angular.module('starter.controllers', ['myservices'])
 
-.controller('LoginCtrl', function ($scope, $ionicModal, $timeout, $interval, $location, MyServices) {
+.controller('LoginCtrl', function ($scope, $ionicModal, $timeout, $interval, $location, MyServices,$ionicLoading) {
 
     //  LOGIN WITH TWITER
     MyServices.logout();
     $.jStorage.flush();
     user = undefined;
+    $ionicLoading.hide();
     var authenticatesuccess = function (data, status) {
         console.log(data);
         if (data != "false") {

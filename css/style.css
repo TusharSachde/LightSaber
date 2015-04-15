@@ -3,24 +3,20 @@
     src: url(../fonts/segoeui.ttf);
     font-weight: 400
 }
-
 @font-face {
     font-family: SegoeUI;
     src: url(../fonts/segoeuil.ttf);
     font-weight: 300
 }
-
 @font-face {
     font-family: SegoeUI;
     src: url(../fonts/segoeuib.ttf);
     font-weight: 500
 }
-
 a,
 a:hover {
     text-decoration: none
 }
-
 .scroll-bg {
     background: #fff;
     -webkit-background-size: 100% 100%;
@@ -28,7 +24,6 @@ a:hover {
     -o-background-size: 100% 100%;
     background-size: 100% 100%
 }
-
 .login-set {
     text-align: center;
     margin: 0 auto;
@@ -36,7 +31,6 @@ a:hover {
     width: 100%;
     bottom: 100px
 }
-
 .set-login {
     text-align: center;
     margin: auto;
@@ -44,7 +38,6 @@ a:hover {
     width: 100%;
     bottom: 40px
 }
-
 .login-set .fb-btn {
     color: #fff;
     padding: 10px 50px;
@@ -53,7 +46,6 @@ a:hover {
     text-transform: uppercase;
     background: #4465ac
 }
-
 .set-login .twitt-btn {
     background: #32c8fa;
     color: #fff;
@@ -67,19 +59,16 @@ a:hover {
     position: relative;
     padding: 10px 58px 10px 50px
 }
-
 .login-set i {
     font-size: 20px;
     padding-right: 10px;
     vertical-align: middle
 }
-
 .set-login i {
     font-size: 20px;
     padding-right: 10px;
     vertical-align: bottom
 }
-
 .login-in {
     position: fixed;
     left: 0;
@@ -87,7 +76,6 @@ a:hover {
     height: 100%;
     bottom: 0
 }
-
 .pic img {
     height: 100%;
     position: absolute;
@@ -99,7 +87,6 @@ a:hover {
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%)
 }
-
 .pic {
     width: 100px;
     -webkit-border-radius: 50%;
@@ -116,72 +103,59 @@ a:hover {
     -o-background-size: cover;
     background-size: cover
 }
-
 .pic h2 {
     font-size: 16px;
     text-transform: uppercase;
     font-weight: 500
 }
-
 .content {
     padding: 0 0 10px
 }
-
 .content h4 {
     margin: 4px 0;
     font-size: 15px
 }
-
 .thin {
     font-size: 17px;
     font-weight: 300
 }
-
 .content h3 {
     font-weight: 100;
     text-transform: uppercase;
     font-size: 14px;
     margin: 0 0 5px
 }
-
 .content h2 {
     font-weight: 500;
     font-size: 22px;
     color: #1c7ccc
 }
-
 .content .col+.col {
     border-left: 1px solid #ccc
 }
-
 .content .row {
     padding: 0;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc
 }
-
 .pic-holder h2 {
     font-weight: 100;
     font-size: 20px;
     margin: 10px 0 15px
 }
-
 .logo {
     text-align: center;
     width: 100%;
     height: 100%
 }
-
 .logo img {
     max-height: 100%;
     max-width: 100%
 }
-
 .team-set {
     width: 100%;
     text-align: center
 }
-
 img.pre-img {
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
@@ -190,44 +164,36 @@ img.pre-img {
     width: 100px;
     border: 1px solid
 }
-
 .pre-tag {
     margin-top: 7px
 }
-
 .fixtures {
     height: 100px;
     padding: 0
 }
-
 p.bolder {
     font-weight: 500;
     font-size: 14px;
     color: #3C3C3C
 }
-
 p.small {
     font-weight: 400;
     font-size: 12px
 }
-
 .vs-set {
     padding-top: 20px
 }
-
 .team-set img {
     max-height: 100%;
     max-width: 100%;
     vertical-align: middle
 }
-
 .fixtures .item {
     border: 1px solid #d7d7d7;
     position: relative;
     height: 125px;
     padding: 0
 }
-
 .team {
     position: absolute;
     bottom: 0;
@@ -243,60 +209,48 @@ p.small {
     transition: all 300ms ease;
     border: 1px solid #1c7ccc
 }
-
 .lefty {
     left: 0;
     background: #1c7ccc
 }
-
 .righty {
     right: 0;
     background: #fff;
     color: #1c7ccc
 }
-
 .fixtures a.item-content {
     padding: 0;
     height: 100%
 }
-
 .team-set+.team-set {
     margin-top: 10px
 }
-
 .menu-list .icon {
     color: #1C7CCC
 }
-
 .menu-list .item,
 .menu-list a.item-content {
     font-size: 14px
 }
-
 .menu-list .item {
     border-width: 0
 }
-
 .bar .title {
     text-transform: uppercase
 }
-
 .small-icon:before {
     font-size: 24px!important
 }
-
 .button.clicked {
     background: #1c7ccc!important;
     color: #fff!important
 }
-
 .col {
     -webkit-transition: all 300ms ease;
     -moz-transition: all 300ms ease;
     -o-transition: all 300ms ease;
     transition: all 300ms ease
 }
-
 .checker {
     position: absolute;
     right: 0;
@@ -309,39 +263,31 @@ p.small {
     opacity: 0;
     font-size: 20px
 }
-
 .bar-above .col {
     position: relative
 }
-
 .showr {
     opacity: 1
 }
-
 .bar-above .item {
     max-height: 160px;
     min-height: 150px;
     height: auto
 }
-
 .bar-above .team-set .row {
     padding-bottom: 25px
 }
-
 .twitter .item {
     padding: 0;
     border: 0
 }
-
 .twitter .item+.item {
     border-top: 1px solid #ccc
 }
-
 span.none {
     font-size: 11px;
     color: #6E6E6E
 }
-
 .twitter .item.item-divider {
     padding: 10px;
     color: #1C7CCC;
@@ -349,11 +295,9 @@ span.none {
     background: #fff;
     font-size: 17px
 }
-
 .bar .title {
     font-size: 18px
 }
-
 .item .badge {
     top: 5px;
     left: 50%;
@@ -366,39 +310,31 @@ span.none {
     display: inline;
     font-weight: 400
 }
-
 .badge.badge-balanced {
     background-color: #1CBA30
 }
-
 .badge.badge-assertive {
     background-color: #E23705
 }
-
 .history .col {
     position: relative
 }
-
 i.bigr {
     font-size: 40px
 }
-
 .simple-page h4 {
     font-weight: 100;
     font-size: 16px
 }
-
 .simple-page {
     padding-top: 37%
 }
-
 .width32 {
     width: 55px;
     padding: 5px;
     overflow: hidden;
     max-height: 70px
 }
-
 .mark {
     height: 10px;
     width: 10px;
@@ -410,27 +346,94 @@ i.bigr {
     -moz-border-radius: 50%;
     border-radius: 50%
 }
-
 .mark.green {
     background: #1CBB1C
 }
-
 .mark.red {
     background: #FA4343
 }
-
 .backdrop {
     background-color: rgba(0, 0, 0, 0.71);
 }
-
 .loading-container .loading {
     background-color: #1C7CCC;
 }
-
 .pane,
 .view {
     background-color: #FFFFFF;
 }
 .homepage .col {
-    position:relative;
+    position: relative;
+}
+.leaders .pic {
+    margin: 0 auto;
+}
+.leaders .pic1 {
+    height: 90px;
+    width: 90px;
+    margin-top: 5px;
+}
+.leaders .pic2 {
+    height: 80px;
+    width: 80px;
+    margin-top: 15px;
+}
+.leaders .pic3 {
+    height: 70px;
+    width: 70px;
+    margin-top: 25px;
+}
+.leaders .pictop {
+    display: inherit;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.leaders {
+    display: inline-block;
+}
+.pictop+.pictop {
+    margin-left: 10px;
+}
+.leaders h3 {
+    margin: 5px 0 0;
+    font-size: 14px;
+    font-weight: 400;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    max-width: 90px;
+    max-height: 20px;
+    overflow: hidden;
+}
+.leaders p {
+    margin: 3px 0 0;
+    font-size: 16px;
+    font-weight: 300;
+}
+.leaders h4 {
+    font-weight: 100;
+    font-size: 12px;
+    margin: 5px 0 0;
+}
+.more-leaders .item {
+    background: white;
+    padding: 0px;
+    min-height: 60px;
+}
+.item-leader.item {
+    padding: 10px 10px 10px 60px;
+}
+.pic.pic-leader {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 10px;
+    margin: 0;
+    left: 10px;
+}
+.more-leaders .item-leader h4 {
+    position: absolute;
+    margin: 0px;
+    right: 15px;
+    top: 22px;
 }

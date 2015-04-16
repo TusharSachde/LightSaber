@@ -17,55 +17,31 @@ predictoapp.run(function($ionicPlatform) {
             StatusBar.overlaysWebView(true);
             StatusBar.styleLightContent();
         }
-        app.initialize();
+                app.initialize();
     });
 });
 
-predictoapp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, $httpProvider) {
+predictoapp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider,$httpProvider) {
     $ionicConfigProvider.views.maxCache(0);
     $httpProvider.defaults.withCredentials = true;
     $ionicConfigProvider.views.swipeBackEnabled(false);
     $stateProvider
+
 
     .state('login', {
         url: "/login",
         templateUrl: "templates/login.html",
         controller: 'LoginCtrl'
     })
-
+    
     .state('offline', {
         url: "/offline",
         templateUrl: "templates/offline.html",
         controller: 'OfflineCtrl'
     })
 
-    .state('leaderboard', {
-        url: "/leaderboard",
-        abstract: true,
-        templateUrl: "templates/leaderboard.html",
-        controller: 'TabsCtrl'
-    })
 
-    .state('leaderboard.everyone', {
-        url: "/leaderboard/everyone",
-        views: {
-            'everyone': {
-                templateUrl: "templates/tab-everyone.html",
-                controller: 'TabsCtrl'
-            }
-        }
-    })
-
-    .state('leaderboard.friend', {
-        url: "/leaderboard/friend",
-        views: {
-            'friend': {
-                templateUrl: "templates/tab-friend.html",
-                controller: 'TabsCtrl'
-            }
-        }
-    })
-
+    
     .state('app', {
         url: "/app",
         abstract: true,
@@ -97,6 +73,14 @@ predictoapp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProv
                 'menuContent': {
                     templateUrl: "templates/history.html",
                     controller: 'HistoryCtrl'
+                }
+            }
+        })
+        .state('app.leaderboard', {
+            url: "/leaderboard",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/leaderboard.html"
                 }
             }
         })

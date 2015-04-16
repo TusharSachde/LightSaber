@@ -331,7 +331,6 @@ angular.module('starter.controllers', ['myservices'])
     };
 
 })
-    .controller('TabsCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading) {})
     .controller('SidemenuCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading) {
 
         var getuserdetailssuccess = function (data, status) {

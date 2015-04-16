@@ -440,7 +440,7 @@ i.bigr {
 .custom-tabs {
     position: absolute;
     left: 0;
-    top: 43px;
+    top: 44px;
     width: 100%;
     text-align: center;
     height: 38px;
@@ -490,4 +490,12 @@ i.bigr {
 }
 .fadeanimate.ng-leave.ng-leave-active {
     opacity: 0;
+}
+.bar.bar-positive {
+    border-color: #1c7ccc;
+    background-color: #1c7ccc;
+    background-image: -webkit-linear-gradient(90deg, #1c7ccc, #1c7ccc 50%, transparent 50%);
+    background-image: -moz-linear-gradient(90deg, #1c7ccc, #1c7ccc 50%, transparent 50%);
+    background-image: -o-linear-gradient(90deg, #1c7ccc, #1c7ccc 50%, transparent 50%);
+    background-image: linear-gradient(0deg, #1c7ccc, #1c7ccc 50%, transparent 50%);
 }

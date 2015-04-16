@@ -1,14 +1,14 @@
 var ref = 0;
 angular.module('starter.controllers', ['myservices'])
 
-.controller('LoginCtrl', function ($scope, $ionicModal, $timeout, $interval, $location, MyServices,$ionicLoading) {
+.controller('LoginCtrl', function($scope, $ionicModal, $timeout, $interval, $location, MyServices, $ionicLoading) {
 
     //  LOGIN WITH TWITER
     MyServices.logout();
     $.jStorage.flush();
     user = undefined;
     $ionicLoading.hide();
-    var authenticatesuccess = function (data, status) {
+    var authenticatesuccess = function(data, status) {
         console.log(data);
         if (data != "false") {
             $.jStorage.set("user", data);
@@ -20,7 +20,7 @@ angular.module('starter.controllers', ['myservices'])
     };
 
 
-    var checktwitter = function (data, status) {
+    var checktwitter = function(data, status) {
         if (data != "false") {
             console.log("Facebook Login");
             $interval.cancel(stopinterval);
@@ -31,27 +31,27 @@ angular.module('starter.controllers', ['myservices'])
         }
     };
 
-    var callAtIntervaltwitter = function () {
+    var callAtIntervaltwitter = function() {
         MyServices.authenticate().success(checktwitter);
     };
 
 
-    $scope.twitterlogin = function () {
+    $scope.twitterlogin = function() {
         //        console.log(window.location);
         //        var abc = window.location.origin + window.location.pathname;
         ref = window.open('http://www.wohlig.co.in/LightSaberBackend/index.php/hauth/login/Twitter?returnurl=http://www.wohlig.com', '_blank', 'location=no');
         stopinterval = $interval(callAtIntervaltwitter, 2000);
-        ref.addEventListener('exit', function (event) {
+        ref.addEventListener('exit', function(event) {
             MyServices.authenticate().success(authenticatesuccess);
             $interval.cancel(stopinterval);
         });
     };
-    $scope.facebooklogin = function () {
+    $scope.facebooklogin = function() {
         //        console.log(window.location);
         //        var abc = window.location.origin + window.location.pathname;
         ref = window.open('http://www.wohlig.co.in/LightSaberBackend/index.php/hauth/login/Facebook?returnurl=http://www.wohlig.com', '_blank', 'location=no');
         stopinterval = $interval(callAtIntervaltwitter, 2000);
-        ref.addEventListener('exit', function (event) {
+        ref.addEventListener('exit', function(event) {
             MyServices.authenticate().success(authenticatesuccess);
             $interval.cancel(stopinterval);
         });
@@ -59,7 +59,7 @@ angular.module('starter.controllers', ['myservices'])
 
 })
 
-.controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
     /*//Share
     var applink = 'https://play.google.com/store/apps/details?id=com.predicto';
 
@@ -69,14 +69,14 @@ angular.module('starter.controllers', ['myservices'])
 
 })
 
-.controller('OfflineCtrl', function ($scope, $ionicModal, $timeout, $location,$ionicLoading) {
+.controller('OfflineCtrl', function($scope, $ionicModal, $timeout, $location, $ionicLoading) {
 
     function ononline() {
         $location.url("/app/home");
     };
     document.addEventListener("online", ononline, false);
-    $scope.tryagain = function () {
-        
+    $scope.tryagain = function() {
+
         ononline();
     };
     $ionicLoading.hide();
@@ -84,7 +84,7 @@ angular.module('starter.controllers', ['myservices'])
 })
 
 
-.controller('HomeCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading, $anchorScroll, $ionicScrollDelegate) {
+.controller('HomeCtrl', function($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading, $anchorScroll, $ionicScrollDelegate) {
 
     $ionicLoading.show({
         template: 'please wait...'
@@ -108,7 +108,7 @@ angular.module('starter.controllers', ['myservices'])
 
     //  GET LIST OF PREDICTIONS FOR IPL
 
-    var getpredictionssuccess = function (data, status) {
+    var getpredictionssuccess = function(data, status) {
         $scope.predictions = data;
         console.log(data);
         $ionicLoading.hide();
@@ -121,14 +121,14 @@ angular.module('starter.controllers', ['myservices'])
 
         $ionicScrollDelegate.scrollTo(0, 134 * i, true);
     };
-    var getpredictionserror = function () {
+    var getpredictionserror = function() {
         $ionicLoading.hide();
         $location.url("/offline");
     };
     MyServices.getpredictions().success(getpredictionssuccess).error(getpredictionserror);
 
     var giveidvar = 0;
-    $scope.giveid = function (status) {
+    $scope.giveid = function(status) {
         console.log(giveidvar);
         if (giveidvar == 0) {
             if (status == 1) {
@@ -142,7 +142,7 @@ angular.module('starter.controllers', ['myservices'])
 
 
 })
-    .controller('HistoryCtrl', function ($scope, $ionicModal, $timeout, $ionicLoading, MyServices, $location) {
+    .controller('HistoryCtrl', function($scope, $ionicModal, $timeout, $ionicLoading, MyServices, $location) {
 
         //  IONIC LOADING
 
@@ -205,7 +205,7 @@ angular.module('starter.controllers', ['myservices'])
     })
 
 
-.controller('PredictCtrl', function ($scope, $ionicModal, $timeout, $stateParams, MyServices, $ionicLoading, $location, $ionicPopup) {
+.controller('PredictCtrl', function($scope, $ionicModal, $timeout, $stateParams, MyServices, $ionicLoading, $location, $ionicPopup) {
 
     $scope.clickr1 = false;
     $scope.clickr2 = false;
@@ -232,7 +232,7 @@ angular.module('starter.controllers', ['myservices'])
 
 
     //HASH DESIGN
-    var hashdesign = function (data, string, index) {
+    var hashdesign = function(data, string, index) {
         for (var k = 0; k < data.length; k++) {
             var string = string.replace("#" + data[k], "<span class='positive'>#" + data[k] + "</span>");
         };
@@ -241,7 +241,7 @@ angular.module('starter.controllers', ['myservices'])
         }
     };
 
-    var tweeter = function () {
+    var tweeter = function() {
         console.log($scope.tweets);
         if ($scope.tweets) {
             for (var i = 0; i < $scope.tweets.length; i++) {
@@ -263,7 +263,7 @@ angular.module('starter.controllers', ['myservices'])
         }
     };
 
-    var getpredictionforusersuccess = function (data, status) {
+    var getpredictionforusersuccess = function(data, status) {
         console.log(data);
         $scope.predictdata = data;
         if ($scope.predictdata.predicted == $scope.predictdata.team1id) {
@@ -279,7 +279,7 @@ angular.module('starter.controllers', ['myservices'])
         $ionicLoading.hide();
 
     };
-    var getpredictionforusererror=function() {
+    var getpredictionforusererror = function() {
         $ionicLoading.hide();
         $location.url("/offline");
     }
@@ -288,14 +288,14 @@ angular.module('starter.controllers', ['myservices'])
 
 
     //USER PREDICTS
-    var userpredictssuccess = function (data, count) {
+    var userpredictssuccess = function(data, count) {
         if (count == $scope.countforpredict) {
             console.log(data);
             getpredictionforusersuccess(data);
         }
     };
     $scope.countforpredict = 0;
-    $scope.userpredict = function (status, id, tick) {
+    $scope.userpredict = function(status, id, tick) {
         if (status == 1) {
             //CLOSE LAST CALL
             if (tick == 1) {
@@ -315,7 +315,7 @@ angular.module('starter.controllers', ['myservices'])
         };
     };
 
-    $scope.showPopup = function () {
+    $scope.showPopup = function() {
         $scope.data = {}
 
         // An elaborate, custom popup
@@ -325,42 +325,48 @@ angular.module('starter.controllers', ['myservices'])
             scope: $scope,
 
         });
-        $timeout(function () {
+        $timeout(function() {
             myPopup.close(); //close the popup after 3 seconds for some reason
         }, 3000);
     };
 
 })
-    .controller('TabsCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading) {})
-    .controller('SidemenuCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading) {
 
-        var getuserdetailssuccess = function (data, status) {
-            $scope.userdetails = data;
-        };
-        
+.controller('LeaderboardCtrl', function($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading) {
+    $scope.clicked = true;
+    $scope.template = {};
+    $scope.template.url = 'templates/tab-everyone.html';
+})
 
-        function onOffline() {
-            $location.url("/offline");
-        };
-        $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
-            document.addEventListener("offline", onOffline, false);
-            MyServices.getuserdetails().success(getuserdetailssuccess);
-            
-        });
+.controller('SidemenuCtrl', function($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading) {
+
+    var getuserdetailssuccess = function(data, status) {
+        $scope.userdetails = data;
+    };
 
 
-        //SIGN OUT
+    function onOffline() {
+        $location.url("/offline");
+    };
+    $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+        document.addEventListener("offline", onOffline, false);
+        MyServices.getuserdetails().success(getuserdetailssuccess);
 
-        $scope.logout = function () {
-            $location.path("/login");
-        };
-
-        $scope.clickr = '';
-
-        //Share
-        var applink = 'https://play.google.com/store/apps/details?id=com.predicto';
-
-        $scope.share = function () {
-            window.plugins.socialsharing.share("Hey, I have scored " + $scope.userdetails.points + " points with " + $scope.userdetails.prediction + " predictions. Check out 'Predicto' - " + applink);
-        };
     });
+
+
+    //SIGN OUT
+
+    $scope.logout = function() {
+        $location.path("/login");
+    };
+
+    $scope.clickr = '';
+
+    //Share
+    var applink = 'https://play.google.com/store/apps/details?id=com.predicto';
+
+    $scope.share = function() {
+        window.plugins.socialsharing.share("Hey, I have scored " + $scope.userdetails.points + " points with " + $scope.userdetails.prediction + " predictions. Check out 'Predicto' - " + applink);
+    };
+});

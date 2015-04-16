@@ -1,11 +1,17 @@
-<ion-tabs class="tabs-positive tabs-top">
+<ion-view view-title="Leaderboard">
+    <div class="custom-tabs">
+        <div class="row">
+           
+            <div class="col" ng-click="clicked = true;template.url = 'templates/tab-everyone.html';" ng-class="{clicked: clicked == true}">Everyone</div>
+            
+            <div class="col" ng-click="clicked = false;template.url = 'templates/tab-friend.html';" ng-class="{clicked: clicked == false}">Friend</div>
+            
+        </div>
+    </div>
 
-    <ion-tab title="Everyone">
-        <ion-nav-view name="everyone"></ion-nav-view>
-    </ion-tab>
+    <ion-content class="has-custom-tabs padding-vertical">
 
-    <ion-tab title="Friends">
-        <ion-nav-view name="friend"></ion-nav-view>
-    </ion-tab>
+        <div class="fadeanimate" ng-include="template.url"></div>
 
-</ion-tabs>
+    </ion-content>
+</ion-view>

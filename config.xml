@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.predicto" version="0.1.2" versionCode="3">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.predicto" version="0.1.3" versionCode="4">
     <name>Predicto</name>
     <description>Prediction to the next level</description>
     <author href="http://www.wohlig.com" email="info@wohlig.com">Wohlig</author>

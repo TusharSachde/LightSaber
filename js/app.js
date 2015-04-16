@@ -39,33 +39,6 @@ predictoapp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProv
         controller: 'OfflineCtrl'
     })
 
-    .state('leaderboard', {
-        url: "/leaderboard",
-        abstract: true,
-        templateUrl: "templates/leaderboard.html",
-        controller: 'TabsCtrl'
-    })
-
-    .state('leaderboard.everyone', {
-        url: "/leaderboard/everyone",
-        views: {
-            'everyone': {
-                templateUrl: "templates/tab-everyone.html",
-                controller: 'TabsCtrl'
-            }
-        }
-    })
-
-    .state('leaderboard.friend', {
-        url: "/leaderboard/friend",
-        views: {
-            'friend': {
-                templateUrl: "templates/tab-friend.html",
-                controller: 'TabsCtrl'
-            }
-        }
-    })
-
     .state('app', {
         url: "/app",
         abstract: true,
@@ -82,33 +55,46 @@ predictoapp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProv
             }
         }
     })
-        .state('app.predict', {
-            url: "/predict/:id",
-            views: {
-                'menuContent': {
-                    templateUrl: "templates/predict.html",
-                    controller: 'PredictCtrl'
-                }
+
+    .state('app.predict', {
+        url: "/predict/:id",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/predict.html",
+                controller: 'PredictCtrl'
             }
-        })
-        .state('app.history', {
-            url: "/history",
-            views: {
-                'menuContent': {
-                    templateUrl: "templates/history.html",
-                    controller: 'HistoryCtrl'
-                }
+        }
+    })
+
+    .state('app.history', {
+        url: "/history",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/history.html",
+                controller: 'HistoryCtrl'
             }
-        })
-        .state('app.get', {
-            url: "/get",
-            views: {
-                'menuContent': {
-                    templateUrl: "templates/get.html",
-                    controller: 'HistoryCtrl'
-                }
+        }
+    })
+
+    .state('app.leaderboard', {
+        url: "/leaderboard",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/leaderboard.html",
+                controller: 'LeaderboardCtrl'
             }
-        });
+        }
+    })
+
+    .state('app.get', {
+        url: "/get",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/get.html",
+                controller: 'HistoryCtrl'
+            }
+        }
+    });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/home');
 

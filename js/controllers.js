@@ -334,8 +334,8 @@ angular.module('starter.controllers', ['myservices'])
 
 .controller('LeaderboardCtrl', function($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading) {
     $scope.clicked = true;
-    $scope.template = {};
-    $scope.template.url = 'templates/tab-everyone.html';
+    $scope.tpl = {};
+    $scope.tpl.link = 'templates/tab-everyone.html';
 })
 
 .controller('SidemenuCtrl', function($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading) {

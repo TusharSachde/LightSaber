@@ -1,46 +1,68 @@
-   <ion-content class="padding-vertical">
+<ion-view view-title="{{predictdata.team1id | shortform}} vs {{predictdata.team2id | shortform}}">
+    <ion-content class="padding">
+        <ion-list class="fixtures bar-above">
 
-        <div class="text-center">
-            <div class="leaders">
-                <div class="pictop">
-                    <div class="pic pic1" style="background-image: url({{userdetails.image|normal2original}});"></div>
-                    <h4>#1</h4>
-                    <h3>Raviharansonakshi Panchal</h3>
-                    <p>300</p>
+            <ion-item class="team-set">
+
+                <i class="mark" ng-class="{green:predictdata.status == 1, red:predictdata.status != 1}"></i>
+                <div class="row">
+                    <div class="col" ng-click="userpredict(predictdata.status, predictdata.team1id, 1)">
+                        <i class="icon ln-circle-checkmark checker" ng-class="{showr: clickr1}"></i>
+                        <img ng-src="img/{{predictdata.team1id | imagefromname}}" class="img-responsive">
+
+                        <div class="button-hold">
+                            <button class="button button-block button-positive button-outline button-small" ng-class="{clicked: clickr1}" ng-if="predictdata.status == 1">PREDICT</button>
+                            <!--clickr=true;-->
+
+                        </div>
+                    </div>
+                    <div class="col col-50 vs-set">
+                        <p class="small">{{predictdata.venue}}</p>
+
+                        <p class="bolder">{{predictdata.starttime|date:'MMM d, y'}}</p>
+                        <p class="bolder" ng-if="predictdata.winner == 0">{{predictdata.starttime|date:'EEEE, h:mma'}}</p>
+                        <p class="bolder" ng-if="predictdata.winner != 0">{{predictdata.winner | shortform}} WON</p>
+                        <!--<p class="bolder">15 mins left</p>-->
+                    </div>
+                    <div class="col" ng-click="userpredict(predictdata.status, predictdata.team2id, 2)">
+                        <i class="icon ln-circle-checkmark checker" ng-class="{showr: clickr2}"></i>
+                        <img ng-src="img/{{predictdata.team2id | imagefromname}}" class="img-responsive">
+
+                        <div class="button-hold">
+                            <button class="button button-block button-positive button-outline button-small" ng-class="{clicked: clickr2}" ng-if="predictdata.status == 1">PREDICT</button>
+                        </div>
+                    </div>
                 </div>
+                <div class="team lefty" ng-style="{'width':predictdata.team1percent+'%'}" ng-if="predictdata.team1percent != '-1'">{{predictdata.team1percent}}%</div>
+                <div class="team righty" ng-style="{'width':100-predictdata.team1percent+'%'}" ng-if="predictdata.team1percent != '-1'">{{100-predictdata.team1percent}}%</div>
+            </ion-item>
 
-                <div class="pictop">
-                    <div class="pic pic2" style="background-image: url({{userdetails.image|normal2original}});"></div>
-                    <h4>#2</h4>
-                    <h3>Kim Shah</h3>
-                    <p>200</p>
-                </div>
-
-                <div class="pictop">
-                    <div class="pic pic3" style="background-image: url({{userdetails.image|normal2original}});"></div>
-                    <h4>#3</h4>
-                    <h3>Kate Winslet</h3>
-                    <p>100</p>
-                </div>
-            </div>
-        </div>
-
+        </ion-list>
         <div class="padding"></div>
 
-        <ion-list class="more-leaders">
-            <ion-item class="item-leader">
-                <div class="pic pic-leader" style="background-image: url({{userdetails.image|normal2original}});"></div>
-                <h4>#4</h4>
-                <h3>Hritik Sohan</h3>
-                <p>100</p>
-            </ion-item>
-            <ion-item class="item-leader">
-                <div class="pic pic-leader" style="background-image: url({{userdetails.image|normal2original}});"></div>
-                <h4>#4</h4>
-                <h3>Dilbar Mere</h3>
-                <p>50</p>
-            </ion-item>
-        </ion-list>
 
 
+        <ion-list class="twitter">
+            <div class="item item-divider">
+                <i class="icon ion-social-twitter pull-right"></i> Recent Tweets
+            </div>
+            <ion-item class="item-text-wrap" ng-repeat="tweet in predictdata.tweets.statuses">
+                <div class="row">
+                    <div class="width32">
+                        <img ng-src="{{tweet.user.profile_image_url|normal2bigger}}" alt="" class="full-image">
+                    </div>
+                    <div class="col">
+                        <!--<h3>IndiaPremiereLeague <span class="none">@ipl</span></h3>-->
+                        <div ng-bind-html="replace"></div>
+                        <p ng-bind-html="tweet.text"></p>
+                    </div>
+                </div>
+            </ion-item>
     </ion-content>
+
+    <!--
+    <div class="bar bar-footer bar-positive">
+        <div class="title"><i class="icon ion-social-twitter"></i> Join the conversation</div>
+    </div>
+-->
+</ion-view>

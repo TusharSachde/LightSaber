@@ -2,16 +2,16 @@
     <div class="custom-tabs">
         <div class="row">
            
-            <div class="col" ng-click="clicked = true;template.url = 'templates/tab-everyone.html';" ng-class="{clicked: clicked == true}">Everyone</div>
+            <div class="col" ng-click="clicked = true;tpl.link = 'templates/tab-everyone.html';" ng-class="{clicked: clicked == true}">Everyone</div>
             
-            <div class="col" ng-click="clicked = false;template.url = 'templates/tab-friend.html';" ng-class="{clicked: clicked == false}">Friend</div>
+            <div class="col" ng-click="clicked = false;tpl.link = 'templates/tab-friend.html';" ng-class="{clicked: clicked == false}">Friend</div>
             
         </div>
     </div>
 
     <ion-content class="has-custom-tabs padding-vertical">
 
-        <div class="fadeanimate" ng-include="template.url"></div>
+        <div class="fadeanimate" ng-include="tpl.link"></div>
 
     </ion-content>
 </ion-view>

@@ -421,21 +421,21 @@ i.bigr {
     min-height: 60px;
 }
 .item-leader.item {
-    padding: 10px 10px 10px 60px;
+    padding: 10px 10px 10px 70px;
 }
 .pic.pic-leader {
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     position: absolute;
     top: 10px;
     margin: 0;
     left: 10px;
 }
 .more-leaders .item-leader h4 {
-    position: absolute;
     margin: 0px;
-    right: 15px;
-    top: 22px;
+    margin-top: 19px;
+    font-size: 14px;
+    text-align: center;
 }
 .custom-tabs {
     position: absolute;
@@ -498,4 +498,26 @@ i.bigr {
     background-image: -moz-linear-gradient(90deg, #1c7ccc, #1c7ccc 50%, transparent 50%);
     background-image: -o-linear-gradient(90deg, #1c7ccc, #1c7ccc 50%, transparent 50%);
     background-image: linear-gradient(0deg, #1c7ccc, #1c7ccc 50%, transparent 50%);
+}
+.more-leaders h3 {
+    margin: 0;
+    text-transform: capitalize;
+}
+.row.no-pad {
+    padding: 0px;
+}
+.no-pad .col {
+    padding: 0px;
+}
+.icon-notice {
+    font-size: 22px;
+    margin-top: 15px;
+    display: block;
+    text-align: center;
+}
+.ion-social-facebook.icon-notice {
+    color: #4870A6;
+}
+.ion-social-twitter.icon-notice {
+    color: #00BBEF;
 }

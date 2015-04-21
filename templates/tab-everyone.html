@@ -1,3 +1,4 @@
+<!--
 <div class="text-center">
     <div class="leaders">
         <div class="pictop">
@@ -23,12 +24,25 @@
 </div>
 
 <div class="padding"></div>
+-->
 
 <ion-list class="more-leaders">
-    <ion-item class="item-leader">
+    <ion-item class="item-leader" ng-repeat="userdetails in global">
         <div class="pic pic-leader" style="background-image: url({{userdetails.image|normal2original}});"></div>
-        <h4>#1</h4>
-        <h3>Name</h3>
-        <p>500</p>
+        <div class="row no-pad">
+            <div class="col col-67">
+                <h5 ng-bind="'#'+($index+1)"></h5>
+                <h3 ng-bind="userdetails.username"></h3>
+                <p ng-bind="'Predicts: '+userdetails.predictions"></p>
+            </div>
+            <div class="col">
+                <ion class="icon ion-social-facebook icon-notice" ng-if="userdetails.logintype==1"></ion>
+                <ion class="icon ion-social-twitter icon-notice" ng-if="userdetails.logintype==2"></ion>
+            </div>
+            <div class="col col-25">
+                <h4 ng-bind="userdetails.points"></h4>
+            </div>
+        </div>
     </ion-item>
+    
 </ion-list>

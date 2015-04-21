@@ -336,6 +336,21 @@ angular.module('starter.controllers', ['myservices'])
     $scope.clicked = true;
     $scope.tpl = {};
     $scope.tpl.link = 'templates/tab-everyone.html';
+
+    $ionicLoading.show({
+        template: 'Please wait...'
+    });
+
+    var getleaderboardsuccess = function(data, status) {
+        $scope.global = data.global;
+        console.log(data);
+        $ionicLoading.hide();
+    };
+    var getleaderboarderror = function() {
+        $ionicLoading.hide();
+        $location.url("/offline");
+    };
+    MyServices.getleaderboard().success(getleaderboardsuccess).error(getleaderboarderror);
 })
 
 .controller('SidemenuCtrl', function($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading) {

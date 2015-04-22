@@ -379,7 +379,7 @@ angular.module('starter.controllers', ['myservices'])
     $scope.clickr = '';
 
     //Share
-    var applink = 'https://play.google.com/store/apps/details?id=com.predicto';
+    var applink = 'http://predictoapp.appspot.com';
 
     $scope.share = function() {
         window.plugins.socialsharing.share("Hey, I have scored " + $scope.userdetails.points + " points with " + $scope.userdetails.prediction + " predictions. Check out 'Predicto' - " + applink);

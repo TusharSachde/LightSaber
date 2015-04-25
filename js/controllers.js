@@ -432,7 +432,7 @@ function createchart(callback) {
                     type: 'bar'
                 },
                 title: {
-                    text: 'Total Predictions / Team'
+                    text: 'Predictions / Team'
                 },
                 xAxis: {
                     categories: allnames

@@ -441,7 +441,7 @@ function createchart() {
                     column: {
                         pointPadding: 0.2,
                         borderWidth: 0,
-                        color: "#1c7ccc",
+                        color: "#1c7ccc"
                     }
                 },
                 credits: {
@@ -450,17 +450,15 @@ function createchart() {
                 series: [{
                     name: 'Total Predictions',
                     data: alltotals,
-                    color:'#1c7ccc'
-                },
-                        {
+                    color: '#1c7ccc'
+                }, {
                     name: 'Winning Predictions',
                     data: allwinning,
-                    color:'green'
-                },
-                        {
+                    color: '#1CBB1C'
+                }, {
                     name: 'Losing Predictions',
                     data: allloss,
-                    color:'red'
+                    color: '#FA4343'
                 }]
             });
         });

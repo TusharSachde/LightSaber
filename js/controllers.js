@@ -84,7 +84,13 @@ angular.module('starter.controllers', ['myservices'])
 })
 
 .controller('GraphCtrl', function($scope, $ionicModal, $timeout, $location, $ionicLoading) {
-    createchart();
+    $ionicLoading.show({
+        template: 'please wait...'
+    });
+    var callback = function() {
+        $ionicLoading.hide();
+    };
+    createchart(callback);
 })
 
 
@@ -398,7 +404,7 @@ angular.module('starter.controllers', ['myservices'])
     };
 });
 
-function createchart() {
+function createchart(callback) {
 
     $.getJSON(adminurl + "getpredictionteamwise", function(data) {
         console.log(data);
@@ -467,6 +473,8 @@ function createchart() {
                 }, ]
             });
         });
+        
+        callback();
     });
 
 };

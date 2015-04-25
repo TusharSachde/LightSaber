@@ -447,6 +447,7 @@ function createchart() {
                 tooltip: {
                     enabled: true,
                     followPointer: false,
+                    followTouchMove: false
                 },
                 credits: {
                     enabled: false

@@ -107,8 +107,11 @@ angular.module('starter.controllers', ['myservices'])
     } else {
         $location.url("/login");
     }
+    var toscroll = 0;
 
-
+    $scope.scrolltotoday = function() {
+        $ionicScrollDelegate.scrollTo(0, 134 * toscroll, true);
+    };
 
     //  GET LIST OF PREDICTIONS FOR IPL
 
@@ -122,6 +125,7 @@ angular.module('starter.controllers', ['myservices'])
                 break;
             }
         }
+        toscroll = i;
 
         $ionicScrollDelegate.scrollTo(0, 134 * i, true);
     };
@@ -400,18 +404,18 @@ function createchart() {
         console.log(data);
         var allnames = [];
         var alltotals = [];
-        var totalpredictions=0;
+        var totalpredictions = 0;
         $.each(data, function(index, value) {
             allnames.push(value.name);
-            var predictionnumber=parseFloat(value.total);
+            var predictionnumber = parseFloat(value.total);
             alltotals.push(predictionnumber);
-            totalpredictions+=predictionnumber;
+            totalpredictions += predictionnumber;
         });
         console.log(allnames);
 
         $(".totalpredictions").text(totalpredictions);
         console.log(totalpredictions);
-        
+
         $(function() {
             $('#container').highcharts({
                 chart: {

@@ -1,14 +1,18 @@
 <ion-view view-title="Predict">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ln-calendar3 small-icon" ng-click="scrolltotoday();">
+        </button>
+    </ion-nav-buttons>
     <ion-content class="padding">
         <ion-list class="fixtures">
 
             <ion-item class="team-set" href="#/app/predict/{{prediction.id}}" ng-repeat="prediction in predictions">
-            <div id="scrollhere" ng-if="prediction.status == 1"></div>
-<i class="mark" ng-class="{green:prediction.status == 1, red:prediction.status != 1}"></i>
+                <div id="scrollhere" ng-if="prediction.status == 1"></div>
+                <i class="mark" ng-class="{green:prediction.status == 1, red:prediction.status != 1}"></i>
                 <div class="row homepage">
                     <div class="col">
-                       
-                       <i class="icon ln-circle-checkmark checker" ng-class="{showr: prediction.team1id==prediction.predicted}"></i>
+
+                        <i class="icon ln-circle-checkmark checker" ng-class="{showr: prediction.team1id==prediction.predicted}"></i>
                         <img ng-src="img/{{prediction.team1id | imagefromname}}" class="img-responsive">
                     </div>
                     <div class="col col-50 vs-set">
@@ -18,7 +22,7 @@
                         <p class="bolder" ng-if="prediction.winner != 0">{{prediction.winner | shortform}} WON</p>
                     </div>
                     <div class="col">
-                       <i class="icon ln-circle-checkmark checker" ng-class="{showr: prediction.team2id==prediction.predicted}"></i>
+                        <i class="icon ln-circle-checkmark checker" ng-class="{showr: prediction.team2id==prediction.predicted}"></i>
                         <img ng-src="img/{{prediction.team2id | imagefromname}}" class="img-responsive">
                     </div>
                 </div>

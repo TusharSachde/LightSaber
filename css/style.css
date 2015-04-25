@@ -524,3 +524,6 @@ i.bigr {
 .win {
     margin: 0px 0 15px;
 }
+.totalpredictions {
+    font-weight: bold;
+}

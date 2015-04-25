@@ -31,6 +31,7 @@ myservices.factory('MyServices', function($http) {
     };
     
     returnval.userpredicts = function(data, count, callback) {
+        console.log(data);
         $http.post(adminurl + "userpredicts", data).success(function(data1) {
             callback(data1, count);
         });

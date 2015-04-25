@@ -84,11 +84,7 @@ angular.module('starter.controllers', ['myservices'])
 })
 
 .controller('GraphCtrl', function($scope, $ionicModal, $timeout, $location, $ionicLoading) {
-
-
     createchart();
-
-
 })
 
 
@@ -422,7 +418,7 @@ function createchart() {
                     type: 'column'
                 },
                 title: {
-                    text: 'Total Predictions per Team'
+                    text: 'Total Predictions / Team'
                 },
                 xAxis: {
                     categories: allnames

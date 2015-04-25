@@ -438,11 +438,15 @@ function createchart() {
                     }
                 },
                 plotOptions: {
-                    column: {
+                    bar: {
                         pointPadding: 0.2,
                         borderWidth: 0,
-                        color: "#1c7ccc"
+                        color: "#1c7ccc",
                     }
+                },
+                tooltip: {
+                    enabled: true,
+                    followPointer: false,
                 },
                 credits: {
                     enabled: false

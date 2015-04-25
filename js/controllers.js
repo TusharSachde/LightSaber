@@ -423,7 +423,7 @@ function createchart() {
         $(function() {
             $('#container').highcharts({
                 chart: {
-                    type: 'column'
+                    type: 'bar'
                 },
                 title: {
                     text: 'Total Predictions / Team'
@@ -448,18 +448,18 @@ function createchart() {
                     enabled: false
                 },
                 series: [{
-                    name: 'Total Predictions',
-                    data: alltotals,
-                    color: '#1c7ccc'
+                    name: 'Losing Predictions',
+                    data: allloss,
+                    color: '#FA4343'
                 }, {
                     name: 'Winning Predictions',
                     data: allwinning,
                     color: '#1CBB1C'
                 }, {
-                    name: 'Losing Predictions',
-                    data: allloss,
-                    color: '#FA4343'
-                }]
+                    name: 'Total Predictions',
+                    data: alltotals,
+                    color: '#1c7ccc'
+                }, ]
             });
         });
     });

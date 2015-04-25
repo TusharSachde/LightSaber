@@ -94,6 +94,15 @@ predictoapp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProv
                 controller: 'HistoryCtrl'
             }
         }
+    })
+    .state('app.graph', {
+        url: "/graph",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/graph.html",
+                controller: 'GraphCtrl'
+            }
+        }
     });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/home');

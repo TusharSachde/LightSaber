@@ -83,6 +83,14 @@ angular.module('starter.controllers', ['myservices'])
 
 })
 
+.controller('GraphCtrl', function($scope, $ionicModal, $timeout, $location, $ionicLoading) {
+
+
+    createchart();
+
+
+})
+
 
 .controller('HomeCtrl', function($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading, $anchorScroll, $ionicScrollDelegate) {
 
@@ -146,6 +154,8 @@ angular.module('starter.controllers', ['myservices'])
 
         //  IONIC LOADING
 
+
+
         $ionicLoading.show({
             template: 'Please wait...'
         });
@@ -193,6 +203,8 @@ angular.module('starter.controllers', ['myservices'])
             "logoteam2": "rc.png",
             "status": "Won"
         }];
+
+
 
         //        $scope.badgecolor = function() {
         //            if ($scope.predictions.status == "Won")
@@ -385,3 +397,62 @@ angular.module('starter.controllers', ['myservices'])
         window.plugins.socialsharing.share("Hey, I have scored " + $scope.userdetails.points + " points with " + $scope.userdetails.prediction + " predictions. Check out 'Predicto' - " + applink);
     };
 });
+
+function createchart() {
+
+    $.getJSON(adminurl + "getpredictionteamwise", function(data) {
+        console.log(data);
+        var allnames = [];
+        var alltotals = [];
+        var totalpredictions=0;
+        $.each(data, function(index, value) {
+            allnames.push(value.name);
+            var predictionnumber=parseFloat(value.total);
+            alltotals.push(predictionnumber);
+            totalpredictions+=predictionnumber;
+        });
+        console.log(allnames);
+
+        $(".totalpredictions").text(totalpredictions);
+        console.log(totalpredictions);
+        
+        $(function() {
+            $('#container').highcharts({
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Total Predictions per Team'
+                },
+                xAxis: {
+                    categories: allnames
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Predictions'
+                    }
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0,
+                        color: "#1c7ccc",
+                    }
+                },
+                legend: {
+                    enabled: false
+                },
+                credits: {
+                    enabled: false
+                },
+                series: [{
+                    name: 'IPL 2015',
+                    data: alltotals
+
+                }]
+            });
+        });
+    });
+
+};

@@ -404,11 +404,15 @@ function createchart() {
         console.log(data);
         var allnames = [];
         var alltotals = [];
+        var allwinning = [];
+        var allloss = [];
         var totalpredictions = 0;
         $.each(data, function(index, value) {
             allnames.push(value.name);
             var predictionnumber = parseFloat(value.total);
             alltotals.push(predictionnumber);
+            allloss.push(parseFloat(value.totalloss));
+            allwinning.push(parseFloat(value.totalwins));
             totalpredictions += predictionnumber;
         });
         console.log(allnames);
@@ -440,16 +444,23 @@ function createchart() {
                         color: "#1c7ccc",
                     }
                 },
-                legend: {
-                    enabled: false
-                },
                 credits: {
                     enabled: false
                 },
                 series: [{
-                    name: 'IPL 2015',
-                    data: alltotals
-
+                    name: 'Total Predictions',
+                    data: alltotals,
+                    color:'#1c7ccc'
+                },
+                        {
+                    name: 'Winning Predictions',
+                    data: allwinning,
+                    color:'green'
+                },
+                        {
+                    name: 'Losing Predictions',
+                    data: allloss,
+                    color:'red'
                 }]
             });
         });

@@ -1,9 +1,6 @@
 @font-face {
 	font-family: 'Linearicons';
-	src:url('Linearicons.eot?-m09hd');
-	src:url('Linearicons.eot?#iefix-m09hd') format('embedded-opentype'),
-		url('Linearicons.woff?-m09hd') format('woff'),
-		url('Linearicons.ttf?-m09hd') format('truetype');
+	src:url('Linearicons.ttf?-m09hd') format('truetype');
 	font-weight: bold;
 	font-style: normal;
 	font-size: 20px;

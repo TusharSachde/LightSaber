@@ -1,14 +1,31 @@
+var googleanalyticsid = 'UA-62296776-1';
+
 function addanalytics(screen) {
     if (window.analytics) {
-        console.log(window.analytics);
-        window.analytics.startTrackerWithId('UA-62296776-1');
+        window.analytics.startTrackerWithId(googleanalyticsid);
         if (screen) {
             window.analytics.trackView(screen);
         }
         if (user) {
             window.analytics.setUserId(user.id);
+            window.analytics.trackEvent("Page Load", screen, screen, 1);
         }
+
     }
+}
+
+function addevent(category, action, label, value) {
+    if (!value) {
+        value = 1;
+    }
+    if (!label) {
+        label = action;
+    }
+    if (window.analytics) {
+        window.analytics.startTrackerWithId(googleanalyticsid);
+        window.analytics.trackEvent(category, action, label, value);
+    }
+
 }
 var predictoapp = angular.module('starter', ['ionic', 'starter.controllers', 'myservices']);
 

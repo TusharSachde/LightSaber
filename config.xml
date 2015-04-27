@@ -100,7 +100,9 @@
     <gap:plugin name="com.machenmusik.plugins.launchmyapp" version="3.1.2">
         <param name="URL_SCHEME" value="predicto" />
         <param name="HTTP_HOST" value="predicto.com" />
+        <param name="HTTP_PATHPREFIX" value="predicto" />
         <param name="HTTPS_HOST" value="predicto.com" />
+        <param name="HTTPS_PATHPREFIX" value="predicto" />
     </gap:plugin>
 
     <!--    <gap:plugin name="org.apache.cordova.statusbar" source="plugins.cordova.io" /> -->

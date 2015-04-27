@@ -29,6 +29,17 @@
     <script src="js/jstorage.js"></script>
 
     <script src="lib/highcharts.js"></script>
+    <script>
+        function handleOpenURL(url) {
+            console.log(url);
+            var ispredicto = url.substr(0, 11);
+            if (ispredicto == "predicto://") {
+                var text = url.substr(11);
+                window.href = "";
+                window.location.hash = "#/".text;
+            }
+        }
+    </script>
 </head>
 
 <body ng-app="starter">

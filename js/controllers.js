@@ -3,6 +3,9 @@ angular.module('starter.controllers', ['myservices'])
 
 .controller('LoginCtrl', function($scope, $ionicModal, $timeout, $interval, $location, MyServices, $ionicLoading) {
 
+    if (window.analytics) {
+        window.analytics.trackView('Login Screen');
+    }
     //  LOGIN WITH TWITER
     MyServices.logout();
     $.jStorage.flush();
@@ -11,6 +14,9 @@ angular.module('starter.controllers', ['myservices'])
     var authenticatesuccess = function(data, status) {
         console.log(data);
         if (data != "false") {
+            if (window.analytics) {
+                window.analytics.setUserId(data.id);
+            }
             $.jStorage.set("user", data);
             user = data;
             $location.url("/app/home");
@@ -70,6 +76,9 @@ angular.module('starter.controllers', ['myservices'])
 })
 
 .controller('OfflineCtrl', function($scope, $ionicModal, $timeout, $location, $ionicLoading) {
+    if (window.analytics) {
+        window.analytics.trackView('Offline Screen');
+    }
 
     function ononline() {
         $location.url("/app/home");
@@ -84,6 +93,9 @@ angular.module('starter.controllers', ['myservices'])
 })
 
 .controller('GraphCtrl', function($scope, $ionicModal, $timeout, $location, $ionicLoading) {
+    if (window.analytics) {
+        window.analytics.trackView('Statistics Screen');
+    }
     $ionicLoading.show({
         template: 'please wait...'
     });
@@ -95,7 +107,9 @@ angular.module('starter.controllers', ['myservices'])
 
 
 .controller('HomeCtrl', function($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading, $anchorScroll, $ionicScrollDelegate) {
-
+    if (window.analytics) {
+        window.analytics.trackView('Prediction Screen');
+    }
     $ionicLoading.show({
         template: 'please wait...'
     });
@@ -109,6 +123,9 @@ angular.module('starter.controllers', ['myservices'])
 
 
     if (user) {
+        if (window.analytics) {
+            window.analytics.setUserId(user.id);
+        }
         console.log("Stay at home");
     } else {
         $location.url("/login");
@@ -159,8 +176,9 @@ angular.module('starter.controllers', ['myservices'])
     .controller('HistoryCtrl', function($scope, $ionicModal, $timeout, $ionicLoading, MyServices, $location) {
 
         //  IONIC LOADING
-
-
+        if (window.analytics) {
+            window.analytics.trackView('Rewards Screen');
+        }
 
         $ionicLoading.show({
             template: 'Please wait...'
@@ -176,39 +194,6 @@ angular.module('starter.controllers', ['myservices'])
             $location.url("/login");
         }
 
-        $scope.predictions = [{
-            "team1": 60,
-            "venue": "Wankhade",
-            "date": "Wed, April 8",
-            "time": "20:00(IST)",
-            "logoteam1": "mumbai.png",
-            "logoteam2": "kkr.png",
-            "status": "Won"
-        }, {
-            "team1": 70,
-            "venue": "Banglore",
-            "date": "Wed, April 9",
-            "time": "20:00(IST)",
-            "logoteam1": "royal.png",
-            "logoteam2": "sunrise.png",
-            "status": "Won"
-        }, {
-            "team1": 80,
-            "venue": "Delhi",
-            "date": "Wed, April 10",
-            "time": "20:00(IST)",
-            "logoteam1": "delhi.png",
-            "logoteam2": "king.png",
-            "status": "Lost"
-        }, {
-            "team1": 40,
-            "venue": "Pune",
-            "date": "Wed, April 11",
-            "time": "20:00(IST)",
-            "logoteam1": "punjab.png",
-            "logoteam2": "rc.png",
-            "status": "Won"
-        }];
 
 
 
@@ -224,6 +209,9 @@ angular.module('starter.controllers', ['myservices'])
 
 
 .controller('PredictCtrl', function($scope, $ionicModal, $timeout, $stateParams, MyServices, $ionicLoading, $location, $ionicPopup) {
+    if (window.analytics) {
+        window.analytics.trackView('Predict Team Screen');
+    }
 
     $scope.clickr1 = false;
     $scope.clickr2 = false;
@@ -355,6 +343,10 @@ angular.module('starter.controllers', ['myservices'])
     $scope.tpl = {};
     $scope.tpl.link = 'templates/tab-everyone.html';
 
+    if (window.analytics) {
+        window.analytics.trackView('Leaderboard Screen');
+    }
+
     $ionicLoading.show({
         template: 'Please wait...'
     });
@@ -473,7 +465,7 @@ function createchart(callback) {
                 }, ]
             });
         });
-        
+
         callback();
     });
 

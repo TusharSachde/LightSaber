@@ -12,6 +12,9 @@ predictoapp.run(function($ionicPlatform) {
             StatusBar.styleLightContent();
         }
         app.initialize();
+        if (window.analytics) {
+            window.analytics.startTrackerWithId('UA-62296776-1');
+        }
     });
 });
 
@@ -89,15 +92,15 @@ predictoapp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProv
             }
         }
     })
-    .state('app.graph', {
-        url: "/graph",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/graph.html",
-                controller: 'GraphCtrl'
+        .state('app.graph', {
+            url: "/graph",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/graph.html",
+                    controller: 'GraphCtrl'
+                }
             }
-        }
-    });
+        });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/home');
 

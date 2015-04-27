@@ -381,6 +381,7 @@ angular.module('starter.controllers', ['myservices'])
     var applink = 'http://predictoapp.appspot.com';
 
     $scope.share = function() {
+        addevent("ButtonTap","Share");
         window.plugins.socialsharing.share("Hey, I have scored " + $scope.userdetails.points + " points with " + $scope.userdetails.prediction + " predictions. Check out 'Predicto' - " + applink);
     };
 });

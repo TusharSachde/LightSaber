@@ -44,8 +44,7 @@ a:hover {
     font-size: 14px;
     font-weight: 100;
     text-transform: uppercase;
-    background: #4465ac
-;
+    background: #4465ac;
     min-width: 300px;
     display: inline-block;
 }
@@ -60,8 +59,7 @@ a:hover {
     border-radius: 0;
     width: 300px;
     position: relative;
-    padding: 10px 58px 10px 50px
-;
+    padding: 10px 58px 10px 50px;
     display: inline-block;
 }
 .login-set i {
@@ -531,4 +529,31 @@ i.bigr {
 }
 .totalpredictions {
     font-weight: bold;
+}
+.winnerlabel {
+    color: white;
+    font-size: 12px;
+    background: rgba(70, 159, 50, 0.84);
+    margin-top: -13px;
+    z-index: 100;
+    border-radius: 4px;
+    position: relative;
+}
+.winnerlabel {
+    color: white;
+    font-size: 12px;
+    background: rgba(28, 187, 28, 0.75);
+    margin-top: -13px;
+    z-index: 100;
+    border-radius: 4px;
+    position: relative;
+}
+.loserlabel {
+    color: white;
+    font-size: 12px;
+    background: rgba(250, 67, 67, 0.75);
+    margin-top: -13px;
+    z-index: 100;
+    border-radius: 4px;
+    position: relative;
 }

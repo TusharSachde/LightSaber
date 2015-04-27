@@ -127,7 +127,7 @@ angular.module('starter.controllers', ['myservices'])
     var toscroll = 0;
 
     $scope.scrolltotoday = function() {
-        addevent("ButtonTap","Scroll Today");
+        addevent("ButtonTap", "Scroll Today");
         $ionicScrollDelegate.scrollTo(0, 134 * toscroll, true);
     };
 
@@ -200,7 +200,7 @@ angular.module('starter.controllers', ['myservices'])
 })
 
 .controller('PredictCtrl', function($scope, $ionicModal, $timeout, $stateParams, MyServices, $ionicLoading, $location, $ionicPopup) {
-
+    $scope.showitnow = false;
     addanalytics('Predict Team Screen');
 
     $scope.clickr1 = false;
@@ -225,7 +225,7 @@ angular.module('starter.controllers', ['myservices'])
     predictiondata.prediction = $stateParams.id;
     predictiondata.user = user.id;
 
-    
+
 
 
     //HASH DESIGN
@@ -273,6 +273,7 @@ angular.module('starter.controllers', ['myservices'])
             $scope.tweets = $scope.predictdata.tweets.statuses;
         }
         tweeter();
+        $scope.showitnow = true;
         $ionicLoading.hide();
 
     };
@@ -293,7 +294,7 @@ angular.module('starter.controllers', ['myservices'])
     };
     $scope.countforpredict = 0;
     $scope.userpredict = function(status, id, tick) {
-        addevent("ButtonTap","Predict Button");
+        addevent("ButtonTap", "Predict Button");
         if (status == 1) {
             //CLOSE LAST CALL
             if (tick == 1) {
@@ -372,7 +373,7 @@ angular.module('starter.controllers', ['myservices'])
     //SIGN OUT
 
     $scope.logout = function() {
-        addevent("ButtonTap","Logout Button");
+        addevent("ButtonTap", "Logout Button");
         $location.path("/login");
     };
 
@@ -382,7 +383,7 @@ angular.module('starter.controllers', ['myservices'])
     var applink = 'http://predictoapp.appspot.com';
 
     $scope.share = function() {
-        addevent("ButtonTap","Share");
+        addevent("ButtonTap", "Share");
         window.plugins.socialsharing.share("Hey, I have scored " + $scope.userdetails.points + " points with " + $scope.userdetails.prediction + " predictions. Check out 'Predicto' - " + applink);
     };
 });

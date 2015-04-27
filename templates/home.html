@@ -14,6 +14,8 @@
 
                         <i class="icon ln-circle-checkmark checker" ng-class="{showr: prediction.team1id==prediction.predicted}"></i>
                         <img ng-src="img/{{prediction.team1id | imagefromname}}" class="img-responsive">
+                        <div class="winnerlabel" ng-if="prediction.team1id==prediction.winner">WINNER</div>
+                        <div class="loserlabel" ng-if="(prediction.team1id!=prediction.winner && prediction.winner>0 && prediction.winner<10)">LOSER</div>
                     </div>
                     <div class="col col-50 vs-set">
                         <p class="small">{{prediction.venue}}</p>
@@ -24,6 +26,8 @@
                     <div class="col">
                         <i class="icon ln-circle-checkmark checker" ng-class="{showr: prediction.team2id==prediction.predicted}"></i>
                         <img ng-src="img/{{prediction.team2id | imagefromname}}" class="img-responsive">
+                        <div class="winnerlabel" ng-if="prediction.team2id==prediction.winner">WINNER</div>
+                        <div class="loserlabel" ng-if="(prediction.team2id!=prediction.winner && prediction.winner>0 && prediction.winner<10)">LOSER</div>
                     </div>
                 </div>
 

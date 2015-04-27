@@ -127,6 +127,7 @@ angular.module('starter.controllers', ['myservices'])
     var toscroll = 0;
 
     $scope.scrolltotoday = function() {
+        addevent("ButtonTap","Scroll Today");
         $ionicScrollDelegate.scrollTo(0, 134 * toscroll, true);
     };
 

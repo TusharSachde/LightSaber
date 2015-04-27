@@ -110,10 +110,6 @@ angular.module('starter.controllers', ['myservices'])
         template: 'please wait...'
     });
 
-
-
-
-
     //  AUTHENTICATE USER
 
 

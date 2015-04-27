@@ -97,10 +97,6 @@
     <gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
     <gap:plugin name="com.pushwoosh.plugins.pushwoosh" source="plugins.cordova.io" />
     <gap:plugin name="com.danielcwilson.plugins.googleanalytics" version="0.6.1" />
-    <gap:plugin name="nl.x-services.plugins.launchmyapp">
-        <param name="URL_SCHEME" value="predicto" />
-    </gap:plugin>
-
     <!--    <gap:plugin name="org.apache.cordova.statusbar" source="plugins.cordova.io" /> -->
     <feature name="StatusBar">
         <param name="ios-package" value="CDVStatusBar" onload="true" />

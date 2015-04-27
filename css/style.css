@@ -557,3 +557,9 @@ i.bigr {
     border-radius: 4px;
     position: relative;
 }
+.singleprediction .winnerlabel {
+    margin-top: 4px;
+}
+.singleprediction .loserlabel {
+    margin-top: 4px;
+}

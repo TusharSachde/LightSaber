@@ -34,26 +34,31 @@ angular.module('starter.controllers', ['myservices'])
     };
 
     var callAtIntervaltwitter = function() {
+        addevent("Login Successful", "Login Successful");
         MyServices.authenticate().success(checktwitter);
     };
 
 
     $scope.twitterlogin = function() {
+        addevent("ButtonTap", "Twitter Login");
         //        console.log(window.location);
         //        var abc = window.location.origin + window.location.pathname;
         ref = window.open('http://www.wohlig.co.in/LightSaberBackend/index.php/hauth/login/Twitter?returnurl=http://www.wohlig.com', '_blank', 'location=no');
         stopinterval = $interval(callAtIntervaltwitter, 2000);
         ref.addEventListener('exit', function(event) {
+            addevent("ButtonTap", "Twitter Login Exit");
             MyServices.authenticate().success(authenticatesuccess);
             $interval.cancel(stopinterval);
         });
     };
     $scope.facebooklogin = function() {
+        addevent("ButtonTap", "Facebook Login");
         //        console.log(window.location);
         //        var abc = window.location.origin + window.location.pathname;
         ref = window.open('http://www.wohlig.co.in/LightSaberBackend/index.php/hauth/login/Facebook?returnurl=http://www.wohlig.com', '_blank', 'location=no');
         stopinterval = $interval(callAtIntervaltwitter, 2000);
         ref.addEventListener('exit', function(event) {
+            addevent("ButtonTap", "Facebook Login Exit");
             MyServices.authenticate().success(authenticatesuccess);
             $interval.cancel(stopinterval);
         });
@@ -79,7 +84,7 @@ angular.module('starter.controllers', ['myservices'])
     };
     document.addEventListener("online", ononline, false);
     $scope.tryagain = function() {
-
+        addevent("ButtonTap", "Try Again");
         ononline();
     };
     $ionicLoading.hide();
@@ -152,7 +157,6 @@ angular.module('starter.controllers', ['myservices'])
         console.log(giveidvar);
         if (giveidvar == 0) {
             if (status == 1) {
-                console.log("mila");
                 return true;
             };
             giveidvar = 1;
@@ -220,6 +224,7 @@ angular.module('starter.controllers', ['myservices'])
     predictiondata.prediction = $stateParams.id;
     predictiondata.user = user.id;
 
+    
 
 
     //HASH DESIGN
@@ -287,6 +292,7 @@ angular.module('starter.controllers', ['myservices'])
     };
     $scope.countforpredict = 0;
     $scope.userpredict = function(status, id, tick) {
+        addevent("ButtonTap","Predict Button");
         if (status == 1) {
             //CLOSE LAST CALL
             if (tick == 1) {
@@ -365,6 +371,7 @@ angular.module('starter.controllers', ['myservices'])
     //SIGN OUT
 
     $scope.logout = function() {
+        addevent("ButtonTap","Logout Button");
         $location.path("/login");
     };
 

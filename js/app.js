@@ -10,7 +10,6 @@ function addanalytics(screen) {
             window.analytics.setUserId(user.id);
             window.analytics.trackEvent("User ID Tracking", "User ID Tracking", "Userid", user.id);
         }
-
     }
 }
 

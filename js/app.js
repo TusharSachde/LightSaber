@@ -5,10 +5,11 @@ function addanalytics(screen) {
         window.analytics.startTrackerWithId(googleanalyticsid);
         if (screen) {
             window.analytics.trackView(screen);
+            window.analytics.trackEvent("Page Load", screen, screen, 1);
         }
         if (user) {
             window.analytics.setUserId(user.id);
-            window.analytics.trackEvent("Page Load", screen, screen, 1);
+            window.analytics.trackEvent("User ID Tracking", "User ID Tracking", "Userid", user.id);
         }
 
     }

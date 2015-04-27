@@ -1,3 +1,14 @@
+function addanalytics(screen) {
+    if (window.analytics) {
+        window.analytics.startTrackerWithId('UA-62296776-1');
+        if (screen) {
+            window.analytics.trackView(screen);
+        }
+        if (user) {
+            window.analytics.setUserId(user.id);
+        }
+    }
+}
 var predictoapp = angular.module('starter', ['ionic', 'starter.controllers', 'myservices']);
 
 predictoapp.run(function($ionicPlatform) {
@@ -12,9 +23,6 @@ predictoapp.run(function($ionicPlatform) {
             StatusBar.styleLightContent();
         }
         app.initialize();
-        if (window.analytics) {
-            window.analytics.startTrackerWithId('UA-62296776-1');
-        }
     });
 });
 

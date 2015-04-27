@@ -3,9 +3,7 @@ angular.module('starter.controllers', ['myservices'])
 
 .controller('LoginCtrl', function($scope, $ionicModal, $timeout, $interval, $location, MyServices, $ionicLoading) {
 
-    if (window.analytics) {
-        window.analytics.trackView('Login Screen');
-    }
+    addanalytics("Login Screen");
     //  LOGIN WITH TWITER
     MyServices.logout();
     $.jStorage.flush();
@@ -14,11 +12,9 @@ angular.module('starter.controllers', ['myservices'])
     var authenticatesuccess = function(data, status) {
         console.log(data);
         if (data != "false") {
-            if (window.analytics) {
-                window.analytics.setUserId(data.id);
-            }
             $.jStorage.set("user", data);
             user = data;
+            addanalytics();
             $location.url("/app/home");
         } else {
             console.log("stay here");
@@ -76,9 +72,7 @@ angular.module('starter.controllers', ['myservices'])
 })
 
 .controller('OfflineCtrl', function($scope, $ionicModal, $timeout, $location, $ionicLoading) {
-    if (window.analytics) {
-        window.analytics.trackView('Offline Screen');
-    }
+    addanalytics("Offline Screen");
 
     function ononline() {
         $location.url("/app/home");
@@ -93,9 +87,8 @@ angular.module('starter.controllers', ['myservices'])
 })
 
 .controller('GraphCtrl', function($scope, $ionicModal, $timeout, $location, $ionicLoading) {
-    if (window.analytics) {
-        window.analytics.trackView('Statistics Screen');
-    }
+
+    addanalytics("Statistics Screen");
     $ionicLoading.show({
         template: 'please wait...'
     });
@@ -105,11 +98,9 @@ angular.module('starter.controllers', ['myservices'])
     createchart(callback);
 })
 
-
 .controller('HomeCtrl', function($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading, $anchorScroll, $ionicScrollDelegate) {
-    if (window.analytics) {
-        window.analytics.trackView('Prediction Screen');
-    }
+
+    addanalytics('Prediction Screen');
     $ionicLoading.show({
         template: 'please wait...'
     });
@@ -123,9 +114,7 @@ angular.module('starter.controllers', ['myservices'])
 
 
     if (user) {
-        if (window.analytics) {
-            window.analytics.setUserId(user.id);
-        }
+        addanalytics();
         console.log("Stay at home");
     } else {
         $location.url("/login");
@@ -169,49 +158,45 @@ angular.module('starter.controllers', ['myservices'])
             giveidvar = 1;
         };
         return false;
-    };
-
+    }
 
 })
-    .controller('HistoryCtrl', function($scope, $ionicModal, $timeout, $ionicLoading, MyServices, $location) {
 
-        //  IONIC LOADING
-        if (window.analytics) {
-            window.analytics.trackView('Rewards Screen');
-        }
+.controller('HistoryCtrl', function($scope, $ionicModal, $timeout, $ionicLoading, MyServices, $location) {
+    //  IONIC LOADING
 
-        $ionicLoading.show({
-            template: 'Please wait...'
-        });
+    addanalytics("Rewards Screen");
 
-        //  HIDE LOADING
-        $ionicLoading.hide();
+    $ionicLoading.show({
+        template: 'Please wait...'
+    });
 
-        //  AUTHENTICATE
-        if (user) {
-            console.log("Stay at home");
-        } else {
-            $location.url("/login");
-        }
+    //  HIDE LOADING
+    $ionicLoading.hide();
 
+    //  AUTHENTICATE
+    if (user) {
+        console.log("Stay at home");
+    } else {
+        $location.url("/login");
+    }
 
 
 
-        //        $scope.badgecolor = function() {
-        //            if ($scope.predictions.status == "Won")
-        //                return "badge-balanced"
-        //            else if ($scope.predictions.status == "Lost")
-        //                return "badge-assertive";
-        //
-        //        };
 
-    })
+    //        $scope.badgecolor = function() {
+    //            if ($scope.predictions.status == "Won")
+    //                return "badge-balanced"
+    //            else if ($scope.predictions.status == "Lost")
+    //                return "badge-assertive";
+    //
+    //        };
 
+})
 
 .controller('PredictCtrl', function($scope, $ionicModal, $timeout, $stateParams, MyServices, $ionicLoading, $location, $ionicPopup) {
-    if (window.analytics) {
-        window.analytics.trackView('Predict Team Screen');
-    }
+
+    addanalytics('Predict Team Screen');
 
     $scope.clickr1 = false;
     $scope.clickr2 = false;
@@ -343,10 +328,7 @@ angular.module('starter.controllers', ['myservices'])
     $scope.tpl = {};
     $scope.tpl.link = 'templates/tab-everyone.html';
 
-    if (window.analytics) {
-        window.analytics.trackView('Leaderboard Screen');
-    }
-
+    addanalytics('Leaderboard Screen');
     $ionicLoading.show({
         template: 'Please wait...'
     });

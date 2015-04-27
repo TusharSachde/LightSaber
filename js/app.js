@@ -6,8 +6,7 @@ function addanalytics(screen) {
         if (screen) {
             window.analytics.trackView(screen);
             window.analytics.trackEvent("Page Load", screen, screen, 1);
-        }
-        if (user) {
+        } else {
             window.analytics.setUserId(user.id);
             window.analytics.trackEvent("User ID Tracking", "User ID Tracking", "Userid", user.id);
         }

@@ -1,5 +1,6 @@
 function addanalytics(screen) {
     if (window.analytics) {
+        console.log(window.analytics);
         window.analytics.startTrackerWithId('UA-62296776-1');
         if (screen) {
             window.analytics.trackView(screen);

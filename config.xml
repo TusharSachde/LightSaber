@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.predicto" version="0.3.1" versionCode="7">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.predicto" version="0.3.5" versionCode="8">
     <name>Predicto</name>
-    <description>Prediction to the next level</description>
+    <description>IPL Prediction</description>
     <author href="http://www.wohlig.com" email="info@wohlig.com">Wohlig</author>
     <gap:platform name="ios" />
     <gap:platform name="android" />

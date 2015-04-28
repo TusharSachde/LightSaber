@@ -197,6 +197,9 @@ p.small {
     height: 125px;
     padding: 0
 }
+.fixtures .item.withbutton {
+    height: 170px;
+}
 .team {
     position: absolute;
     bottom: 0;
@@ -536,6 +539,8 @@ i.bigr {
     background: rgba(70, 159, 50, 0.84);
     margin-top: -13px;
     z-index: 100;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
     border-radius: 4px;
     position: relative;
 }
@@ -545,6 +550,8 @@ i.bigr {
     background: rgba(28, 187, 28, 0.75);
     margin-top: -13px;
     z-index: 100;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
     border-radius: 4px;
     position: relative;
 }
@@ -554,6 +561,8 @@ i.bigr {
     background: rgba(250, 67, 67, 0.75);
     margin-top: -13px;
     z-index: 100;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
     border-radius: 4px;
     position: relative;
 }
@@ -562,4 +571,16 @@ i.bigr {
 }
 .singleprediction .loserlabel {
     margin-top: 4px;
+}
+.relative+.relative {
+    margin-top: 10px;
+}
+.relative {
+    position: relative;
+}
+.buttoners {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    z-index: 9;
 }

@@ -6,35 +6,44 @@
     <ion-content class="padding">
         <ion-list class="fixtures">
 
-            <ion-item class="team-set" href="#/app/predict/{{prediction.id}}" ng-repeat="prediction in predictions">
-                <div id="scrollhere" ng-if="prediction.status == 1"></div>
-                <i class="mark" ng-class="{green:prediction.status == 1, red:prediction.status != 1}"></i>
-                <div class="row homepage">
-                    <div class="col">
-
-                        <i class="icon ln-circle-checkmark checker" ng-class="{showr: prediction.team1id==prediction.predicted}"></i>
-                        <img ng-src="img/{{prediction.team1id | imagefromname}}" class="img-responsive">
-                        <div class="winnerlabel" ng-if="prediction.team1id==prediction.winner">WINNER</div>
-                        <div class="loserlabel" ng-if="(prediction.team1id!=prediction.winner && prediction.winner>0 && prediction.winner<10)">LOSER</div>
+            <div class="relative" ng-repeat="prediction in predictions">
+                <ion-item class="team-set" href="#/app/predict/{{prediction.id}}" ng-class="{withbutton:prediction.status == 1}">
+                    <div id="scrollhere" ng-if="prediction.status == 1"></div>
+                    <i class="mark" ng-class="{green:prediction.status == 1, red:prediction.status != 1}"></i>
+                    <div class="row homepage">
+                        <div class="col">
+                
+                            <i class="icon ln-circle-checkmark checker" ng-class="{showr: prediction.team1id==prediction.predicted}"></i>
+                            <img ng-src="img/{{prediction.team1id | imagefromname}}" class="img-responsive">
+                            <div class="winnerlabel" ng-if="prediction.team1id==prediction.winner">WON</div>
+                            <div class="loserlabel" ng-if="(prediction.team1id!=prediction.winner && prediction.winner>0 && prediction.winner<10)">LOST</div>
+                        </div>
+                        <div class="col col-50 vs-set">
+                            <p class="small">{{prediction.venue}}</p>
+                            <p class="bolder">{{prediction.starttime|date:'MMM d, y'}}</p>
+                            <p class="bolder" ng-if="prediction.winner == 0">{{prediction.starttime|date:'EEEE, h:mma'}}</p>
+                            <p class="bolder" ng-if="prediction.winner != 0">{{prediction.winner | shortform}} WON</p>
+                        </div>
+                        <div class="col">
+                            <i class="icon ln-circle-checkmark checker" ng-class="{showr: prediction.team2id==prediction.predicted}"></i>
+                            <img ng-src="img/{{prediction.team2id | imagefromname}}" class="img-responsive">
+                            <div class="winnerlabel" ng-if="prediction.team2id==prediction.winner">WON</div>
+                            <div class="loserlabel" ng-if="(prediction.team2id!=prediction.winner && prediction.winner>0 && prediction.winner<10)">LOST</div>
+                        </div>
                     </div>
-                    <div class="col col-50 vs-set">
-                        <p class="small">{{prediction.venue}}</p>
-                        <p class="bolder">{{prediction.starttime|date:'MMM d, y'}}</p>
-                        <p class="bolder" ng-if="prediction.winner == 0">{{prediction.starttime|date:'EEEE, h:mma'}}</p>
-                        <p class="bolder" ng-if="prediction.winner != 0">{{prediction.winner | shortform}} WON</p>
-                    </div>
-                    <div class="col">
-                        <i class="icon ln-circle-checkmark checker" ng-class="{showr: prediction.team2id==prediction.predicted}"></i>
-                        <img ng-src="img/{{prediction.team2id | imagefromname}}" class="img-responsive">
-                        <div class="winnerlabel" ng-if="prediction.team2id==prediction.winner">WINNER</div>
-                        <div class="loserlabel" ng-if="(prediction.team2id!=prediction.winner && prediction.winner>0 && prediction.winner<10)">LOSER</div>
+                
+                    <div class="team lefty" ng-style="{'width':prediction.team1percent+'%'}" ng-if="prediction.team1percent != '-1'">{{prediction.team1percent}}%</div>
+                    <div class="team righty" ng-style="{'width':100-prediction.team1percent+'%'}" ng-if="prediction.team1percent != '-1'">{{100-prediction.team1percent}}%</div>
+                
+                </ion-item>
+                <div class="buttoners text-center" ng-if="prediction.status == 1">
+                    <div class="row">
+                        <div class="col"><button class="button button-outline button-small button-positive">PREDICT</button></div>
+                        <div class="col col-50"></div>
+                        <div class="col"><button class="button button-outline button-small button-positive">PREDICT</button></div>
                     </div>
                 </div>
-
-                <div class="team lefty" ng-style="{'width':prediction.team1percent+'%'}" ng-if="prediction.team1percent != '-1'">{{prediction.team1percent}}%</div>
-                <div class="team righty" ng-style="{'width':100-prediction.team1percent+'%'}" ng-if="prediction.team1percent != '-1'">{{100-prediction.team1percent}}%</div>
-
-            </ion-item>
+            </div>
 
 
         </ion-list>

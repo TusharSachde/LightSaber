@@ -9,8 +9,8 @@
                     <div class="col" ng-click="userpredict(predictdata.status, predictdata.team1id, 1)">
                         <i class="icon ln-circle-checkmark checker" ng-class="{showr: clickr1}"></i>
                         <img ng-src="img/{{predictdata.team1id | imagefromname}}" class="img-responsive">
-                        <div class="winnerlabel" ng-if="predictdata.team1id==predictdata.winner">WINNER</div>
-                        <div class="loserlabel" ng-if="(predictdata.team1id!=predictdata.winner && predictdata.winner>0 && predictdata.winner<10)">LOSER</div>
+                        <div class="winnerlabel" ng-if="predictdata.team1id==predictdata.winner">WON</div>
+                        <div class="loserlabel" ng-if="(predictdata.team1id!=predictdata.winner && predictdata.winner>0 && predictdata.winner<10)">LOST</div>
                         <div class="button-hold">
                             <button class="button button-block button-positive button-outline button-small" ng-class="{clicked: clickr1}" ng-if="predictdata.status == 1">PREDICT</button>
                             <!--clickr=true;-->
@@ -29,8 +29,8 @@
                     <div class="col" ng-click="userpredict(predictdata.status, predictdata.team2id, 2)">
                         <i class="icon ln-circle-checkmark checker" ng-class="{showr: clickr2}"></i>
                         <img ng-src="img/{{predictdata.team2id | imagefromname}}" class="img-responsive">
-                        <div class="winnerlabel" ng-if="predictdata.team2id==predictdata.winner">WINNER</div>
-                        <div class="loserlabel" ng-if="(predictdata.team2id!=predictdata.winner && predictdata.winner>0 && predictdata.winner<10)">LOSER</div>
+                        <div class="winnerlabel" ng-if="predictdata.team2id==predictdata.winner">WON</div>
+                        <div class="loserlabel" ng-if="(predictdata.team2id!=predictdata.winner && predictdata.winner>0 && predictdata.winner<10)">LOST</div>
                         <div class="button-hold">
                             <button class="button button-block button-positive button-outline button-small" ng-class="{clicked: clickr2}" ng-if="predictdata.status == 1">PREDICT</button>
                         </div>

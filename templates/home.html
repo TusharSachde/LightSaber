@@ -38,9 +38,11 @@
                 </ion-item>
                 <div class="buttoners text-center" ng-if="prediction.status == 1">
                     <div class="row">
-                        <div class="col"><button class="button button-outline button-small button-positive" ng-class="{clicked: clickr1}">PREDICT</button></div>
+                        <div class="col">
+                            <button class="button button-outline button-small button-positive" ng-class="{clicked: clickr1}" ng-click="userpredict(prediction.status, prediction.team1id, 1)">PREDICT</button></div>
                         <div class="col col-50"></div>
-                        <div class="col"><button class="button button-outline button-small button-positive" ng-class="{clicked: clickr2}">PREDICT</button></div>
+                        <div class="col">
+                            <button class="button button-outline button-small button-positive" ng-class="{clicked: clickr2}" ng-click="userpredict(prediction.status, prediction.team2id, 2)">PREDICT</button></div>
                     </div>
                 </div>
             </div>

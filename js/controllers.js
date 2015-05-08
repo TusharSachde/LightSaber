@@ -103,7 +103,56 @@ angular.module('starter.controllers', ['myservices'])
     createchart(callback);
 })
 
-.controller('HomeCtrl', function($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading, $anchorScroll, $ionicScrollDelegate) {
+.controller('HomeCtrl', function($scope, $ionicModal, $timeout, MyServices, $location, $ionicLoading, $anchorScroll, $ionicScrollDelegate,$ionicPopup) {
+
+
+    //User Prediction
+
+    var userpredictssuccess = function(data, count) {
+        if (count == $scope.countforpredict) {
+            console.log(data);
+            MyServices.getpredictions().success(getpredictionssuccess).error(getpredictionserror);
+        }
+    };
+    $scope.countforpredict = 0;
+    $scope.userpredict = function(predictionid, status, id, tick) {
+        addevent("ButtonTap", "Predict Button");
+        if (status == 1) {
+
+
+            var userpredictsdata = {};
+            userpredictsdata.prediction = predictionid;
+            userpredictsdata.team = id;
+            userpredictsdata.user = user.id;
+            MyServices.userpredicts(userpredictsdata, ++$scope.countforpredict, userpredictssuccess);
+            $scope.showPopup();
+            $ionicLoading.show({
+        template: 'please wait...'
+    });
+        };
+    };
+
+    $scope.showPopup = function() {
+        $scope.data = {}
+
+        // An elaborate, custom popup
+        var myPopup = $ionicPopup.show({
+            template: '<p class="text-center"><i class="icon ln-thumbs-up bigr positive"></i><br>Your prediction has been recorded, points will be updated after the match is over !</p>',
+            title: 'Thank You!',
+            scope: $scope,
+
+        });
+        $timeout(function() {
+            myPopup.close(); 
+            //close the popup after 3 seconds for some reason
+            
+        }, 3000);
+    };
+
+
+    //End user prodiction
+
+
 
     addanalytics('Prediction Screen');
     $ionicLoading.show({
@@ -132,6 +181,9 @@ angular.module('starter.controllers', ['myservices'])
     var getpredictionssuccess = function(data, status) {
         $scope.predictions = data;
         console.log(data);
+        
+        
+        
         $ionicLoading.hide();
         var i = 0;
         for (i = 0; i < data.length; i++) {

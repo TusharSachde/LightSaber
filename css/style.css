@@ -584,3 +584,6 @@ i.bigr {
     width: 100%;
     z-index: 9;
 }
+.popup-container.popup-showing {
+  z-index: 20;
+}

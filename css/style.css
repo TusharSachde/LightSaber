@@ -359,10 +359,14 @@ i.bigr {
     background: #FA4343
 }
 .backdrop {
-    background-color: rgba(0, 0, 0, 0.71);
+    background-color: white;
+    top: 44px;
+}
+.platform-ios.platform-cordova:not(.fullscreen) .backdrop {
+    top: 64px;
 }
 .loading-container .loading {
-    background-color: #1C7CCC;
+    background-color: transparent;
 }
 .pane,
 .view {
@@ -585,5 +589,9 @@ i.bigr {
     z-index: 9;
 }
 .popup-container.popup-showing {
-  z-index: 20;
+    z-index: 20;
+}
+.spinner svg {
+    width: 40px;
+    height: 40px;
 }

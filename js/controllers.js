@@ -95,7 +95,7 @@ angular.module('starter.controllers', ['myservices'])
 
     addanalytics("Statistics Screen");
     $ionicLoading.show({
-        template: 'please wait...'
+        template: '<ion-spinner class="spinner-positive"></ion-spinner>'
     });
     var callback = function() {
         $ionicLoading.hide();
@@ -127,7 +127,7 @@ angular.module('starter.controllers', ['myservices'])
             MyServices.userpredicts(userpredictsdata, ++$scope.countforpredict, userpredictssuccess);
             $scope.showPopup();
             $ionicLoading.show({
-        template: 'please wait...'
+        template: '<ion-spinner class="spinner-positive"></ion-spinner>'
     });
         };
     };
@@ -156,7 +156,7 @@ angular.module('starter.controllers', ['myservices'])
 
     addanalytics('Prediction Screen');
     $ionicLoading.show({
-        template: 'please wait...'
+        template: '<ion-spinner class="spinner-positive"></ion-spinner>'
     });
 
     //  AUTHENTICATE USER
@@ -221,7 +221,7 @@ angular.module('starter.controllers', ['myservices'])
     addanalytics("Rewards Screen");
 
     $ionicLoading.show({
-        template: 'Please wait...'
+        template: '<ion-spinner class="spinner-positive"></ion-spinner>'
     });
 
     //  HIDE LOADING
@@ -257,7 +257,7 @@ angular.module('starter.controllers', ['myservices'])
     //  IONIC LOADING
 
     $ionicLoading.show({
-        template: 'Please wait...'
+        template: '<ion-spinner class="spinner-positive"></ion-spinner>'
     });
 
 
@@ -386,7 +386,7 @@ angular.module('starter.controllers', ['myservices'])
 
     addanalytics('Leaderboard Screen');
     $ionicLoading.show({
-        template: 'Please wait...'
+        template: '<ion-spinner class="spinner-positive"></ion-spinner>'
     });
 
     var getleaderboardsuccess = function(data, status) {

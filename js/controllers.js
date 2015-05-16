@@ -137,8 +137,8 @@ angular.module('starter.controllers', ['myservices'])
 
         // An elaborate, custom popup
         var myPopup = $ionicPopup.show({
-            template: '<p class="text-center"><i class="icon ln-thumbs-up bigr positive"></i><br>Your prediction has been recorded, points will be updated after the match is over !</p>',
-            title: 'Thank You!',
+            template: '<p class="text-center"><i class="icon ln-thumbs-up bigr positive"></i><br>Your prediction has been recorded, keep your fingers crossed until the end of the match!</p>',
+            title: 'Woohoo!',
             scope: $scope,
 
         });
@@ -367,8 +367,8 @@ angular.module('starter.controllers', ['myservices'])
 
         // An elaborate, custom popup
         var myPopup = $ionicPopup.show({
-            template: '<p class="text-center"><i class="icon ln-thumbs-up bigr positive"></i><br>Your prediction has been recorded, points will be updated after the match is over !</p>',
-            title: 'Thank You!',
+            template: '<p class="text-center"><i class="icon ln-thumbs-up bigr positive"></i><br>Your prediction has been recorded, keep your fingers crossed until the end of the match!</p>',
+            title: 'Woohoo!',
             scope: $scope,
 
         });

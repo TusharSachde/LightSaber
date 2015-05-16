@@ -595,3 +595,6 @@ i.bigr {
     width: 40px;
     height: 40px;
 }
+.popup-container .popup {
+    border: 1px solid #dcdcdc;
+}

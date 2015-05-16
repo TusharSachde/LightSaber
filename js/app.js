@@ -45,6 +45,9 @@ predictoapp.run(function($ionicPlatform) {
 
 predictoapp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, $httpProvider) {
     $ionicConfigProvider.views.maxCache(0);
+    if (!ionic.Platform.isIOS()) {
+        $ionicConfigProvider.scrolling.jsScrolling(false);
+    };
     $httpProvider.defaults.withCredentials = true;
     $ionicConfigProvider.views.swipeBackEnabled(false);
     $stateProvider

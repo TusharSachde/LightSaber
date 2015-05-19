@@ -30,11 +30,6 @@ var predictoapp = angular.module('starter', ['ionic', 'starter.controllers', 'my
 
 predictoapp.run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
-        if (navigator.splashscreen) {
-            setTimeout(function() {
-                navigator.splashscreen.hide();
-            }, 2000);
-        }
         if (window.cordova && window.cordova.plugins.Keyboard) {
             // Dont hide accesories
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
@@ -45,6 +40,9 @@ predictoapp.run(function($ionicPlatform) {
             StatusBar.styleLightContent();
         }
         app.initialize();
+        if (cordova.platformId == 'android') {
+            StatusBar.backgroundColorByHexString("#1c7ccc");
+        }
     });
 });
 

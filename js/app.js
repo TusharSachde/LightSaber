@@ -40,6 +40,9 @@ predictoapp.run(function($ionicPlatform) {
             StatusBar.styleLightContent();
         }
         app.initialize();
+        if (cordova.platformId == 'android') {
+            StatusBar.backgroundColorByHexString("#1c7ccc");
+        }
     });
 });
 
